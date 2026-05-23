@@ -1,0 +1,1138 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const timelineEras = [
+  {
+    era: "Ancient History",
+    period: "8000 BCE – 500 CE",
+    color: "#78350f",
+    accent: "#fbbf24",
+    events: [
+      {
+        year: "~8000 BCE",
+        location: "🏔️ Central Asia (Modern Himalayas/Siberia)",
+        title: "The First Cannabis Seeds",
+        description: "Archaeological discoveries in burial mounds and ancient pottery reveal cannabis seeds among humanity's earliest cultivated crops. Found across the steppes of Central Asia — modern-day Mongolia, Siberia, and the Himalayan foothills — these seeds represent the dawn of a 10,000-year relationship between humans and the cannabis plant. Evidence suggests early humans harvested cannabis for its nutritious seeds, durable fibers, and psychoactive properties long before writing or formal agriculture existed. Hemp cordage dating to this era has been excavated in Taiwan and along the Yellow River in China. The plant's remarkable adaptability and usefulness likely made it one of the very first plants humans intentionally cultivated, setting the stage for millennia of agricultural and medicinal development.",
+        badge: "Cultural",
+        badgeColor: "#7c3aed"
+      },
+      {
+        year: "~6000 BCE",
+        location: "🐉 Ancient China",
+        title: "Cannabis as Food and Fiber",
+        description: "Ancient Chinese texts and archaeological finds confirm cannabis seeds were consumed as a staple food and hemp fibers were woven into cloth and rope. The versatility of the hemp plant made it extraordinarily valuable — its seeds provided essential protein and omega fatty acids, its fibers were stronger than cotton, and its stalks could be processed into primitive paper. Chinese hemp cultivation was systematic and widespread by this era, predating many other agricultural developments in the region. Neolithic pottery recovered from the Yellow River Valley shows hemp fiber impressions embedded in the clay, confirming its ubiquitous role in daily life. Later, around 2700 BCE, Emperor Shennong's legendary pharmacopoeia would formally document cannabis as medicine for gout, rheumatism, malaria, and what was described as 'absent-mindedness' — making China both the agricultural and medical pioneer of cannabis use.",
+        badge: "Economic",
+        badgeColor: "#b45309"
+      },
+      {
+        year: "~3000–2000 BCE",
+        location: "🕉️ Ancient India (Vedic Period)",
+        title: "The Sacred Plant: Bhang",
+        description: "The ancient Hindu Vedas — among the oldest religious texts in human history — describe cannabis as one of five sacred plants given to humanity by the gods. 'Bhang,' a preparation of cannabis leaves and flowers blended with milk, ghee, and spices, was offered to the god Shiva and consumed during religious ceremonies, festivals, and rites of passage. The Atharva Veda calls cannabis a 'source of happiness, joy-giver, liberator' — a protector that was given to humans to help them attain delight and freedom from fear. Ayurvedic medicine, the ancient Indian system of healing, prescribed cannabis for anxiety, epilepsy, pain, insomnia, and digestive disorders. This spiritual-medical synthesis was uniquely Indian: the plant was simultaneously sacred sacrament and pharmaceutical, a duality that persists in Indian culture to this day, where bhang is still legally and openly consumed during the festival of Holi.",
+        badge: "Spiritual",
+        badgeColor: "#0891b2"
+      },
+      {
+        year: "~2700 BCE",
+        location: "🐉 Ancient China (Emperor Shennong)",
+        title: "World's First Pharmacopoeia",
+        description: "Emperor Shennong — the 'Divine Farmer,' a legendary Chinese ruler credited with teaching humanity agriculture and herbal medicine — recorded cannabis in the Pen Ts'ao Ching (Divine Farmer's Herb-Root Classic), the world's first known pharmacopoeia. This groundbreaking medical text catalogued hundreds of medicinal plants and described cannabis as effective for over 100 conditions including pain, malaria, constipation, rheumatism, and female reproductive disorders. Shennong reportedly tested hundreds of plants on himself to determine their medical properties, and cannabis was one of his most highly regarded medicines. The Pen Ts'ao Ching was transmitted orally for generations before being written down around 100 CE during the Han Dynasty, making it one of the foundational documents of traditional Chinese medicine. Its systematic approach to plant medicine established methodologies that influenced medical thinking across Asia for thousands of years.",
+        badge: "Medical",
+        badgeColor: "#059669"
+      },
+      {
+        year: "~2000 BCE",
+        location: "🏺 Ancient Egypt",
+        title: "Hieroglyphic References & Ramesses II",
+        description: "The ancient Egyptians incorporated cannabis into their medical and religious practices in ways that have survived in hieroglyphic records and remarkable archaeological discoveries. The Ebers Papyrus (c. 1550 BCE), one of the oldest and most comprehensive ancient medical documents, references 'shemshemet' — widely identified as cannabis — prescribed for inflammation, pain management, and even symptoms consistent with glaucoma. Egyptian medical texts also recommend cannabis-based preparations for childbirth pain and as topical treatments for skin conditions. The most dramatic evidence, however, came from modern archaeology: cannabis pollen was discovered in the tomb of Pharaoh Ramesses II, who died in 1213 BCE and is believed to have suffered from arthritis and other painful conditions. Microscopic cannabis traces have also been found mummified in the intestines of several ancient Egyptians, suggesting medicinal or ritual ingestion was common practice among the ruling and priestly classes.",
+        badge: "Medical",
+        badgeColor: "#059669"
+      },
+      {
+        year: "~1000 BCE",
+        location: "🕉️ Ancient India",
+        title: "Soma and Bhang Rituals Institutionalized",
+        description: "By the first millennium BCE, cannabis use in India had evolved from individual spiritual practice into fully institutionalized religious ceremony. Bhang became a permanent feature of Hindu festivals, particularly those honoring Shiva — who in many traditions is described as having discovered cannabis after wandering fields of the plant and eating its leaves to revive himself after a family quarrel. Temples across India maintained bhang as a sacred offering, and priests known as 'bhang-drinkers' consumed it as part of their spiritual duties. The Atharva Veda, composed in this era, explicitly calls cannabis one of the five kingdoms of herbs that release us from anxiety. Religious texts from this period prescribe bhang to facilitate meditation, heighten spiritual perception, and commune with the divine. This institutionalization meant cannabis use became deeply woven into the social fabric of Indian civilization — a status it would maintain for over three thousand years, making India's relationship with cannabis one of the longest continuous documented uses in human history.",
+        badge: "Spiritual",
+        badgeColor: "#0891b2"
+      },
+      {
+        year: "~700–500 BCE",
+        location: "🦅 Ancient Persia (Zoroastrian texts)",
+        title: "The Avesta Reference & Scythian Rituals",
+        description: "Zoroastrian sacred texts — the Vendidad section of the Avesta — mention 'bhang' as the most important of 10,000 medicinal plants bestowed upon humanity by the divine creator Ahura Mazda. Persian physicians and priests used cannabis preparations for healing and ritual purification. Meanwhile, the Scythians — fierce nomadic warriors who dominated the Eurasian steppes from Siberia to the Black Sea — developed a unique cannabis ritual documented by multiple ancient sources. They created sealed hemp tents in which red-hot stones were covered with cannabis seeds, generating intense vapor that participants inhaled in a kind of ritualized steam bath. These ceremonies were used for purification after battles and during burial rites for fallen warriors. The Scythians were remarkable cannabis cultivators who carried the plant across their vast territory through trade and conquest, playing a crucial role in cannabis's westward spread into Europe and its eastward diffusion deeper into Asia.",
+        badge: "Spiritual",
+        badgeColor: "#0891b2"
+      },
+      {
+        year: "~450 BCE",
+        location: "🏛️ Ancient Greece (Herodotus)",
+        title: "Scythian Steam Baths — First Western Account",
+        description: "Greek historian Herodotus — often called the 'Father of History' — provided the Western world's earliest written account of cannabis use in his landmark work The Histories. Describing Scythian burial practices he had personally witnessed or received reliable accounts of, Herodotus wrote with vivid detail: the Scythians would construct small tent-like enclosures, place red-hot stones inside, and throw cannabis seeds upon them, inhaling the resulting vapor. He noted: 'The Scythians howl with delight at the vapor.' This account is remarkable for its accuracy — modern archaeologists have confirmed Scythian burial sites containing bronze braziers with cannabis residue, tripod structures, and hempseed caches across the region Herodotus described. His account also reveals that cannabis use had spread far beyond Central Asia by the 5th century BCE, from India through Persia and into the Black Sea region. Herodotus's documentation marks the moment cannabis entered the Western historical record.",
+        badge: "Cultural",
+        badgeColor: "#7c3aed"
+      },
+      {
+        year: "~100–300 CE",
+        location: "🐉 China (Han Dynasty)",
+        title: "Paper, Surgery, and Anesthesia",
+        description: "The Han Dynasty period represents a golden age of cannabis innovation in China, producing two of humanity's most important inventions with cannabis at their center. First, Ts'ai Lun's refinement of paper-making technology (105 CE) relied heavily on hemp fiber — hemp paper proved far more durable and less expensive than the silk and bamboo previously used, enabling an explosion of written knowledge across Chinese civilization. Second, and even more remarkably, Hua Tuo — celebrated as the father of Chinese surgery and a legendary physician of the Eastern Han Dynasty — developed 'mafeisan' (麻沸散, literally 'cannabis boiling powder'), a surgical anesthetic compound that allowed him to perform operations that would otherwise be impossible, including organ surgeries, intestinal resections, and wound repairs. Ancient texts record that after drinking mafeisan dissolved in wine, patients became completely insensible to pain during surgery. This makes Hua Tuo's cannabis-based compound the world's first documented general anesthetic — preceding Western surgical anesthesia by over 1,600 years.",
+        badge: "Medical",
+        badgeColor: "#059669"
+      }
+    ]
+  },
+  {
+    era: "Middle Ages & Islamic Golden Age",
+    period: "500 – 1400 CE",
+    color: "#1e3a5f",
+    accent: "#60a5fa",
+    events: [
+      {
+        year: "~900–1100 CE",
+        location: "🌙 Arab World",
+        title: "Islamic Medicine Adopts Cannabis",
+        description: "During the Islamic Golden Age — one of history's greatest periods of scientific and intellectual flourishing — Arab physicians systematically studied, documented, and expanded upon cannabis's medical applications. Al-Kindi (c. 801–873 CE), considered the first Arab philosopher and one of the greatest polymaths of the medieval era, wrote detailed treatises on pharmacology that included cannabis preparations for pain relief, digestive disorders, and mental conditions. Ibn Sina (Avicenna, 980–1037 CE) — whose Canon of Medicine became the standard medical reference in Europe and the Islamic world for 500 years — described cannabis as a powerful diuretic, digestive aid, and treatment for ear infections and gout. Arabic physicians made crucial advances in understanding cannabis dosage and preparation methods, recognizing that different quantities produced vastly different effects. Islamic trade networks stretching from Spain to Indonesia carried cannabis knowledge, seeds, and preparations across the known world — a pharmaceutical trade route of global consequence.",
+        badge: "Medical",
+        badgeColor: "#059669"
+      },
+      {
+        year: "~1000 CE",
+        location: "🕌 Persia & Arab World",
+        title: "Hashish Culture Emerges",
+        description: "The word 'hashish' — derived from the Arabic حشيش (hashish), meaning 'grass' or 'herb' — enters widespread use across the Islamic world to describe concentrated cannabis resin preparations. Unlike bhang or whole-plant cannabis, hashish represented a technological advancement: a more potent, more portable, and more durable form of cannabis that could be traded across long distances. Hashish production became a sophisticated craft in Persia, Afghanistan, and North Africa, with different regions developing distinctive techniques for resin collection and pressing. The trade in hashish became economically significant, with dedicated bazaars and merchants specializing in its sale across the Middle East. During this period emerged the legend of the 'Assassins' — the Hashashin sect led by Hassan-i-Sabbah from the Alamut fortress in Persia. Crusader-era Europeans propagated stories that this feared militant group used hashish to motivate their killers; modern historians largely dispute this, but the legend cemented an enduring (if inaccurate) association between hashish and violence in Western imagination.",
+        badge: "Cultural",
+        badgeColor: "#7c3aed"
+      },
+      {
+        year: "~1100–1300 CE",
+        location: "🌍 North Africa & Middle East",
+        title: "Cannabis Reaches Sub-Saharan Africa",
+        description: "Trans-Saharan and Indian Ocean trade routes carried cannabis southward from North Africa and the Arabian Peninsula into the heart of the African continent during the high medieval period. Archaeological and ethnobotanical evidence places cannabis in Ethiopia and East Africa by at least 1100 CE, with the plant rapidly integrating into traditional healing systems across the continent. Different African cultures developed entirely independent cannabis traditions: the Bashilange people of the Congo basin built an entire social structure around cannabis (called 'riamba'), using it in conflict resolution and community ceremonies; Ethiopian highland communities used cannabis in healing rituals that survive to this day; the Zulu and other southern African peoples incorporated cannabis ('insangu') into initiation rites and warrior preparation. Cannabis's deep integration into diverse African cultures — entirely separate from its Asian origins — demonstrates the plant's universal appeal and adaptability to human spiritual and medical needs across completely different ecological and cultural contexts.",
+        badge: "Cultural",
+        badgeColor: "#7c3aed"
+      }
+    ]
+  },
+  {
+    era: "Age of Exploration & Colonial Period",
+    period: "1400 – 1800 CE",
+    color: "#1a3a1a",
+    accent: "#4ade80",
+    events: [
+      {
+        year: "~1600s CE",
+        location: "⛵ Europe and Colonies",
+        title: "Hemp as Imperial Commodity",
+        description: "Hemp became one of the most strategically important crops of the European colonial era — not for its psychoactive properties, but for its fiber. Naval power depended entirely on hemp: it took approximately 80 tons of hemp rope and canvas to rig a single large warship, and every major European naval power maintained hemp as a national security priority. King James I of England was so committed to hemp production that in 1619 he required all Virginia colonists to grow hemp under penalty of law. The importance of hemp as currency was literal: hemp was accepted as legal tender in Virginia, Pennsylvania, and Maryland, and could be used to pay taxes throughout the colonial period. The first American flag is believed to have been made from hemp canvas. Napoleon's blockade of British hemp supplies from Russia was a key strategic calculation of the Napoleonic Wars, and Britain's need to secure hemp drove much of its colonial expansion into India. This era established the paradox that would define Western cannabis policy: hemp was both essential and everywhere, yet the plant's psychoactive properties were poorly understood and rarely discussed in official contexts.",
+        badge: "Economic",
+        badgeColor: "#b45309"
+      },
+      {
+        year: "~1798 CE",
+        location: "🏺 Napoleon's Egypt Campaign",
+        title: "Hashish Meets European Intellectuals",
+        description: "Napoleon Bonaparte's Egyptian Campaign of 1798–1801 brought French soldiers into sustained contact with North African hashish culture — and brought hashish back to France. Napoleon himself reportedly issued an order prohibiting his soldiers from consuming hashish (one of history's first drug prohibition attempts), but the ban was largely ineffective and probably counterproductive in spreading awareness. French army physician Dr. Dominique-Jean Larrey, who accompanied the campaign, wrote detailed medical observations on hashish's effects. The soldiers and physicians who returned to France brought their experiences, knowledge, and sometimes physical hashish with them, sparking intense intellectual and medical curiosity. French physician Jacques-Joseph Moreau (Moreau de Tours) would go on to conduct the first systematic medical studies of hashish effects on the human mind, publishing his landmark 1845 work on the subject and establishing the framework for understanding cannabis as a psychoactive compound — a foundation for all subsequent medical cannabis research.",
+        badge: "Scientific",
+        badgeColor: "#0d9488"
+      },
+      {
+        year: "~1840s CE",
+        location: "🎨 Victorian England and France",
+        title: "Club des Hashischins & Western Medicine",
+        description: "Paris in the 1840s witnessed a remarkable convergence of artistic genius and cannabis experimentation in the legendary Club des Hashischins (Club of the Hash-Eaters), which met monthly in the Hotel Pimodan on the Île Saint-Louis. The club's membership reads like a who's-who of 19th century French culture: poet Charles Baudelaire (who wrote 'Les Paradis Artificiels' in part about his hashish experiences), novelist Alexandre Dumas (who featured hashish in 'The Count of Monte Cristo'), poet Théophile Gautier (who wrote extensively about the club), and painter Eugène Delacroix, among others. Physician Jacques-Joseph Moreau attended in his capacity as a researcher, administering doses and taking notes. Simultaneously, Irish physician William Brooke O'Shaughnessy — who had served in India and extensively studied cannabis there — introduced cannabis tinctures to British and American medicine in 1839, demonstrating their effectiveness for treating muscle spasms, rheumatism, and epilepsy. Queen Victoria's physician, Sir J. Russell Reynolds, prescribed cannabis tincture for her menstrual cramps. By the 1850s, cannabis medicines were available in pharmacies throughout Britain, France, and America — a brief golden age of medicinal cannabis before the prohibitionist tide.",
+        badge: "Cultural",
+        badgeColor: "#7c3aed"
+      }
+    ]
+  },
+  {
+    era: "Western Prohibition Era",
+    period: "1800 – 1970 CE",
+    color: "#3a1a1a",
+    accent: "#f87171",
+    events: [
+      {
+        year: "1850–1937 CE",
+        location: "🇺🇸 United States",
+        title: "Cannabis in the American Pharmacopoeia",
+        description: "For nearly a century, cannabis was a mainstream medicine in the United States — listed continuously in the US Pharmacopoeia from 1850 to 1942 and widely sold in pharmacies without prescription. Medical cannabis preparations were prescribed for an extraordinary range of conditions: neuralgia, tetanus, typhus, cholera, rabies, dysentery, alcoholism, opiate addiction, anthrax, leprosy, incontinence, gout, convulsive disorders, tonsillitis, insanity, uterine bleeding, and excessive menstrual bleeding, among others. Major pharmaceutical companies including Squibb, Eli Lilly, and Parke-Davis manufactured and sold cannabis tinctures, extracts, and preparations. Cannabis was America's third most common medicine by the turn of the 20th century. The 1906 Pure Food and Drug Act required accurate labeling of cannabis content in medicines — not a ban, but a transparency measure. It was only the toxic combination of racial politics, industry lobbying, and media hysteria in the 1920s and 1930s that would dismantle this well-established medical tradition virtually overnight.",
+        badge: "Medical",
+        badgeColor: "#059669"
+      },
+      {
+        year: "~1910–1920s CE",
+        location: "🇲🇽 Mexico and USA",
+        title: "Marijuana and Immigration Fears",
+        description: "The Mexican Revolution (1910–1920) drove a wave of Mexican refugees and immigrants into the southern United States, and they brought with them their tradition of smoking cannabis — a practice that Americans largely did not associate with the familiar hemp and medicine products they already used. The word 'marijuana' (from Mexican Spanish 'marihuana' or 'mariguana') was unfamiliar and foreign-sounding to most Americans, which made it easy for politicians and journalists to treat it as an entirely different and exotic threat. In cities like New Orleans, El Paso, and San Francisco, local newspapers ran sensationalist stories linking cannabis smoking to violent crime, sexual immorality, and 'race mixing.' The El Paso Daily Times ran the headline 'Marihuana Makes Fiends of Boys in 30 Days' in 1915. The New Orleans Times-Picayune described 'a new menace' imported by 'Latin immigrants.' This deliberate conflation of cannabis with immigration and racial threat — rather than any medical evidence — drove the first wave of state-level cannabis prohibitions across the South and Southwest, establishing a template of racially-motivated drug policy that would shape American law for the next century.",
+        badge: "Political",
+        badgeColor: "#dc2626"
+      },
+      {
+        year: "1937 CE",
+        location: "🇺🇸 United States",
+        title: "The Marihuana Tax Act — Prohibition Begins",
+        description: "Harry J. Anslinger, head of the Federal Bureau of Narcotics and the architect of American drug prohibition, orchestrated a masterpiece of propaganda and political manipulation to achieve the federal criminalization of cannabis. Drawing on testimony from yellow journalists, racist stereotypes, and outright fabrications, Anslinger told Congress: 'Marijuana is the most violence-causing drug in the history of mankind' and promoted grotesque racist claims about Black and Hispanic men becoming violent and sexually uncontrollable after using cannabis. He supplied newspapers — particularly those owned by William Randolph Hearst — with sensationalist horror stories, creating a feedback loop of manufactured panic. The Marihuana Tax Act of 1937, which effectively prohibited cannabis through punitive taxation, passed despite serious objections: the American Medical Association's legislative representative Dr. William Woodward testified against it, stating that the medical profession had received no advance notice and that the AMA opposed criminalization. The Act's passage destroyed a legitimate medical industry, devastated hemp farming, and launched an era of prohibition whose consequences — disproportionately devastating to Black and brown communities — persist to this day. Historians have noted that Anslinger's campaign was also supported by petrochemical and paper industries threatened by hemp's economic potential.",
+        badge: "Political",
+        badgeColor: "#dc2626"
+      },
+      {
+        year: "1961 CE",
+        location: "🌐 United Nations",
+        title: "Single Convention on Narcotic Drugs",
+        description: "The United Nations Single Convention on Narcotic Drugs of 1961 represented the globalization of American-style cannabis prohibition. Drafted largely under US diplomatic pressure and influence, the treaty placed cannabis alongside heroin in Schedule IV — the most dangerous category, reserved for substances deemed to have no medical value and extreme risk of abuse. This classification was not based on scientific evidence but on political agreement among powerful nations. The treaty required all 183 signatory countries to criminalize cannabis cultivation, sale, and possession — effectively exporting American prohibition to the entire world and nullifying thousands of years of established cannabis culture in Asia, Africa, and Latin America with a single diplomatic instrument. Countries that had never considered cannabis a problem were suddenly required by international law to treat their own citizens as criminals for centuries-old practices. The 1961 Convention created the international legal architecture for the global War on Drugs, and its legacy — 60 years of criminalization affecting hundreds of millions of people worldwide — represents one of the most consequential and arguably most harmful policy decisions of the 20th century.",
+        badge: "Political",
+        badgeColor: "#dc2626"
+      },
+      {
+        year: "1970 CE",
+        location: "🇺🇸 United States",
+        title: "The Controlled Substances Act & War on Drugs",
+        description: "President Richard Nixon's Controlled Substances Act of 1970 classified cannabis as a Schedule I drug — defined as having 'no currently accepted medical use and a high potential for abuse' — alongside heroin and more dangerous than cocaine, methamphetamine, or fentanyl, which are Schedule II. This classification explicitly contradicted a century of medical use and ignored the recommendation of Nixon's own Shafer Commission, which in 1972 recommended decriminalization of personal cannabis use. Nixon reportedly rejected the recommendation furiously, saying decriminalization would 'send the wrong message.' The truth behind Nixon's cannabis war was later revealed by his own domestic policy advisor, John Ehrlichman, who stated explicitly in 2016: 'The Nixon campaign in 1968, and the Nixon White House after that, had two enemies: the antiwar left and Black people... We knew we couldn't make it illegal to be either against the war or Black, but by getting the public to associate the hippies with marijuana and Blacks with heroin, and then criminalizing both heavily, we could disrupt those communities.' The War on Drugs, launched on these foundations, would go on to incarcerate millions of Americans — disproportionately Black and Latino — over the next half-century.",
+        badge: "Political",
+        badgeColor: "#dc2626"
+      }
+    ]
+  },
+  {
+    era: "Modern Renaissance",
+    period: "1996 – Present",
+    color: "#0f3a1a",
+    accent: "#4ade80",
+    events: [
+      {
+        year: "1996 CE",
+        location: "🌴 California, USA",
+        title: "Prop 215: The Medical Revolution Begins",
+        description: "California's Proposition 215 — the Compassionate Use Act — passed with 56% of the vote on November 5, 1996, making California the first US state to legalize medical cannabis despite its continued federal illegality. The proposition was driven largely by AIDS activists who had witnessed the plant's profound ability to combat the nausea, wasting syndrome, and pain associated with HIV/AIDS — and by cancer patients who found it the only effective treatment for chemotherapy-induced nausea. The campaign faced fierce opposition from the Clinton administration, law enforcement organizations, and pharmaceutical lobbies. Its passage was electrifying: for the first time, a popular majority had directly defied federal drug policy and declared that medical use of cannabis was acceptable. Proposition 215 did not merely change California law — it changed American political reality, proving that cannabis reform was achievable through direct democracy. It inspired similar campaigns across the country and established the template for the wave of medical cannabis legislation that would follow over the next two decades.",
+        badge: "Political",
+        badgeColor: "#dc2626"
+      },
+      {
+        year: "2001 CE",
+        location: "🍁 Canada",
+        title: "Federal Medical Cannabis System Established",
+        description: "Canada became one of the first countries in the world to establish a formal, federally regulated medical cannabis program with the Marihuana Medical Access Regulations (MMAR) of 2001. This framework — created in response to court decisions finding that denying seriously ill Canadians access to cannabis violated their constitutional rights — allowed patients with serious conditions to obtain a license to possess and grow medical cannabis, or to designate a grower on their behalf. The Canadian system was groundbreaking not merely because it was federal (unlike the US patchwork of state laws), but because it established the bureaucratic precedent that governments could successfully regulate cannabis production and distribution — a precedent that would eventually lead to full legalization in 2018. Canada's approach showed the world that a developed democratic country could move beyond prohibition without societal collapse, and its careful regulatory framework became a model studied by governments worldwide considering reform.",
+        badge: "Political",
+        badgeColor: "#dc2626"
+      },
+      {
+        year: "2012 CE",
+        location: "🏔️ Colorado & Washington, USA",
+        title: "First Recreational Legalization in the USA",
+        description: "On November 6, 2012, voters in Colorado (Amendment 64, 55% approval) and Washington State (Initiative 502, 56% approval) made history by becoming the first US states to legalize recreational cannabis for adults — directly contradicting federal law and the international treaties the United States itself had championed. Both measures established regulatory frameworks modeled on alcohol: age verification, licensed retailers, taxation, and quality control. The Obama administration, facing a constitutional crisis over federal supremacy, ultimately announced it would not interfere with state implementation — a de facto recognition that the federal government could not maintain prohibition against a popular majority. Colorado's first legal cannabis sales on January 1, 2014 drew international media coverage, with stores opening at midnight to lines stretching around the block. The immediate results contradicted prohibitionist predictions: tax revenues exceeded projections, violent crime did not increase, and youth use rates remained stable. Colorado and Washington had effectively run the experiment the world was watching — and the results were broadly positive, triggering a cascade of legalization efforts across the country and around the world.",
+        badge: "Political",
+        badgeColor: "#dc2626"
+      },
+      {
+        year: "2013 CE",
+        location: "🇺🇾 Uruguay",
+        title: "First Country in the World to Fully Legalize",
+        description: "Uruguay, under the bold leadership of President José Mujica — a former Tupamaros guerrilla who had spent over a decade as a political prisoner — became the first country in the world to fully legalize cannabis at the national level. Law 19.172, passed by Uruguay's parliament in December 2013, established a comprehensive state-controlled regulatory system: Uruguayan citizens could register to purchase cannabis from licensed pharmacies, join cannabis clubs (up to 45 members who collectively grow cannabis), or grow up to six plants at home for personal use. The price was set low — about $1.30 per gram — explicitly to eliminate the black market's competitive advantage. Mujica's reasoning was bluntly pragmatic: prohibition had failed, it enriched criminals and corrupted institutions, and a regulated market was simply less harmful than an unregulated one. Uruguay's bold experiment proved that national-level legalization was not merely theoretical — it was politically achievable and administratively manageable. The country faced enormous international pressure, including from the UN's International Narcotics Control Board, but held firm. Its model became a direct blueprint for Canada's later national legalization.",
+        badge: "Political",
+        badgeColor: "#dc2626"
+      },
+      {
+        year: "2018 CE",
+        location: "🍁 Canada",
+        title: "First G7 Nation to Fully Legalize",
+        description: "On October 17, 2018, Canada's Cannabis Act came into force, making Canada the first G7 nation and second country in the world to fully legalize recreational cannabis at the federal level — an event of extraordinary symbolic and practical significance. Prime Minister Justin Trudeau had campaigned on legalization since 2015, explicitly citing the dual goals of reducing youth access (paradoxically easier under regulation than prohibition) and eliminating the criminal market. Canada's approach was meticulous: a federal framework set minimum standards while provinces controlled retail distribution, resulting in a varied landscape from government-run stores in some provinces to private retailers in others. The opening day saw massive demand that overwhelmed supply chains — but this was a regulatory challenge, not a social catastrophe. More significantly, Canada pardoned over 400,000 Canadians with prior cannabis possession convictions. Canada's legalization demonstrated that a major Western democracy, a G7 economy, a founding member of NATO, could not only legalize cannabis but do so with careful planning and without meaningful negative consequences — effectively shattering the last serious argument against legalization in comparable countries.",
+        badge: "Political",
+        badgeColor: "#dc2626"
+      },
+      {
+        year: "2020s CE",
+        location: "🌍 Global",
+        title: "The New Green Wave — Global Reform",
+        description: "The 2020s have witnessed an accelerating global transformation in cannabis policy that would have been unimaginable just a decade earlier. In 2020, the UN Commission on Narcotic Drugs voted to remove cannabis from Schedule IV of the 1961 Single Convention (the most dangerous category), reclassifying it to Schedule I — a less restrictive designation that acknowledges cannabis's medical value. Germany — Europe's largest economy — legalized personal cannabis possession and home cultivation in April 2024, allowing adults to possess up to 25 grams in public and grow up to three plants, with licensed social clubs. Malta became the first EU country to legalize in 2021. The Netherlands moved toward regulated sales through its tolerated coffeeshop system. Thailand made global headlines by decriminalizing cannabis in 2022 (before partially reversing course in 2024 as politics shifted). In the United States, over half of states now have some form of legalization or decriminalization, with more than 40 states permitting medical cannabis. Federal legalization in the US appears increasingly inevitable: the House of Representatives passed the MORE Act, the Biden administration rescheduled cannabis from Schedule I to Schedule III, and polling consistently shows 70%+ of Americans support legalization. After 10,000 years of human cannabis use and nearly 100 years of prohibition, the global legal landscape is shifting fundamentally and irreversibly.",
+        badge: "Political",
+        badgeColor: "#dc2626"
+      }
+    ]
+  }
+];
+
+const religions = [
+  {
+    icon: "🕉️",
+    name: "Hinduism",
+    tradition: "Bhang & Shiva",
+    description: "Cannabis is deeply sacred in Hindu tradition. Shiva, one of the principal deities of the Hindu Trinity, is said to have discovered and deeply favored cannabis — legend holds that he wandered into hemp fields and consumed the plant to revive himself from the summer heat. Bhang (a cannabis drink) is offered at Shiva temples throughout India and is consumed openly and legally during the festival of Holi. Sadhus (Hindu holy men) smoke cannabis as a spiritual sacrament to facilitate meditation and union with Shiva. This tradition is unbroken for at least 3,000 years."
+  },
+  {
+    icon: "✝️",
+    name: "Rastafarianism",
+    tradition: "Holy Sacrament (Ganja)",
+    description: "The Rastafari movement, which emerged in Jamaica in the 1930s following the coronation of Ethiopian Emperor Haile Selassie I, considers cannabis ('ganja' or 'the herb') a holy sacrament that facilitates meditation, reasoning, and spiritual insight. Rastas cite Biblical passages (Genesis 1:29, Revelation 22:2) as divine endorsement of the 'herb of the field.' Cannabis use is a core religious practice — a direct channel to Jah (God) — and religious persecution of Rastafarians through cannabis laws has been internationally recognized as a human rights issue."
+  },
+  {
+    icon: "🔥",
+    name: "Shamanism",
+    tradition: "Scythian & Siberian Traditions",
+    description: "Archaeological evidence from Siberian burial mounds confirms cannabis use by shamans — spiritual intermediaries — across the Eurasian steppes for at least 2,500 years. Scythian shamans used cannabis steam baths for divination, healing, and communication with spirits. In the Pazyryk culture (modern Altai Republic), braziers, leather pouches of cannabis seeds, and elaborate pipe systems have been excavated from burial mounds, confirming that cannabis was central to shamanic practice. Similar traditions existed across Siberia, Mongolia, and into the Americas."
+  },
+  {
+    icon: "☸️",
+    name: "Buddhism",
+    tradition: "Traditional Tantric Use",
+    description: "While mainstream Theravada Buddhism discourages intoxicants, Tantric Buddhist traditions — particularly in Tibet and Nepal — have historical traditions of cannabis use in specific meditative and ritual contexts. Some Buddhist texts describe cannabis as a component of meditation-enhancing preparations used by advanced practitioners. The Mahakala Tantra includes cannabis in ritual preparations. In Nepal, cannabis grows wild and has been used in Shiva-associated temple rituals for centuries. Cannabis is still used in certain Tibetan Buddhist medicinal formulations."
+  },
+  {
+    icon: "🌙",
+    name: "Sufi Traditions",
+    tradition: "Mystical Islamic Practice",
+    description: "While orthodox Islam prohibits intoxicants, many Sufi orders — mystical branches of Islam seeking direct experience of the divine — historically used hashish as part of their spiritual practices. The word 'assassin' itself derives from 'hashishin' (though the actual role of cannabis in that sect is disputed). Rumi and other great Sufi poets used cannabis metaphorically and possibly literally in describing states of spiritual ecstasy. North African Sufi traditions, particularly among the Gnawa of Morocco, have deep historical connections to cannabis use in trance ceremonies."
+  },
+  {
+    icon: "✝️",
+    name: "Ethiopian Zion Coptic Church",
+    tradition: "Continuous Sacramental Use",
+    description: "The Ethiopian Zion Coptic Church, a religious sect with roots tracing to ancient Ethiopia and connections to Rastafarianism, uses cannabis as a fundamental sacrament in all religious ceremonies. Members believe cannabis was the 'Tree of Life' described in biblical texts and view its consumption as a direct commandment from God. The church faced severe legal persecution in the United States in the 1970s and 1980s but has continued to advocate for religious freedom protection for cannabis use. Their legal battles helped establish important precedents in the debate over religious exemptions to drug laws."
+  }
+];
+
+const famousUsers = [
+  {
+    icon: "👑",
+    name: "Queen Victoria",
+    years: "1819–1901",
+    claim: "Royal Cannabis Prescription",
+    detail: "Queen Victoria's personal physician, Sir J. Russell Reynolds, prescribed cannabis tincture to the Queen for relief from dysmenorrhea (menstrual cramps) and reportedly for other conditions. Reynolds wrote in The Lancet in 1890 that 'When pure and administered carefully, [cannabis] is one of the most valuable medicines we possess.' Victoria's use reflects how thoroughly accepted medicinal cannabis was in Victorian England, where cannabis tinctures were sold in pharmacies and prescribed by the Royal Household's own physicians.",
+    verified: true
+  },
+  {
+    icon: "🪖",
+    name: "George Washington",
+    years: "1732–1799",
+    claim: "Grew Hemp at Mount Vernon",
+    detail: "George Washington was a prolific hemp farmer at his Mount Vernon plantation — but the historical record goes somewhat further. His diary entries include references to separating male hemp plants from female plants before pollination, which is the key step in producing potent sensimilla cannabis rather than hemp. Whether Washington consumed cannabis for its psychoactive properties or purely for hemp production remains debated by historians, but his diary entries suggest a sophisticated knowledge of the plant that goes beyond simple fiber cultivation.",
+    verified: true
+  },
+  {
+    icon: "🦅",
+    name: "Thomas Jefferson",
+    years: "1743–1826",
+    claim: "Hemp Advocate & Likely User",
+    detail: "Thomas Jefferson also grew hemp extensively at Monticello and was deeply interested in hemp as an agricultural and industrial crop. Jefferson famously wrote that hemp was 'of first necessity to the wealth and protection of the country.' He imported hemp seeds from China and worked to improve American hemp cultivation. Some accounts suggest Jefferson used cannabis medicinally for migraines later in life, though this is less definitively documented than Washington's cultivation records. Jefferson's advocacy for hemp represents the Founding Fathers' understanding of the plant as an essential national resource.",
+    verified: true
+  },
+  {
+    icon: "✍️",
+    name: "William Shakespeare",
+    years: "1564–1616",
+    claim: "Cannabis Residue in His Pipe",
+    detail: "In 2001, South African research team led by anthropologist Francis Thackeray analyzed residue from 24 clay pipes excavated from the grounds of Shakespeare's Stratford-upon-Avon home. Cannabis residue was detected in eight of the pipes using gas chromatography mass spectrometry (GCMS) analysis. Some scholars also point to references in Sonnet 76 to a 'noted weed' that provides 'compounds strange' as possible literary references to cannabis. While this doesn't definitively prove Shakespeare was a regular cannabis user, the archaeological evidence suggests it was present in his household.",
+    verified: true
+  },
+  {
+    icon: "📖",
+    name: "Victor Hugo",
+    years: "1802–1885",
+    claim: "Member of Club des Hashischins",
+    detail: "Victor Hugo — author of Les Misérables and Notre-Dame de Paris, one of the titans of French literature — was a participant in the legendary Club des Hashischins in Paris. The club, which met monthly at the Hotel Pimodan on the Île Saint-Louis, experimented with hashish preparations under the guidance of physician Jacques-Joseph Moreau. Hugo's contemporaries and biographers record his attendance, and some scholars have noted potential influences on his visionary prose style and his detailed descriptions of altered mental states. His participation reflected the Romantic era's fascination with expanded consciousness.",
+    verified: true
+  },
+  {
+    icon: "📚",
+    name: "Alexandre Dumas",
+    years: "1802–1870",
+    claim: "Club des Hashischins & The Count of Monte Cristo",
+    detail: "Alexandre Dumas, author of The Count of Monte Cristo and The Three Musketeers, was one of the founding and most enthusiastic members of the Club des Hashischins. Dumas not only participated in the experiments but wove cannabis directly into his fiction: in The Count of Monte Cristo, the mysterious drug 'hashish' plays a central narrative role, introduced to the young Frenchman Franz d'Epinay by the enigmatic Count in Rome. Dumas described hashish in his novel as producing 'visions of Paradise' and making one feel 'full of life and joy.' His literary treatment of cannabis is among the most vivid and influential in 19th century literature.",
+    verified: true
+  }
+];
+---
+
+<Layout title="Cannabis History" description="5,000 years of cannabis history — from ancient medicine to modern prohibition and back again. A complete historical timeline.">
+  <main class="history-page">
+
+    <!-- Hero Banner -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-icon">📖</div>
+        <h1>5,000 Years of Cannabis History</h1>
+        <p class="hero-subtitle">From ancient medicine to modern prohibition — and back again</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">10,000+</span>
+            <span class="stat-label">Years of Human Use</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">26</span>
+            <span class="stat-label">Key Historical Events</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">6</span>
+            <span class="stat-label">Civilizational Eras</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll to explore</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 7l5 5 5-5"/></svg>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section">
+      <div class="container">
+
+        {timelineEras.map((era, eraIdx) => (
+          <div class="era-block">
+            <div class="era-header" style={`--era-accent: ${era.accent}`}>
+              <div class="era-header-inner">
+                <span class="era-number">{String(eraIdx + 1).padStart(2, '0')}</span>
+                <div>
+                  <h2 class="era-name">{era.era}</h2>
+                  <span class="era-period">{era.period}</span>
+                </div>
+              </div>
+              <div class="era-line" style={`background: ${era.accent}`}></div>
+            </div>
+
+            <div class="events-list">
+              {era.events.map((event, evIdx) => (
+                <div class={`event-card ${evIdx % 2 === 0 ? 'left' : 'right'}`} data-badge={event.badge}>
+                  <div class="event-connector">
+                    <div class="connector-dot" style={`background: ${era.accent}; box-shadow: 0 0 12px ${era.accent}80`}></div>
+                    <div class="connector-line" style={`background: linear-gradient(180deg, ${era.accent}60, transparent)`}></div>
+                  </div>
+                  <div class="event-content" style={`--card-accent: ${era.accent}`}>
+                    <div class="event-year" style={`color: ${era.accent}`}>{event.year}</div>
+                    <div class="event-location">{event.location}</div>
+                    <h3 class="event-title">{event.title}</h3>
+                    <p class="event-description">{event.description}</p>
+                    <span class="badge" style={`background: ${event.badgeColor}22; color: ${event.badgeColor}; border-color: ${event.badgeColor}44`}>
+                      {event.badge}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {eraIdx < timelineEras.length - 1 && (
+              <div class="era-divider">
+                <div class="divider-line"></div>
+                <div class="divider-icon">🌿</div>
+                <div class="divider-line"></div>
+              </div>
+            )}
+          </div>
+        ))}
+
+      </div>
+    </section>
+
+    <!-- Propaganda Callout -->
+    <section class="propaganda-section">
+      <div class="container">
+        <div class="propaganda-box">
+          <div class="propaganda-header">
+            <span class="propaganda-icon">⚠️</span>
+            <h2>The Prohibition Propaganda Machine</h2>
+          </div>
+          <div class="propaganda-content">
+            <div class="propaganda-main">
+              <h3>How a Plant Was Criminalized Through Lies, Racism, and Greed</h3>
+              <p>The prohibition of cannabis was not a scientific or medical decision — it was a political one, built on a foundation of racial fear, yellow journalism, and industrial self-interest. Understanding this history is essential to understanding why prohibition persisted for so long despite overwhelming evidence of cannabis's safety and medical value.</p>
+
+              <div class="propaganda-cards">
+                <div class="prop-card">
+                  <h4>🎬 Reefer Madness (1936)</h4>
+                  <p>The 1936 propaganda film "Reefer Madness" (originally "Tell Your Children") depicted cannabis users descending into manslaughter, suicide, and rape after a single use. Financed by a church group and distributed by exploitation filmmaker Dwain Esper, the film was so absurdly melodramatic that it was rediscovered in the 1970s as a camp classic. But in 1936, it was presented as a factual documentary to terrified parents and legislators. It represents the low point of cannabis misinformation — a brazen attempt to create fear through fiction presented as fact.</p>
+                </div>
+                <div class="prop-card">
+                  <h4>📰 Hearst Newspaper Campaign</h4>
+                  <p>William Randolph Hearst, the newspaper magnate, ran a relentless anti-cannabis campaign across his nationwide newspaper chain throughout the 1930s. Historians have pointed to two likely motivations: first, Hearst had invested heavily in timber for paper production and faced economic competition from hemp paper; second, he harbored known racist attitudes and saw the "marijuana menace" as a useful tool for inflaming anti-immigrant sentiment. His papers routinely ran fabricated stories attributing violent crimes to cannabis — stories that Harry Anslinger cited as evidence in congressional hearings, creating a circular loop of manufactured panic.</p>
+                </div>
+                <div class="prop-card">
+                  <h4>💬 Harry Anslinger's Racist Quotes</h4>
+                  <p>Harry Anslinger, who served as the first commissioner of the Federal Bureau of Narcotics from 1930 to 1962, was the primary architect of American cannabis prohibition — and he achieved it through explicit racism. Among his documented statements: "There are 100,000 total marijuana smokers in the US, and most are Negroes, Hispanics, Filipinos, and entertainers. Their Satanic music, jazz and swing result from marijuana use. This marijuana causes white women to seek sexual relations with Negroes." These quotes appeared in his official communications and congressional testimony. They are not outliers — they represent the actual intellectual foundation of American drug prohibition.</p>
+                </div>
+                <div class="prop-card">
+                  <h4>🏭 Industrial Motives: Hemp vs. Nylon</h4>
+                  <p>DuPont Chemical patented nylon in 1937 — the same year the Marihuana Tax Act passed. DuPont's financial backer, banker Andrew Mellon (who was also Harry Anslinger's uncle-in-law), served as Secretary of the Treasury and oversaw the Bureau of Narcotics. Hemp fiber, which had been economically dominant for centuries, was suddenly a direct competitor to synthetics that DuPont and other petrochemical companies were investing billions to develop. The simultaneous criminalization of hemp and the launch of synthetic fibers is a historical coincidence that many economists and historians find insufficiently coincidental.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Religion Section -->
+    <section class="culture-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Cannabis in Global Religions & Cultures</h2>
+          <p>A sacred plant across six of the world's major religious and spiritual traditions</p>
+        </div>
+        <div class="religion-grid">
+          {religions.map(r => (
+            <div class="religion-card">
+              <div class="religion-icon">{r.icon}</div>
+              <div class="religion-name">{r.name}</div>
+              <div class="religion-tradition">{r.tradition}</div>
+              <p class="religion-desc">{r.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Famous Users Section -->
+    <section class="famous-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Famous Historical Cannabis Users</h2>
+          <p>Kings, presidents, philosophers, and artists — cannabis's company through history</p>
+        </div>
+        <div class="famous-grid">
+          {famousUsers.map(u => (
+            <div class="famous-card">
+              <div class="famous-header">
+                <div class="famous-icon">{u.icon}</div>
+                <div>
+                  <div class="famous-name">{u.name}</div>
+                  <div class="famous-years">{u.years}</div>
+                </div>
+                {u.verified && <span class="verified-badge">✓ Documented</span>}
+              </div>
+              <div class="famous-claim">{u.claim}</div>
+              <p class="famous-detail">{u.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Callout -->
+    <section class="footer-cta">
+      <div class="container">
+        <div class="cta-box">
+          <h2>10,000 Years of History. Still Unfolding.</h2>
+          <p>From the steppes of Central Asia to the dispensaries of Colorado, cannabis has been humanity's most enduring botanical companion — medicine, sacrament, fiber, and symbol of liberation. The story is still being written.</p>
+          <div class="cta-links">
+            <a href={`${base}strains`} class="cta-btn primary">Explore Strains →</a>
+            <a href={`${base}map`} class="cta-btn secondary">Legal Map →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  /* ─── Base ─── */
+  .history-page {
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #e2f5e9;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ─── Hero ─── */
+  .hero {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 5rem 1.5rem 3rem;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 40%, #d4ead9 0%, #f4f7f5 100%);
+    z-index: 0;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, #4ade8014 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, #4ade800a 0%, transparent 40%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px #4ade8060);
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  h1 {
+    font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 30%, #4ade80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+  }
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #a7c4b2;
+    margin-bottom: 2.5rem;
+    font-style: italic;
+  }
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .stat-num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #4ade80;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: #6b8f7a;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: #1e3a28;
+  }
+  .hero-scroll {
+    position: relative;
+    z-index: 1;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: #4a6b57;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+  .hero-scroll svg {
+    width: 20px;
+    height: 20px;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  /* ─── Timeline Section ─── */
+  .timeline-section {
+    padding: 4rem 0;
+  }
+
+  /* ─── Era Block ─── */
+  .era-block {
+    margin-bottom: 2rem;
+  }
+  .era-header {
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+  .era-header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--era-accent);
+    border-radius: 12px;
+    padding: 1.25rem 1.75rem;
+    box-shadow: var(--shadow);
+  }
+  .era-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--era-accent);
+    opacity: 0.25;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    min-width: 3rem;
+  }
+  .era-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+  .era-period {
+    font-size: 0.85rem;
+    color: var(--era-accent);
+    opacity: 0.8;
+    font-weight: 500;
+  }
+  .era-line {
+    display: none;
+  }
+
+  /* ─── Events List ─── */
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 2rem;
+  }
+  .events-list::before {
+    content: '';
+    position: absolute;
+    left: 0.65rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #1e3a2880 0%, #1e3a2820 100%);
+  }
+
+  /* ─── Event Card ─── */
+  .event-card {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+  .event-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 20px;
+    margin-left: -2.65rem;
+    position: relative;
+    z-index: 1;
+  }
+  .connector-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 1.1rem;
+    border: 2px solid var(--border);
+  }
+  .connector-line {
+    width: 2px;
+    flex: 1;
+    margin-top: 4px;
+    min-height: 20px;
+  }
+  .event-content {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--card-accent);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .event-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, var(--card-accent)08 0%, transparent 100%);
+    pointer-events: none;
+  }
+  .event-content:hover {
+    border-color: var(--card-accent);
+    box-shadow: 0 8px 32px var(--card-accent)15;
+  }
+  .event-year {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.2rem;
+  }
+  .event-location {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+  .event-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .event-description {
+    font-size: 0.92rem;
+    color: #b8d4c4;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid;
+  }
+
+  /* ─── Era Divider ─── */
+  .era-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0 3rem;
+    padding: 0 0.5rem;
+  }
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #2a4a35, transparent);
+  }
+  .divider-icon {
+    font-size: 1.4rem;
+    opacity: 0.4;
+    filter: grayscale(0.3);
+  }
+
+  /* ─── Propaganda Section ─── */
+  .propaganda-section {
+    padding: 4rem 0;
+    background: linear-gradient(180deg, #f4f7f5 0%, #eaf2ed 50%, #f4f7f5 100%);
+  }
+  .propaganda-box {
+    border: 1px solid #7f1d1d44;
+    border-top: 4px solid #dc2626;
+    border-radius: 16px;
+    background: #0d0f0f;
+    overflow: hidden;
+  }
+  .propaganda-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.75rem 2rem;
+    background: #1a0a0a;
+    border-bottom: 1px solid #7f1d1d33;
+  }
+  .propaganda-icon {
+    font-size: 2rem;
+  }
+  .propaganda-header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fca5a5;
+  }
+  .propaganda-content {
+    padding: 2rem;
+  }
+  .propaganda-main h3 {
+    font-size: 1.1rem;
+    color: #f87171;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  .propaganda-main > p {
+    color: #c4a5a5;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .propaganda-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .prop-card {
+    background: #160d0d;
+    border: 1px solid #7f1d1d33;
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  .prop-card h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fca5a5;
+    margin-bottom: 0.6rem;
+  }
+  .prop-card p {
+    font-size: 0.85rem;
+    color: #b0908a;
+    line-height: 1.65;
+  }
+
+  /* ─── Culture / Religion Section ─── */
+  .culture-section, .famous-section {
+    padding: 4rem 0;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .section-header h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .section-header p {
+    color: #7aad92;
+    font-size: 1rem;
+  }
+  .religion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .religion-card {
+    background: #0d1a11;
+    border: 1px solid #1e3a2855;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .religion-card:hover {
+    border-color: #4ade8055;
+    transform: translateY(-2px);
+  }
+  .religion-icon {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+  }
+  .religion-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #4ade80;
+    margin-bottom: 0.2rem;
+  }
+  .religion-tradition {
+    font-size: 0.8rem;
+    color: #6b8f7a;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  .religion-desc {
+    font-size: 0.875rem;
+    color: #a0bfac;
+    line-height: 1.7;
+  }
+
+  /* ─── Famous Users Section ─── */
+  .famous-section {
+    background: linear-gradient(180deg, #f4f7f5 0%, #eef4f0 100%);
+  }
+  .famous-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+  .famous-card {
+    background: #0d1a11;
+    border: 1px solid #1e3a2855;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .famous-card:hover {
+    border-color: #fbbf2455;
+  }
+  .famous-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .famous-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  .famous-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fbbf24;
+    line-height: 1.2;
+  }
+  .famous-years {
+    font-size: 0.78rem;
+    color: #6b8f7a;
+    margin-top: 0.1rem;
+  }
+  .verified-badge {
+    margin-left: auto;
+    background: #14532d22;
+    color: #4ade80;
+    border: 1px solid #4ade8033;
+    border-radius: 20px;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .famous-claim {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #a0bfac;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #1e3a2855;
+  }
+  .famous-detail {
+    font-size: 0.875rem;
+    color: #8aaa98;
+    line-height: 1.7;
+  }
+
+  /* ─── Footer CTA ─── */
+  .footer-cta {
+    padding: 4rem 0 5rem;
+  }
+  .cta-box {
+    text-align: center;
+    background: linear-gradient(135deg, #d4ead9 0%, #eaf2ed 100%);
+    border: 1px solid #2a4a35;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, #4ade8012 0%, transparent 70%);
+  }
+  .cta-box h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .cta-box p {
+    color: #7aad92;
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 620px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+  .cta-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta-btn.primary {
+    background: #4ade80;
+    color: #f4f7f5;
+  }
+  .cta-btn.primary:hover {
+    background: #22c55e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px #4ade8040;
+  }
+  .cta-btn.secondary {
+    background: transparent;
+    color: #4ade80;
+    border: 1px solid #4ade8055;
+  }
+  .cta-btn.secondary:hover {
+    border-color: #4ade80;
+    background: #4ade8010;
+    transform: translateY(-2px);
+  }
+
+  /* ─── Desktop: alternating card layout ─── */
+  @media (min-width: 768px) {
+    .events-list {
+      padding-left: 3rem;
+    }
+    .events-list::before {
+      left: 1.15rem;
+    }
+    .event-connector {
+      margin-left: -3.65rem;
+    }
+    .event-description {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* ─── Mobile ─── */
+  @media (max-width: 640px) {
+    .hero {
+      padding: 3.5rem 1.25rem 2.5rem;
+    }
+    .hero-stats {
+      gap: 1rem;
+    }
+    .stat-divider {
+      display: none;
+    }
+    .propaganda-content {
+      padding: 1.25rem;
+    }
+    .propaganda-header {
+      padding: 1.25rem;
+    }
+    .cta-box {
+      padding: 2rem 1.25rem;
+    }
+    .event-year {
+      font-size: 1.1rem;
+    }
+    .era-header-inner {
+      padding: 1rem 1.25rem;
+    }
+    .era-number {
+      font-size: 1.8rem;
+    }
+  }
+</style>

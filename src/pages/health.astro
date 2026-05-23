@@ -1,0 +1,2042 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<Layout
+  title="Health & Science"
+  description="Evidence-based research on cannabis: the endocannabinoid system, proven medical benefits, health risks, dosing guide, and harm reduction strategies."
+>
+
+<!-- ═══════════════════════════════════════════════════════
+     PAGE HEADER
+═══════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-eyebrow">Evidence-Based Science</div>
+    <h1>🔬 Cannabis Health &amp; Science</h1>
+    <p class="hero-sub">Evidence-based research on benefits, risks, and the endocannabinoid system</p>
+
+    <div class="disclaimer-banner">
+      <span class="disclaimer-icon">⚕️</span>
+      <p>
+        <strong>Medical Disclaimer:</strong> This page presents peer-reviewed research for educational purposes only.
+        Individual responses to cannabis vary. Consult a qualified healthcare provider before using cannabis
+        medicinally, especially if you take prescription medications or have an existing health condition.
+      </p>
+    </div>
+
+    <!-- Quick-nav pills -->
+    <nav class="toc-nav" aria-label="Page sections">
+      <a href="#ecs">Endocannabinoid System</a>
+      <a href="#benefits">Medical Benefits</a>
+      <a href="#risks">Risks &amp; Safety</a>
+      <a href="#consumption">Consumption Methods</a>
+      <a href="#comparison">Drug Comparison</a>
+      <a href="#dosing">Dosing Guide</a>
+    </nav>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 1 · ENDOCANNABINOID SYSTEM
+═══════════════════════════════════════════════════════ -->
+<section class="section" id="ecs">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Neuroscience Fundamentals</div>
+      <h2>Your Brain Already Has Cannabis Receptors</h2>
+      <p>
+        In the 1990s, scientists discovered that the human body contains a vast regulatory network called the
+        <strong>endocannabinoid system (ECS)</strong> — present in all vertebrates and predating cannabis use by millions
+        of years. Understanding the ECS is essential to understanding why and how cannabis affects the body.
+      </p>
+    </div>
+
+    <!-- ECS Overview -->
+    <div class="ecs-intro highlight-box highlight-green" style="margin-bottom:2.5rem;">
+      <p>
+        The ECS is a cell-signaling system composed of <strong>endocannabinoids</strong> (molecules made by your own body),
+        <strong>cannabinoid receptors</strong> (found throughout the brain and body), and <strong>enzymes</strong> that
+        synthesize and degrade endocannabinoids. It functions as a master regulator — maintaining homeostasis across nearly
+        every major physiological system. When you consume cannabis, its phytocannabinoids (plant cannabinoids like THC and
+        CBD) interact with this pre-existing system.
+      </p>
+    </div>
+
+    <!-- CSS Diagram -->
+    <div class="ecs-diagram">
+      <h3 style="text-align:center;margin-bottom:2rem;color:var(--text);">The Endocannabinoid System — Visual Map</h3>
+
+      <div class="ecs-diagram-grid">
+        <!-- Body's own cannabinoids -->
+        <div class="ecs-node ecs-origin">
+          <div class="ecs-node-title">🧬 Body's Own Cannabinoids</div>
+          <div class="ecs-endocannabinoid">
+            <strong>Anandamide</strong>
+            <span>("Bliss Molecule" — AEA)</span>
+            <small>Regulates mood, pain, appetite, memory, fertility</small>
+          </div>
+          <div class="ecs-endocannabinoid">
+            <strong>2-Arachidonoylglycerol</strong>
+            <span>(2-AG)</span>
+            <small>Most abundant endocannabinoid; modulates neural signaling</small>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="ecs-arrow-col">
+          <div class="ecs-arrow">→</div>
+          <div class="ecs-arrow-label">bind to</div>
+        </div>
+
+        <!-- Receptors -->
+        <div class="ecs-receptors-col">
+          <div class="ecs-receptor ecs-cb1">
+            <div class="ecs-receptor-title">CB1 Receptors</div>
+            <div class="ecs-receptor-location">🧠 Brain &amp; Nervous System</div>
+            <ul class="ecs-effects-list">
+              <li>Mood &amp; emotion</li>
+              <li>Memory &amp; learning</li>
+              <li>Pain perception</li>
+              <li>Appetite &amp; metabolism</li>
+              <li>Motor control</li>
+              <li>Sleep regulation</li>
+            </ul>
+            <div class="ecs-note">THC binds strongly → psychoactive effects</div>
+          </div>
+
+          <div class="ecs-receptor ecs-cb2">
+            <div class="ecs-receptor-title">CB2 Receptors</div>
+            <div class="ecs-receptor-location">🛡️ Immune System &amp; Peripheral Organs</div>
+            <ul class="ecs-effects-list">
+              <li>Inflammation control</li>
+              <li>Immune modulation</li>
+              <li>Bone metabolism</li>
+              <li>Gut function</li>
+              <li>Liver health</li>
+              <li>Pain in peripheral tissue</li>
+            </ul>
+            <div class="ecs-note">CBD &amp; CBG act here → anti-inflammatory</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ecs-regulates">
+        <div class="ecs-regulates-title">The ECS Regulates:</div>
+        <div class="ecs-regulates-grid">
+          <div class="ecs-regulate-item">😴 Sleep</div>
+          <div class="ecs-regulate-item">😊 Mood</div>
+          <div class="ecs-regulate-item">😣 Pain</div>
+          <div class="ecs-regulate-item">🍽️ Appetite</div>
+          <div class="ecs-regulate-item">🧠 Memory</div>
+          <div class="ecs-regulate-item">🛡️ Immune Response</div>
+          <div class="ecs-regulate-item">🌡️ Body Temperature</div>
+          <div class="ecs-regulate-item">🌸 Fertility</div>
+          <div class="ecs-regulate-item">⚡ Stress Response</div>
+          <div class="ecs-regulate-item">🦴 Bone Growth</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Cannabinoids -->
+    <div style="margin-top:4rem;">
+      <div class="section-header">
+        <div class="eyebrow">Phytocannabinoids</div>
+        <h2>Key Cannabinoids Explained</h2>
+        <p>Cannabis produces over 100 cannabinoids. These are the most studied and therapeutically relevant.</p>
+      </div>
+
+      <div class="cannabinoid-grid">
+
+        <div class="cannabinoid-card thc-card">
+          <div class="cannabinoid-header">
+            <div>
+              <div class="cannabinoid-abbr">THC</div>
+              <div class="cannabinoid-name">Δ9-Tetrahydrocannabinol</div>
+            </div>
+            <span class="badge badge-purple">Psychoactive</span>
+          </div>
+          <div class="cannabinoid-body">
+            <p><strong>How it works:</strong> Directly binds CB1 receptors in the brain — the primary cause of the "high." Also binds CB2 receptors, contributing to anti-inflammatory effects.</p>
+            <p style="margin-top:0.75rem;"><strong>Medical uses:</strong> Pain relief, nausea reduction, appetite stimulation, muscle spasm reduction, PTSD symptom management, sleep aid.</p>
+            <div class="cannabinoid-effects">
+              <span class="effect-tag effect-pos">Pain relief</span>
+              <span class="effect-tag effect-pos">Anti-nausea</span>
+              <span class="effect-tag effect-pos">Appetite</span>
+              <span class="effect-tag effect-pos">Sleep</span>
+              <span class="effect-tag effect-neg">Anxiety (high doses)</span>
+              <span class="effect-tag effect-neg">Psychoactive</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cannabinoid-card cbd-card">
+          <div class="cannabinoid-header">
+            <div>
+              <div class="cannabinoid-abbr">CBD</div>
+              <div class="cannabinoid-name">Cannabidiol</div>
+            </div>
+            <span class="badge badge-green">Non-Psychoactive</span>
+          </div>
+          <div class="cannabinoid-body">
+            <p><strong>How it works:</strong> Does not bind directly to CB1/CB2 receptors but modulates the ECS indirectly. Inhibits FAAH (the enzyme that breaks down anandamide), interacts with serotonin receptors (5-HT1A) and TRPV1 pain channels.</p>
+            <p style="margin-top:0.75rem;"><strong>Medical uses:</strong> Epilepsy (FDA-approved as Epidiolex), anxiety, inflammation, neuroprotection, addiction recovery. May moderate THC-induced anxiety.</p>
+            <div class="cannabinoid-effects">
+              <span class="effect-tag effect-pos">Anti-seizure</span>
+              <span class="effect-tag effect-pos">Anti-anxiety</span>
+              <span class="effect-tag effect-pos">Anti-inflammatory</span>
+              <span class="effect-tag effect-pos">Neuroprotective</span>
+              <span class="effect-tag effect-pos">No "high"</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cannabinoid-card cbg-card">
+          <div class="cannabinoid-header">
+            <div>
+              <div class="cannabinoid-abbr">CBG</div>
+              <div class="cannabinoid-name">Cannabigerol</div>
+            </div>
+            <span class="badge badge-teal">The Mother Cannabinoid</span>
+          </div>
+          <div class="cannabinoid-body">
+            <p><strong>How it works:</strong> Called the "mother cannabinoid" because CBGA (its acid form) is the precursor from which THC, CBD, and CBC are all biosynthesized. Interacts with CB1 and CB2 receptors, plus alpha-2 adrenergic receptors.</p>
+            <p style="margin-top:0.75rem;"><strong>Emerging uses:</strong> Anti-inflammatory (IBD), antibacterial (shown effective against MRSA), potential neuroprotective effects in Huntington's disease models, appetite stimulation without psychoactivity.</p>
+            <div class="cannabinoid-effects">
+              <span class="effect-tag effect-pos">Anti-bacterial</span>
+              <span class="effect-tag effect-pos">Anti-inflammatory</span>
+              <span class="effect-tag effect-pos">Neuroprotective</span>
+              <span class="effect-tag effect-pos">Anti-cancer (preclinical)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cannabinoid-card cbn-card">
+          <div class="cannabinoid-header">
+            <div>
+              <div class="cannabinoid-abbr">CBN</div>
+              <div class="cannabinoid-name">Cannabinol</div>
+            </div>
+            <span class="badge badge-purple">Mildly Sedative</span>
+          </div>
+          <div class="cannabinoid-body">
+            <p><strong>How it works:</strong> Formed when THC oxidizes and degrades (through heat or age). Binds CB1 and CB2 receptors with lower affinity than THC. Often present in aged cannabis. Mildly psychoactive — roughly one-quarter the potency of THC.</p>
+            <p style="margin-top:0.75rem;"><strong>Emerging uses:</strong> Sleep aid (commonly marketed in sleep products), mild pain relief, anti-inflammatory, may stimulate bone cell growth. Research on sleep-specific effects is still limited but promising.</p>
+            <div class="cannabinoid-effects">
+              <span class="effect-tag effect-pos">Sedative</span>
+              <span class="effect-tag effect-pos">Sleep aid</span>
+              <span class="effect-tag effect-pos">Anti-inflammatory</span>
+              <span class="effect-tag effect-pos">Pain relief</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cannabinoid-card cbc-card">
+          <div class="cannabinoid-header">
+            <div>
+              <div class="cannabinoid-abbr">CBC</div>
+              <div class="cannabinoid-name">Cannabichromene</div>
+            </div>
+            <span class="badge badge-teal">Non-Psychoactive</span>
+          </div>
+          <div class="cannabinoid-body">
+            <p><strong>How it works:</strong> Third most abundant cannabinoid in many strains. Does not bind well to CB1 receptors (hence non-psychoactive), but interacts with TRPV1 and TRPA1 receptors — channels involved in pain and inflammation. Shown to enhance anandamide levels by inhibiting its uptake.</p>
+            <p style="margin-top:0.75rem;"><strong>Emerging uses:</strong> Anti-inflammatory, anti-depressant properties in animal studies, promotes neurogenesis (neural stem cell viability), potential acne treatment.</p>
+            <div class="cannabinoid-effects">
+              <span class="effect-tag effect-pos">Anti-inflammatory</span>
+              <span class="effect-tag effect-pos">Neurogenesis</span>
+              <span class="effect-tag effect-pos">Anti-depressant</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cannabinoid-card thcv-card">
+          <div class="cannabinoid-header">
+            <div>
+              <div class="cannabinoid-abbr">THCV</div>
+              <div class="cannabinoid-name">Tetrahydrocannabivarin</div>
+            </div>
+            <span class="badge badge-gold">Appetite Suppressant</span>
+          </div>
+          <div class="cannabinoid-body">
+            <p><strong>How it works:</strong> A structural analog of THC that acts as a CB1 receptor antagonist at low doses (suppressing appetite, unlike THC) but becomes a partial agonist at higher doses. Also modulates CB2 receptors. Present in high concentrations in certain African landrace sativas.</p>
+            <p style="margin-top:0.75rem;"><strong>Emerging uses:</strong> Appetite suppression (potential obesity treatment), blood sugar regulation in type 2 diabetes models, may reduce anxiety and panic attacks, anti-epileptic properties.</p>
+            <div class="cannabinoid-effects">
+              <span class="effect-tag effect-pos">Appetite suppressant</span>
+              <span class="effect-tag effect-pos">Blood sugar control</span>
+              <span class="effect-tag effect-pos">Anti-anxiety</span>
+              <span class="effect-tag effect-pos">Anti-epileptic</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /cannabinoid-grid -->
+
+      <!-- Terpenes & Entourage Effect -->
+      <div class="terpene-section">
+        <div class="terpene-header">
+          <div class="eyebrow">Beyond Cannabinoids</div>
+          <h3>Terpenes &amp; The Entourage Effect</h3>
+        </div>
+        <div class="terpene-body">
+          <p>
+            Cannabis produces over 200 aromatic compounds called <strong>terpenes</strong> — the same molecules that give
+            lavender its calming scent, lemon its brightness, and pine its freshness. In cannabis, terpenes do far more
+            than create flavor: they modulate how cannabinoids bind to receptors, cross the blood-brain barrier, and
+            produce downstream effects.
+          </p>
+          <p style="margin-top:1rem;">
+            This synergistic interaction — known as the <strong>"entourage effect"</strong> (first described by Raphael
+            Mechoulam and Shimon Ben-Shabat in 1998, expanded by Ethan Russo in 2011) — means that whole-plant extracts
+            often outperform isolated cannabinoids in clinical settings. A full-spectrum product containing THC, CBD, and
+            terpenes typically produces different and often more therapeutic effects than pure THC alone.
+          </p>
+          <div class="terpene-grid">
+            <div class="terpene-card">
+              <div class="terpene-name">🌿 Myrcene</div>
+              <div class="terpene-scent">Earthy, musky, herbal</div>
+              <p>Most common terpene. Sedative, muscle relaxant, anti-inflammatory. May enhance THC absorption across the blood-brain barrier ("couch-lock" effect).</p>
+            </div>
+            <div class="terpene-card">
+              <div class="terpene-name">🍋 Limonene</div>
+              <div class="terpene-scent">Citrus, lemon, orange</div>
+              <p>Mood-elevating, anti-anxiety, anti-depressant. Shown to reduce anxiety via 5-HT1A and adenosine A2A receptor activity.</p>
+            </div>
+            <div class="terpene-card">
+              <div class="terpene-name">🌲 Pinene</div>
+              <div class="terpene-scent">Pine, fresh forest</div>
+              <p>Bronchodilator, anti-inflammatory, memory retention. May counteract short-term memory impairment from THC by inhibiting acetylcholinesterase.</p>
+            </div>
+            <div class="terpene-card">
+              <div class="terpene-name">💜 Linalool</div>
+              <div class="terpene-scent">Floral, lavender</div>
+              <p>Anxiolytic, sedative, analgesic, anti-convulsant. Modulates GABA receptors — same mechanism as many anti-anxiety medications.</p>
+            </div>
+            <div class="terpene-card">
+              <div class="terpene-name">🌶️ Caryophyllene</div>
+              <div class="terpene-scent">Spicy, peppery, clove</div>
+              <p>The only terpene known to directly bind cannabinoid receptors (CB2). Anti-inflammatory, gastric cytoprotective. Found in black pepper and cloves.</p>
+            </div>
+            <div class="terpene-card">
+              <div class="terpene-name">🌺 Terpinolene</div>
+              <div class="terpene-scent">Floral, herbal, piney</div>
+              <p>Antioxidant, anti-proliferative in cancer cell lines, mild sedative. Common in "Jack Herer" cultivars. Less studied than other major terpenes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 2 · PROVEN MEDICAL BENEFITS
+═══════════════════════════════════════════════════════ -->
+<section class="section-alt" id="benefits">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Clinical Evidence</div>
+      <h2>Clinically Established Benefits</h2>
+      <p>FDA-approved treatments and conditions with strong clinical evidence, organized by evidence strength.</p>
+    </div>
+
+    <!-- Evidence tiers legend -->
+    <div class="evidence-legend">
+      <div class="legend-item"><span class="badge badge-green">Strong Evidence</span> FDA-approved or multiple RCTs</div>
+      <div class="legend-item"><span class="badge badge-gold">Moderate Evidence</span> Multiple studies, promising results</div>
+      <div class="legend-item"><span class="badge badge-teal">Emerging Research</span> Preclinical or early clinical trials</div>
+    </div>
+
+    <!-- Level 1: Strong Evidence -->
+    <div class="evidence-tier">
+      <div class="evidence-tier-header">
+        <span class="badge badge-green" style="font-size:0.85rem;padding:0.4rem 1rem;">Level 1 — Strong Clinical Evidence</span>
+      </div>
+
+      <div class="benefit-list">
+
+        <div class="benefit-item">
+          <div class="benefit-number">01</div>
+          <div class="benefit-content">
+            <div class="benefit-title-row">
+              <h3>Epilepsy &amp; Seizure Disorders</h3>
+              <span class="badge badge-green">FDA Approved</span>
+            </div>
+            <p>
+              In June 2018, the FDA approved <strong>Epidiolex</strong> (pharmaceutical-grade CBD) for two rare,
+              treatment-resistant childhood epilepsy syndromes: <em>Dravet syndrome</em> and <em>Lennox-Gastaut syndrome</em>.
+              This marked the first FDA approval of a cannabis-derived drug — a watershed moment for medical cannabis.
+            </p>
+            <p style="margin-top:0.75rem;">
+              Phase 3 clinical trials demonstrated a <strong>39% median reduction in seizures</strong> vs. placebo in
+              Dravet syndrome patients. For some patients, seizure freedom was achieved. The mechanism involves CBD's
+              interaction with voltage-gated sodium channels and GPR55 receptors.
+            </p>
+            <div class="benefit-story">
+              <strong>Charlotte's Web:</strong> Charlotte Figi suffered 300+ grand mal seizures per week from Dravet syndrome.
+              In 2012, her family began treating her with a high-CBD, low-THC extract (now called Charlotte's Web strain).
+              Her seizures reduced to 2-3 per month. Her story, covered on CNN in 2013, galvanized the medical cannabis
+              movement and led to CBD-specific legislation in dozens of states.
+            </div>
+            <div class="source-note">Source: New England Journal of Medicine, 2017; FDA NDA 210365; GW Pharmaceuticals Phase 3 trials</div>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-number">02</div>
+          <div class="benefit-content">
+            <div class="benefit-title-row">
+              <h3>Chemotherapy-Induced Nausea &amp; Vomiting</h3>
+              <span class="badge badge-green">FDA Approved</span>
+            </div>
+            <p>
+              Two synthetic cannabinoid medications are FDA-approved for chemotherapy-induced nausea and vomiting (CINV):
+              <strong>Marinol</strong> (dronabinol — synthetic THC) approved in 1985, and <strong>Cesamet</strong> (nabilone —
+              synthetic cannabinoid) approved in 1985. These were among the first modern medical cannabis approvals.
+            </p>
+            <p style="margin-top:0.75rem;">
+              Beyond synthetic options, whole-plant cannabis is highly effective for CINV in patients who fail
+              first-line antiemetics. Studies show smoked/vaporized cannabis provides faster relief (minutes vs. hours
+              for oral medications) and may be more effective for anticipatory nausea — a conditioned response that
+              pharmaceutical antiemetics handle poorly. Importantly, controlling nausea allows patients to maintain
+              nutrition and continue life-sustaining chemotherapy.
+            </p>
+            <div class="source-note">Source: NEJM 1980; Cochrane Review 2015; American Cancer Society clinical guidelines</div>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-number">03</div>
+          <div class="benefit-content">
+            <div class="benefit-title-row">
+              <h3>Chronic Pain</h3>
+              <span class="badge badge-green">Strong Evidence</span>
+            </div>
+            <p>
+              Chronic pain is the most common reason Americans use medical cannabis. The strongest evidence is for
+              <strong>neuropathic pain</strong> (pain from nerve damage) — a condition notoriously difficult to treat
+              with conventional medications. Multiple randomized controlled trials demonstrate efficacy.
+            </p>
+            <p style="margin-top:0.75rem;">
+              A landmark 2015 meta-analysis in <em>JAMA Internal Medicine</em> pooled 79 trials and found that
+              cannabis-based medicines produced <strong>approximately 30% reduction in pain intensity</strong> compared
+              to placebo. Particularly notable is the <strong>opioid-sparing effect</strong>: a 2014 study in
+              <em>JAMA Internal Medicine</em> found that U.S. states with medical cannabis laws had a
+              24.8% lower mean annual opioid overdose mortality rate — suggesting cannabis may substitute for opioids
+              in pain management at a population level.
+            </p>
+            <div class="source-note">Source: Whiting et al., JAMA 2015; Bachhuber et al., JAMA Internal Medicine 2014</div>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-number">04</div>
+          <div class="benefit-content">
+            <div class="benefit-title-row">
+              <h3>Multiple Sclerosis Spasticity</h3>
+              <span class="badge badge-green">Approved in 30+ Countries</span>
+            </div>
+            <p>
+              <strong>Sativex</strong> (nabiximols) — an oromucosal spray containing a 1:1 ratio of THC and CBD derived
+              from cannabis plants — is approved in over 30 countries (including the UK, Canada, Germany, and most of
+              Europe) for treating spasticity in multiple sclerosis. As of this writing, it remains under FDA review
+              in the United States.
+            </p>
+            <p style="margin-top:0.75rem;">
+              Clinical trials show Sativex significantly reduces patient-reported spasticity scores, painful muscle
+              spasms, and sleep disturbance in MS patients. Over 50% of patients report a clinically meaningful
+              improvement (≥20% reduction on the NRS scale). The balanced THC:CBD ratio is believed to maintain
+              efficacy while minimizing THC-related psychoactive side effects.
+            </p>
+            <div class="source-note">Source: Collin et al., European Journal of Neurology 2010; GW Pharmaceuticals SAVANT trial</div>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-number">05</div>
+          <div class="benefit-content">
+            <div class="benefit-title-row">
+              <h3>HIV/AIDS Wasting Syndrome &amp; Anorexia</h3>
+              <span class="badge badge-green">FDA Approved</span>
+            </div>
+            <p>
+              <strong>Marinol</strong> (dronabinol) received FDA approval in 1992 for AIDS-related anorexia associated
+              with weight loss. This was a critical development during the height of the AIDS epidemic, when wasting
+              syndrome — severe, involuntary weight loss — was a major cause of morbidity and death.
+            </p>
+            <p style="margin-top:0.75rem;">
+              Clinical studies demonstrated that dronabinol significantly increased appetite and stabilized or improved
+              weight in HIV-positive patients. Whole-plant cannabis has similarly been studied and shown to increase
+              caloric intake, improve mood, and enhance quality of life in this population. The appetite-stimulating
+              effect (mediated through CB1 receptors in the hypothalamus) remains one of the most clinically
+              consistent findings in cannabis research.
+            </p>
+            <div class="source-note">Source: FDA NDA 018651; Beal et al., Journal of Pain and Symptom Management 1995</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Level 2: Moderate Evidence -->
+    <div class="evidence-tier">
+      <div class="evidence-tier-header">
+        <span class="badge badge-gold" style="font-size:0.85rem;padding:0.4rem 1rem;">Level 2 — Moderate Evidence</span>
+      </div>
+
+      <div class="grid-2" style="gap:1.25rem;">
+
+        <div class="card moderate-card">
+          <div class="moderate-num">06</div>
+          <h4>Anxiety Disorders</h4>
+          <p>CBD demonstrates consistent anxiolytic (anti-anxiety) effects in preclinical models and human studies.
+          A key 2011 trial showed CBD significantly reduced anxiety and cognitive impairment in social anxiety disorder.
+          Important caveat: <strong>high-dose THC can worsen anxiety and trigger panic attacks</strong>, particularly in
+          inexperienced users or those with anxiety predisposition. Low-dose THC with CBD may be beneficial where pure
+          THC is counterproductive.</p>
+          <div class="source-note mt-2">Source: Bergamaschi et al., Neuropsychopharmacology 2011</div>
+        </div>
+
+        <div class="card moderate-card">
+          <div class="moderate-num">07</div>
+          <h4>PTSD (Post-Traumatic Stress Disorder)</h4>
+          <p>Cannabis — particularly products with both THC and CBD — has shown remarkable promise for PTSD, which
+          affects approximately 3.5% of U.S. adults and up to 30% of combat veterans. Studies show reductions in
+          nightmares (via CB1 receptor-mediated suppression of REM sleep consolidation of traumatic memories),
+          hypervigilance, intrusive thoughts, and emotional reactivity. New Mexico's medical cannabis program reported
+          75% reduction in PTSD symptom severity. Trials using synthetic nabilone for PTSD nightmares show consistent
+          results.</p>
+          <div class="source-note mt-2">Source: Roitman et al., Clinical Neuropharmacology 2014; Fraser, Annals of Pharmacotherapy 2009</div>
+        </div>
+
+        <div class="card moderate-card">
+          <div class="moderate-num">08</div>
+          <h4>Glaucoma</h4>
+          <p>Cannabis reduces intraocular pressure (IOP) by 25-30% — a finding known since the 1970s that helped
+          fuel early medical cannabis advocacy. The mechanism involves cannabinoid receptors in ciliary body tissue
+          that regulate aqueous humor production. <strong>Critical limitation:</strong> the IOP-lowering effect lasts
+          only 3-4 hours, meaning patients would need to dose 6-8 times per day (with accompanying psychoactive effects)
+          to achieve continuous benefit. Modern glaucoma medications are more practical, but cannabis remains an option
+          for refractory cases.</p>
+          <div class="source-note mt-2">Source: Hepler & Frank, JAMA 1971; American Academy of Ophthalmology position statement</div>
+        </div>
+
+        <div class="card moderate-card">
+          <div class="moderate-num">09</div>
+          <h4>Inflammatory Bowel Disease</h4>
+          <p>Cannabis has high concentrations of cannabinoid receptors in the gastrointestinal tract, making it a
+          logical target for IBD treatment. Clinical surveys show 50%+ of IBD patients use cannabis for symptom
+          relief. Small clinical trials in Crohn's disease demonstrate significant symptom reduction — one Israeli
+          study achieved <strong>clinical remission in 45% of patients</strong> vs. 10% placebo. CBD specifically
+          shows anti-inflammatory effects in the gut by reducing cytokine production and intestinal permeability.
+          Larger trials are underway.</p>
+          <div class="source-note mt-2">Source: Naftali et al., Clinical Gastroenterology and Hepatology 2013</div>
+        </div>
+
+        <div class="card moderate-card">
+          <div class="moderate-num">10</div>
+          <h4>Sleep Disorders</h4>
+          <p>Cannabis significantly affects sleep architecture — generally increasing deep (slow-wave) sleep and
+          decreasing REM sleep at typical doses. This can be beneficial for those with sleep disorders or PTSD-related
+          nightmares. THC reduces sleep latency (time to fall asleep). CBN, formed from aged THC, is commonly marketed
+          as a sleep aid with sedative properties. However, <strong>chronic use may impair natural sleep architecture</strong>
+          — regular cannabis users often experience vivid dream rebound and insomnia when stopping use, as REM sleep
+          rebounds.</p>
+          <div class="source-note mt-2">Source: Russo et al., Journal of Clinical Pharmacology 2007; Bhatt et al., Sleep Medicine 2020</div>
+        </div>
+
+        <div class="card moderate-card">
+          <div class="moderate-num">11</div>
+          <h4>Tourette's Syndrome</h4>
+          <p>Tourette's syndrome, characterized by involuntary motor and vocal tics, has limited treatment options —
+          current medications often have significant side effects. Small but controlled studies show cannabis can
+          significantly reduce tic frequency and severity. A German double-blind, placebo-controlled study found
+          THC significantly reduced tics with good tolerability. Longer-term naturalistic studies show sustained
+          benefits. The mechanism likely involves CB1 receptor modulation of dopaminergic circuits in the basal
+          ganglia, which are dysregulated in Tourette's.</p>
+          <div class="source-note mt-2">Source: Müller-Vahl et al., Pharmacopsychiatry 2002</div>
+        </div>
+
+        <div class="card moderate-card">
+          <div class="moderate-num">12</div>
+          <h4>Parkinson's Disease</h4>
+          <p>Cannabis shows growing promise for Parkinson's disease across multiple symptom domains. Patient surveys
+          and small trials show improvements in tremor (possibly through CB1 modulation of basal ganglia motor
+          circuits), pain, rigidity, sleep quality, and overall quality of life. CBD specifically may be
+          neuroprotective — preclinical evidence suggests it reduces dopaminergic neurotoxicity and neuroinflammation.
+          A 2014 pilot study showed CBD significantly improved psychosis scores and quality of life measures in
+          Parkinson's patients. Larger controlled trials are needed.</p>
+          <div class="source-note mt-2">Source: Zuardi et al., Journal of Psychopharmacology 2009; Venderová et al., Movement Disorders 2004</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Level 3: Emerging Research -->
+    <div class="evidence-tier">
+      <div class="evidence-tier-header">
+        <span class="badge badge-teal" style="font-size:0.85rem;padding:0.4rem 1rem;">Level 3 — Emerging Research &amp; Preclinical</span>
+      </div>
+
+      <div class="emerging-grid">
+
+        <div class="emerging-card">
+          <div class="emerging-icon">🔬</div>
+          <h4>Cancer</h4>
+          <p>Preclinical (lab and animal) evidence shows cannabinoids can inhibit tumor cell proliferation, induce
+          apoptosis (programmed cancer cell death), and reduce angiogenesis (tumor blood supply) in numerous cancer
+          types. THC has demonstrated anti-tumor effects in glioblastoma (brain cancer) models. A small Spanish
+          pilot trial in glioblastoma patients showed promising results. However, <strong>no completed large-scale
+          human RCT has confirmed anti-tumor effects</strong>. Multiple trials are ongoing. Cannabis remains a
+          valuable adjunct for cancer symptom management regardless of direct anti-tumor effects.</p>
+        </div>
+
+        <div class="emerging-card">
+          <div class="emerging-icon">🧠</div>
+          <h4>Alzheimer's Disease</h4>
+          <p>Multiple mechanisms suggest potential benefit: THC shown to clear amyloid-beta plaques from neural
+          tissue in mouse studies; CBD reduces neuroinflammation, a key driver of Alzheimer's progression. CBD also
+          appears to prevent the breakdown of acetylcholine (a neurotransmitter deficient in Alzheimer's). Human
+          clinical studies are early-stage but trials in Israel and the U.S. are underway exploring cannabis for
+          agitation in dementia — a symptom where current medications have poor evidence and significant risks.</p>
+        </div>
+
+        <div class="emerging-card">
+          <div class="emerging-icon">🩸</div>
+          <h4>Diabetes &amp; Metabolic Syndrome</h4>
+          <p>THCV shows particular promise for Type 2 diabetes — a 2016 GW Pharmaceuticals trial found THCV
+          significantly improved fasting blood glucose, improved pancreatic beta cell function, and increased
+          adiponectin levels. Epidemiologically, cannabis users show lower rates of obesity and insulin resistance
+          despite increased caloric intake. CBD reduces oxidative stress and inflammation in diabetic neuropathy
+          models. The ECS plays a major regulatory role in glucose metabolism and adipogenesis.</p>
+        </div>
+
+        <div class="emerging-card">
+          <div class="emerging-icon">🌈</div>
+          <h4>Autism Spectrum Disorder</h4>
+          <p>Interest has grown following reports from parents of children with ASD describing significant
+          improvements in social interaction, communication, and behavioral challenges. A 2019 Israeli observational
+          study of 188 ASD patients found 30% improvement in symptoms with CBD-rich cannabis treatment, with 28%
+          experiencing significant or moderate improvement. Preliminary data is encouraging but <strong>controlled
+          trials are essential</strong> — several are underway in the U.S. and Israel. The ECS plays a role in
+          social behavior and reward processing.</p>
+        </div>
+
+        <div class="emerging-card">
+          <div class="emerging-icon">🦠</div>
+          <h4>Antibiotic-Resistant Bacteria</h4>
+          <p>A 2008 study found that CBG, CBC, and CBN (along with THC and CBD) demonstrated potent activity against
+          MRSA (methicillin-resistant <em>Staphylococcus aureus</em>) — one of the most dangerous antibiotic-resistant
+          bacteria. More recently, researchers at the University of Queensland identified a synthetic cannabidiol
+          derivative that kills bacteria via a completely different mechanism than conventional antibiotics, making
+          it effective against multi-drug resistant strains. The antibiotic potential of cannabinoids represents
+          a genuinely exciting frontier as conventional antibiotic development slows.</p>
+        </div>
+
+        <div class="emerging-card">
+          <div class="emerging-icon">✨</div>
+          <h4>Neurogenesis</h4>
+          <p>A groundbreaking 2005 study found that cannabinoids promote neurogenesis (formation of new neurons) in
+          the hippocampus — the brain region most associated with learning, memory, and mood regulation. This
+          mechanism may explain CBD's antidepressant effects and has led to research into cannabinoids for
+          depression and anxiety treatment. Notably, this is the opposite of the popular assumption that cannabis
+          "kills brain cells" — the evidence actually suggests certain cannabinoids may support brain cell
+          growth in specific contexts.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 3 · RISKS & CONCERNS
+═══════════════════════════════════════════════════════ -->
+<section class="section" id="risks">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Safety &amp; Harm Reduction</div>
+      <h2>⚠️ Risks &amp; Considerations</h2>
+      <p>Evidence-based risks — understanding these is part of making informed decisions about cannabis use.</p>
+    </div>
+
+    <div class="risk-grid">
+
+      <div class="risk-card risk-high">
+        <div class="risk-header">
+          <div class="risk-badge risk-badge-high">HIGH CONCERN</div>
+          <h3>01. Adolescent Brain Development</h3>
+        </div>
+        <div class="risk-meter"><div class="risk-meter-fill" style="width:90%;background:var(--risk-high);"></div></div>
+        <p>
+          The human brain continues developing until approximately age 25, with the prefrontal cortex (executive
+          function, decision-making) and the hippocampus (memory, learning) among the last to mature. The
+          endocannabinoid system plays a <em>critical role in guiding this development</em> — interfering with it
+          during adolescence through exogenous THC may cause lasting structural and functional changes.
+        </p>
+        <p style="margin-top:0.75rem;">
+          Longitudinal studies, including the landmark Dunedin Cohort Study, found that individuals who began
+          cannabis use before age 18 and used heavily showed <strong>declines of up to 8 IQ points</strong> by
+          age 38. These declines were not recovered with cessation. Early-onset users also show higher rates of
+          attention deficits, memory impairment, and educational underachievement. The risk is dose- and
+          frequency-dependent — occasional adolescent exposure carries much lower risk than daily use.
+        </p>
+        <div class="risk-callout">
+          <strong>Bottom line:</strong> Under-18 use of cannabis carries the most serious and potentially irreversible
+          risks. The scientific consensus is clear: cannabis is harmful to the developing brain.
+          Even among adults, earlier onset of regular use is associated with worse outcomes.
+        </div>
+        <div class="source-note mt-2">Source: Meier et al., PNAS 2012 (Dunedin Cohort); Gruber et al., Frontiers in Psychiatry 2021</div>
+      </div>
+
+      <div class="risk-card risk-moderate">
+        <div class="risk-header">
+          <div class="risk-badge risk-badge-moderate">MODERATE CONCERN</div>
+          <h3>02. Cannabis Use Disorder (CUD)</h3>
+        </div>
+        <div class="risk-meter"><div class="risk-meter-fill" style="width:55%;background:var(--risk-moderate);"></div></div>
+        <p>
+          Approximately <strong>9% of cannabis users develop cannabis use disorder</strong> (dependence/addiction)
+          — a real but often overstated risk. For comparison: alcohol carries a ~15% dependence rate, heroin ~23%,
+          nicotine ~32%, and cocaine ~17%. Cannabis is less addictive than most common psychoactive substances,
+          but addiction is possible and should not be dismissed.
+        </p>
+        <p style="margin-top:0.75rem;">
+          Cannabis withdrawal syndrome — while not life-threatening unlike alcohol withdrawal — is clinically
+          real and includes: irritability, anxiety, sleep disturbance, appetite loss, restlessness, and mood
+          dysphoria. Symptoms typically peak 48-72 hours after cessation and resolve within 1-2 weeks.
+          Risk factors for CUD include: <strong>daily use, onset before age 18, high-potency THC products,
+          family history of addiction, and co-occurring mental health conditions.</strong>
+        </p>
+        <div class="source-note mt-2">Source: Anthony et al., Experimental and Clinical Psychopharmacology 1994; DSM-5 Cannabis Use Disorder criteria</div>
+      </div>
+
+      <div class="risk-card risk-moderate">
+        <div class="risk-header">
+          <div class="risk-badge risk-badge-moderate">MODERATE CONCERN</div>
+          <h3>03. Respiratory Effects from Smoking</h3>
+        </div>
+        <div class="risk-meter"><div class="risk-meter-fill" style="width:50%;background:var(--risk-moderate);"></div></div>
+        <p>
+          Cannabis smoke contains many of the same toxic compounds and carcinogens as tobacco smoke — including
+          hydrogen cyanide, ammonia, and polycyclic aromatic hydrocarbons (PAHs). Regular smoking is associated
+          with <strong>chronic bronchitis symptoms</strong>: increased mucus production, persistent cough, and
+          more frequent respiratory tract infections.
+        </p>
+        <p style="margin-top:0.75rem;">
+          However — and this is a nuanced finding — despite decades of research, no study has
+          <strong>confirmed a causal link between cannabis smoking and lung cancer</strong> (unlike tobacco),
+          possibly because cannabis smokers typically inhale less smoke per day than tobacco smokers, or because
+          certain cannabinoids may have anti-tumorigenic properties that offset carcinogen exposure.
+          Switching to vaporization eliminates combustion byproducts while preserving cannabinoid delivery.
+        </p>
+        <div class="risk-callout risk-callout-teal">
+          <strong>Risk reduction:</strong> Vaporizers, edibles, tinctures, and capsules eliminate combustion risks
+          entirely. If smoking, use a water pipe to cool smoke, avoid holding hits (no benefit), and prefer
+          organic, unbleached rolling papers.
+        </div>
+        <div class="source-note mt-2">Source: Tashkin, Annals of the American Thoracic Society 2013; Owen et al., CHEST 2014</div>
+      </div>
+
+      <div class="risk-card risk-high">
+        <div class="risk-header">
+          <div class="risk-badge risk-badge-high">HIGH — For Vulnerable Individuals</div>
+          <h3>04. Acute Mental Health Effects</h3>
+        </div>
+        <div class="risk-meter"><div class="risk-meter-fill" style="width:75%;background:var(--risk-high);"></div></div>
+        <p>
+          High-THC cannabis can trigger acute psychiatric episodes in some users — including paranoia, anxiety,
+          panic attacks, and transient psychosis (confusion, hallucinations, disorganized thinking). These
+          effects are typically short-lived (resolving as THC is metabolized) but can be intensely distressing.
+          The risk increases substantially with:
+        </p>
+        <ul class="risk-list">
+          <li>High THC concentration products (&gt;20% THC)</li>
+          <li>Personal or family history of schizophrenia, bipolar disorder, or psychosis</li>
+          <li>Inexperience with cannabis (no tolerance)</li>
+          <li>Edible consumption (unpredictable onset and intensity)</li>
+          <li>Concurrent use with alcohol or other substances</li>
+        </ul>
+        <p style="margin-top:0.75rem;">
+          <strong>CBD counteraction:</strong> CBD appears to modulate some THC-induced anxiety effects. Products
+          with a balanced THC:CBD ratio (1:1 or 2:1 THC:CBD) typically produce less anxiety than high-THC,
+          low-CBD products, supporting the entourage effect theory.
+        </p>
+        <div class="source-note mt-2">Source: D'Souza et al., Neuropsychopharmacology 2004; Morgan et al., British Journal of Psychiatry 2010</div>
+      </div>
+
+      <div class="risk-card risk-contested">
+        <div class="risk-header">
+          <div class="risk-badge risk-badge-contested">CONTESTED EVIDENCE</div>
+          <h3>05. Schizophrenia Association</h3>
+        </div>
+        <div class="risk-meter"><div class="risk-meter-fill" style="width:65%;background:#a78bfa;"></div></div>
+        <p>
+          Epidemiological studies consistently show a correlation between heavy cannabis use and elevated rates of
+          schizophrenia — with heavy users showing approximately 2-3x higher risk. This is one of the most
+          debated topics in cannabis science, with several key nuances:
+        </p>
+        <ul class="risk-list">
+          <li><strong>Correlation ≠ causation:</strong> Those with schizophrenia predisposition may self-medicate with cannabis before diagnosis (reverse causation).</li>
+          <li><strong>Genetic moderation:</strong> The risk appears concentrated in individuals with COMT Val158Met genetic variant affecting dopamine metabolism.</li>
+          <li><strong>Dose and potency dependent:</strong> High-potency THC-only concentrates (>25% THC, no CBD) carry higher risk than balanced whole-plant preparations.</li>
+          <li><strong>Population paradox:</strong> As cannabis use has increased globally, schizophrenia rates have not increased proportionally — suggesting cannabis is neither necessary nor sufficient to cause schizophrenia.</li>
+        </ul>
+        <div class="risk-callout risk-callout-purple">
+          <strong>Consensus:</strong> Cannabis is not safe for people with personal or family history of psychosis
+          or schizophrenia. For those without such predisposition, the absolute risk is low but real.
+        </div>
+        <div class="source-note mt-2">Source: Moore et al., Lancet 2007; Murray et al., Schizophrenia Bulletin 2021</div>
+      </div>
+
+      <div class="risk-card risk-moderate">
+        <div class="risk-header">
+          <div class="risk-badge risk-badge-moderate">MODERATE CONCERN</div>
+          <h3>06. Cardiovascular Effects</h3>
+        </div>
+        <div class="risk-meter"><div class="risk-meter-fill" style="width:45%;background:var(--risk-moderate);"></div></div>
+        <p>
+          THC causes tachycardia (increased heart rate) — typically raising heart rate by 20-100% for 30-90
+          minutes after consumption. This places increased demand on the cardiovascular system. A 2001 study in
+          <em>Circulation</em> found a <strong>4.8-fold increased risk of myocardial infarction (heart attack)
+          in the first hour</strong> after cannabis use in middle-aged patients with pre-existing cardiovascular
+          disease. Case reports of cannabis-associated coronary artery spasm and cardiac arrhythmia exist,
+          though absolute rates remain low in healthy young adults.
+        </p>
+        <div class="risk-callout risk-callout-orange">
+          <strong>At-risk population:</strong> People with existing cardiovascular disease, heart arrhythmias,
+          hypertension, or significant atherosclerosis should avoid cannabis or use only under medical supervision.
+          CBD does not cause tachycardia and may actually have cardioprotective properties.
+        </div>
+        <div class="source-note mt-2">Source: Mittleman et al., Circulation 2001; Pacher et al., Journal of the American College of Cardiology 2018</div>
+      </div>
+
+      <div class="risk-card risk-high">
+        <div class="risk-header">
+          <div class="risk-badge risk-badge-high">HIGH CONCERN</div>
+          <h3>07. Pregnancy &amp; Breastfeeding</h3>
+        </div>
+        <div class="risk-meter"><div class="risk-meter-fill" style="width:95%;background:var(--risk-high);"></div></div>
+        <p>
+          Cannabis use during pregnancy is associated with <strong>low birth weight, preterm birth, stillbirth,
+          and neurodevelopmental abnormalities</strong> in children. THC crosses the placenta and accumulates
+          in fetal tissue. THC also crosses into breast milk and is detectable for weeks after maternal consumption.
+          Animal studies show that prenatal cannabinoid exposure alters dopamine and opioid signaling in offspring
+          brains.
+        </p>
+        <p style="margin-top:0.75rem;">
+          Survey data suggests that cannabis use during pregnancy is increasing — some women use it to manage
+          morning sickness. <strong>No safe level of cannabis use during pregnancy or breastfeeding has been
+          established.</strong> Major health organizations, including the American College of Obstetricians and
+          Gynecologists, recommend complete abstinence. Nausea during pregnancy should be managed with
+          evidence-based treatments.
+        </p>
+        <div class="source-note mt-2">Source: ACOG Committee Opinion 722; Gunn et al., BMJ Open 2016</div>
+      </div>
+
+      <div class="risk-card risk-moderate">
+        <div class="risk-header">
+          <div class="risk-badge risk-badge-moderate">IMPORTANT — Check Your Medications</div>
+          <h3>08. Drug Interactions</h3>
+        </div>
+        <div class="risk-meter"><div class="risk-meter-fill" style="width:60%;background:var(--risk-moderate);"></div></div>
+        <p>
+          Cannabis compounds — particularly CBD — can significantly interact with pharmaceutical medications:
+        </p>
+        <ul class="risk-list">
+          <li><strong>CBD inhibits CYP3A4 and CYP2C9 enzymes</strong> — the liver's primary drug-metabolizing systems. This can raise blood levels of many drugs, including warfarin (blood thinners), antiepileptics (clobazam, valproate), immunosuppressants (tacrolimus), and certain antidepressants.</li>
+          <li><strong>Potentiation of CNS depressants:</strong> Cannabis enhances the sedative effects of opioids, benzodiazepines, alcohol, and sleep medications — increasing risk of over-sedation.</li>
+          <li><strong>Variable effects with stimulants:</strong> Can interact unpredictably with amphetamines, cocaine, and certain ADHD medications.</li>
+          <li><strong>Blood pressure medications:</strong> Cannabis-induced tachycardia may interfere with rate-control medications.</li>
+        </ul>
+        <div class="risk-callout risk-callout-orange">
+          <strong>Always consult a pharmacist or physician</strong> before using cannabis if you take any prescription
+          medications. This is especially critical for anticoagulants, antiepileptics, and immunosuppressants
+          where precise blood levels are crucial.
+        </div>
+        <div class="source-note mt-2">Source: Nasrin et al., Drug Metabolism and Disposition 2021; Brown & Winterstein, Journal of Clinical Medicine 2019</div>
+      </div>
+
+      <div class="risk-card risk-high" style="grid-column: 1 / -1;">
+        <div class="risk-header">
+          <div class="risk-badge risk-badge-high">HIGH CONCERN — Never Drive</div>
+          <h3>09. Driving Impairment</h3>
+        </div>
+        <div class="risk-meter"><div class="risk-meter-fill" style="width:88%;background:var(--risk-high);"></div></div>
+        <p>
+          Cannabis significantly impairs driving-relevant cognitive and psychomotor functions: reaction time, divided
+          attention, lane tracking, speed maintenance, and decision-making under uncertainty. These impairments
+          are measurable even when users do not feel subjectively impaired — a particularly dangerous phenomenon.
+          Cannabis approximately <strong>doubles the risk of a motor vehicle accident</strong>.
+        </p>
+        <p style="margin-top:0.75rem;">
+          Duration of driving impairment: acute effects peak within 30 minutes of inhalation and substantially
+          resolve within 3-4 hours, but subtle impairments may persist longer. Regular users develop some
+          tolerance to subjective effects but <strong>not to driving impairment</strong> — experienced users
+          are still impaired even if they feel fine. Cannabis and alcohol together produce additive impairment
+          that is more dangerous than either alone.
+        </p>
+        <div class="risk-callout">
+          <strong>No amount of cannabis is safe to drive.</strong> Allow at least 4-6 hours after smoking/vaping
+          and significantly longer after edibles before driving. If in doubt, don't drive.
+        </div>
+        <div class="source-note mt-2">Source: Sewell et al., Clinical Pharmacology &amp; Therapeutics 2009; Hartman &amp; Huestis, Clinical Chemistry 2013</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 4 · CONSUMPTION METHODS
+═══════════════════════════════════════════════════════ -->
+<section class="section-alt" id="consumption">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Harm Reduction</div>
+      <h2>🌬️ Consumption Methods &amp; Harm Reduction</h2>
+      <p>How you consume cannabis dramatically affects onset, duration, intensity, and safety. Understanding pharmacokinetics helps prevent adverse experiences.</p>
+    </div>
+
+    <div class="methods-table-wrap">
+      <table class="methods-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Onset</th>
+            <th>Duration</th>
+            <th>Bioavailability</th>
+            <th>Risk Level</th>
+            <th>Key Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="method-name">🚬 Smoking</span></td>
+            <td>2–10 min</td>
+            <td>2–3 hrs</td>
+            <td>10–35%</td>
+            <td><span class="risk-pill risk-moderate-pill">Moderate</span></td>
+            <td>Respiratory risks from combustion. Use water pipe to cool smoke. Avoid tobacco mixing.</td>
+          </tr>
+          <tr>
+            <td><span class="method-name">💨 Vaporizing</span></td>
+            <td>2–10 min</td>
+            <td>2–3 hrs</td>
+            <td>50–80%</td>
+            <td><span class="risk-pill risk-low-pill">Low</span></td>
+            <td>Preferred over smoking. Heats cannabis below combustion, releasing cannabinoids without harmful byproducts. Much higher bioavailability.</td>
+          </tr>
+          <tr>
+            <td><span class="method-name">🍫 Edibles</span></td>
+            <td>30–120 min</td>
+            <td>4–8 hrs</td>
+            <td>4–20% (variable)</td>
+            <td><span class="risk-pill risk-caution-pill">Caution</span></td>
+            <td>Most common cause of overconsumption. THC converts to 11-hydroxy-THC in liver — more potent and longer-lasting. <strong>Start with 5mg THC. Wait 2 hours before redosing.</strong></td>
+          </tr>
+          <tr>
+            <td><span class="method-name">💧 Tinctures</span></td>
+            <td>15–45 min</td>
+            <td>2–4 hrs</td>
+            <td>20–30%</td>
+            <td><span class="risk-pill risk-low-pill">Low</span></td>
+            <td>Sublingual (under tongue) absorption provides faster onset than swallowed. Precise dosing with dropper. Good for medical users needing consistent dosing.</td>
+          </tr>
+          <tr>
+            <td><span class="method-name">💊 Capsules / Pills</span></td>
+            <td>30–90 min</td>
+            <td>4–6 hrs</td>
+            <td>Similar to edibles</td>
+            <td><span class="risk-pill risk-low-pill">Low</span></td>
+            <td>Most consistent dosing method. No taste. Similar metabolism to edibles (hepatic first-pass). Ideal for medical use. Onset depends on stomach contents.</td>
+          </tr>
+          <tr>
+            <td><span class="method-name">🧴 Topicals</span></td>
+            <td>15–45 min (local)</td>
+            <td>2–4 hrs (local)</td>
+            <td>Minimal systemic</td>
+            <td><span class="risk-pill risk-verylow-pill">Very Low</span></td>
+            <td>Creams, balms, patches applied to skin. Target CB2 receptors in skin and peripheral tissue. <strong>No psychoactive effects</strong> (unless transdermal patch designed for systemic delivery). Ideal for localized pain, inflammation, arthritis.</td>
+          </tr>
+          <tr>
+            <td><span class="method-name">🔥 Dabbing</span></td>
+            <td>2–5 min</td>
+            <td>2–3 hrs</td>
+            <td>Very high</td>
+            <td><span class="risk-pill risk-high-pill">High</span></td>
+            <td>Concentrated cannabis extracts (60–99% THC). Extreme potency — not for inexperienced users. Dramatically elevated tolerance, withdrawal risk, and mental health risks with regular use.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Edibles Warning Box -->
+    <div class="highlight-box highlight-gold" style="margin:2rem 0;">
+      <h4 style="color:var(--accent-gold);margin-bottom:0.5rem;">⚠️ The Edibles Problem — Read This Carefully</h4>
+      <p>
+        Edibles are responsible for the majority of cannabis-related emergency department visits. The delay between
+        consumption and effect (30-120 minutes) leads users to consume more, assuming the first dose "didn't work" —
+        then both doses hit simultaneously. THC in edibles is converted by the liver to
+        <strong>11-hydroxy-THC</strong>, which is more potent and crosses the blood-brain barrier more readily than
+        inhaled THC. The result: an overwhelming experience that can last 8+ hours.
+        <strong>The golden rule: start with 2.5-5mg THC, wait a full 2 hours, then decide about more.</strong>
+        Even experienced smokers should start low with edibles.
+      </p>
+    </div>
+
+    <!-- Harm Reduction Tips -->
+    <div class="harm-reduction-section">
+      <h3 style="margin-bottom:1.5rem;color:var(--text);">Harm Reduction Best Practices</h3>
+      <div class="harm-grid">
+        <div class="harm-tip harm-tip-green">
+          <div class="harm-tip-icon">🐢</div>
+          <h4>Start Low, Go Slow</h4>
+          <p>Begin with the lowest effective dose — especially with edibles. You can always take more; you cannot take less. This is the single most important harm reduction practice.</p>
+        </div>
+        <div class="harm-tip harm-tip-green">
+          <div class="harm-tip-icon">⚖️</div>
+          <h4>Choose Balanced Products</h4>
+          <p>Select products with a ratio of THC to CBD rather than pure THC. CBD modulates some of THC's anxiety-producing effects. Ratios of 1:1 or 2:1 (THC:CBD) are generally better tolerated.</p>
+        </div>
+        <div class="harm-tip harm-tip-yellow">
+          <div class="harm-tip-icon">🏷️</div>
+          <h4>Know Your Source</h4>
+          <p>Use lab-tested, licensed dispensary products with verified cannabinoid content. Unregulated products may contain pesticides, mold, heavy metals, or inaccurate labeling — all serious health hazards.</p>
+        </div>
+        <div class="harm-tip harm-tip-yellow">
+          <div class="harm-tip-icon">🚗</div>
+          <h4>Never Drive Impaired</h4>
+          <p>Cannabis impairs driving regardless of tolerance. Plan transportation before consuming. Effects from edibles may last 6-8 hours — plan accordingly.</p>
+        </div>
+        <div class="harm-tip harm-tip-red">
+          <div class="harm-tip-icon">🧪</div>
+          <h4>Avoid Dangerous Combinations</h4>
+          <p>Cannabis combined with alcohol dramatically increases impairment and adverse effects. Avoid mixing with other sedatives, stimulants, or opioids. Know your medications' interactions with CBD.</p>
+        </div>
+        <div class="harm-tip harm-tip-red">
+          <div class="harm-tip-icon">👶</div>
+          <h4>Age &amp; Medical Exclusions</h4>
+          <p>Avoid if under 21 (ideally 25+ for brain development). Never use during pregnancy or breastfeeding. Avoid if you have personal or family history of psychosis, schizophrenia, or bipolar disorder.</p>
+        </div>
+        <div class="harm-tip harm-tip-green">
+          <div class="harm-tip-icon">🌍</div>
+          <h4>Set &amp; Setting Matter</h4>
+          <p>Your environment, mindset, and companions significantly influence the experience. First-time or low-tolerance users should consume in a safe, comfortable setting with a trusted, sober friend present.</p>
+        </div>
+        <div class="harm-tip harm-tip-yellow">
+          <div class="harm-tip-icon">📉</div>
+          <h4>Take Tolerance Breaks</h4>
+          <p>Regular use builds tolerance and increases dependence risk. Periodic tolerance breaks (2-4 weeks) maintain sensitivity, reduce CUD risk, and can help assess your relationship with cannabis.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 5 · CANNABIS VS. OTHER SUBSTANCES
+═══════════════════════════════════════════════════════ -->
+<section class="section" id="comparison">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Comparative Pharmacology</div>
+      <h2>Cannabis vs. Other Substances</h2>
+      <p>
+        A science-based comparison of relative harm across common psychoactive substances.
+        Based on David Nutt et al.'s landmark 2010 <em>Lancet</em> analysis of drug harm.
+      </p>
+    </div>
+
+    <div class="highlight-box highlight-teal" style="margin-bottom:2.5rem;">
+      <p>
+        <strong>Important context:</strong> Lower harm scores for cannabis do not mean cannabis is harmless.
+        They reflect that <em>some</em> other legal substances carry higher individual and societal harm profiles.
+        All psychoactive substances carry risks; the goal is accurate, relative understanding — not justification
+        for uncritical use.
+      </p>
+    </div>
+
+    <div class="comparison-grid">
+
+      <div class="comparison-substance cs-cannabis">
+        <div class="cs-name">🌿 Cannabis</div>
+        <div class="cs-metrics">
+          <div class="cs-metric">
+            <div class="cs-metric-label">Addiction Potential</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:30%;background:#fbbf24;"></div></div>
+            <div class="cs-metric-val">Low-Moderate (9%)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Overdose Risk</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:5%;background:#4ade80;"></div></div>
+            <div class="cs-metric-val">Very Low (no lethal dose established)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Physical Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:25%;background:#fbbf24;"></div></div>
+            <div class="cs-metric-val">Low-Moderate</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Social Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:20%;background:#4ade80;"></div></div>
+            <div class="cs-metric-val">Low</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-substance cs-alcohol">
+        <div class="cs-name">🍺 Alcohol</div>
+        <div class="cs-metrics">
+          <div class="cs-metric">
+            <div class="cs-metric-label">Addiction Potential</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:55%;background:#f87171;"></div></div>
+            <div class="cs-metric-val">High (15%)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Overdose Risk</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:65%;background:#f87171;"></div></div>
+            <div class="cs-metric-val">High (fatal at high doses)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Physical Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:72%;background:#f87171;"></div></div>
+            <div class="cs-metric-val">Very High (liver, brain, pancreas)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Social Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:80%;background:#f87171;"></div></div>
+            <div class="cs-metric-val">Very High (DUI, violence, abuse)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-substance cs-tobacco">
+        <div class="cs-name">🚬 Tobacco / Nicotine</div>
+        <div class="cs-metrics">
+          <div class="cs-metric">
+            <div class="cs-metric-label">Addiction Potential</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:85%;background:#f87171;"></div></div>
+            <div class="cs-metric-val">Extreme (32%)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Overdose Risk</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:20%;background:#fbbf24;"></div></div>
+            <div class="cs-metric-val">Low-Moderate</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Physical Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:90%;background:#f87171;"></div></div>
+            <div class="cs-metric-val">Extreme (lung, cardiovascular cancer)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Social Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:30%;background:#fbbf24;"></div></div>
+            <div class="cs-metric-val">Low-Moderate</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-substance cs-caffeine">
+        <div class="cs-name">☕ Caffeine</div>
+        <div class="cs-metrics">
+          <div class="cs-metric">
+            <div class="cs-metric-label">Addiction Potential</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:20%;background:#4ade80;"></div></div>
+            <div class="cs-metric-val">Low (mild dependence)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Overdose Risk</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:10%;background:#4ade80;"></div></div>
+            <div class="cs-metric-val">Very Low (requires extreme amounts)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Physical Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:10%;background:#4ade80;"></div></div>
+            <div class="cs-metric-val">Very Low</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Social Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:5%;background:#4ade80;"></div></div>
+            <div class="cs-metric-val">Negligible</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-substance cs-heroin">
+        <div class="cs-name">💉 Heroin</div>
+        <div class="cs-metrics">
+          <div class="cs-metric">
+            <div class="cs-metric-label">Addiction Potential</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:95%;background:#f87171;"></div></div>
+            <div class="cs-metric-val">Extreme (23%)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Overdose Risk</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:98%;background:#f87171;"></div></div>
+            <div class="cs-metric-val">Extreme (narrow therapeutic index)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Physical Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:88%;background:#f87171;"></div></div>
+            <div class="cs-metric-val">Extreme</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Social Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:85%;background:#f87171;"></div></div>
+            <div class="cs-metric-val">Very High</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-substance cs-psilocybin">
+        <div class="cs-name">🍄 Psilocybin</div>
+        <div class="cs-metrics">
+          <div class="cs-metric">
+            <div class="cs-metric-label">Addiction Potential</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:5%;background:#4ade80;"></div></div>
+            <div class="cs-metric-val">Very Low (no physical dependence)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Overdose Risk</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:3%;background:#4ade80;"></div></div>
+            <div class="cs-metric-val">Extremely Low</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Physical Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:8%;background:#4ade80;"></div></div>
+            <div class="cs-metric-val">Very Low (psychological risks exist)</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric-label">Social Harm</div>
+            <div class="cs-bar-wrap"><div class="cs-bar" style="width:8%;background:#4ade80;"></div></div>
+            <div class="cs-metric-val">Very Low</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="source-note text-center" style="margin-top:1.5rem;">
+      Reference: Nutt et al., "Drug harms in the UK: a multicriteria decision analysis," <em>The Lancet</em>, 2010 (376:9752).
+      Note: Harm scores are relative and context-dependent; individual outcomes vary widely.
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 6 · DOSING GUIDE
+═══════════════════════════════════════════════════════ -->
+<section class="section-alt" id="dosing">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Pharmacology</div>
+      <h2>💊 Understanding Dosage</h2>
+      <p>Dosing cannabis is highly individual. Body weight, metabolism, tolerance, endocannabinoid system sensitivity,
+      consumption method, and genetics all influence response. Use these as starting frameworks, not fixed prescriptions.</p>
+    </div>
+
+    <div class="dosing-grid">
+
+      <!-- THC Dosing -->
+      <div class="dosing-column">
+        <div class="dosing-header thc-dosing-header">
+          <div class="dosing-molecule">Δ9-THC</div>
+          <h3>THC Dosing Guide</h3>
+          <p>Psychoactive — effects are strongly dose-dependent. Tolerance significantly increases dosage requirements over time.</p>
+        </div>
+
+        <div class="dose-level dose-micro">
+          <div class="dose-level-header">
+            <div class="dose-range">1–2.5 mg THC</div>
+            <div class="dose-name">Microdose</div>
+          </div>
+          <div class="dose-bar-wrap"><div class="dose-bar" style="width:10%;"></div></div>
+          <p>Subtle mood enhancement, mild creativity boost, slight pain relief. No perceptible psychoactive effect in most users. Ideal for first-timers, medical users needing function, daytime use, or those sensitive to THC. Popular in microdosing communities for productivity and mood.</p>
+        </div>
+
+        <div class="dose-level dose-low">
+          <div class="dose-level-header">
+            <div class="dose-range">2.5–10 mg THC</div>
+            <div class="dose-name">Low Dose</div>
+          </div>
+          <div class="dose-bar-wrap"><div class="dose-bar" style="width:25%;"></div></div>
+          <p>Moderate relief of pain, anxiety, and sleep difficulties. Mild psychoactive effect — euphoria, relaxation, altered perception. Standard recreational dose for occasional users. Most legal edible products in regulated markets default to 5mg or 10mg doses. Good starting point for medical applications.</p>
+        </div>
+
+        <div class="dose-level dose-moderate">
+          <div class="dose-level-header">
+            <div class="dose-range">10–30 mg THC</div>
+            <div class="dose-name">Moderate Dose</div>
+          </div>
+          <div class="dose-bar-wrap"><div class="dose-bar" style="width:50%;"></div></div>
+          <p>Stronger psychoactive effects — significant euphoria, perceptual changes, time distortion, increased appetite. More potent pain and sleep effects. Appropriate for experienced users with established tolerance. May cause anxiety or discomfort in those without tolerance. Used in clinical trials for chronic pain and sleep disorders.</p>
+        </div>
+
+        <div class="dose-level dose-high">
+          <div class="dose-level-header">
+            <div class="dose-range">30–50 mg THC</div>
+            <div class="dose-name">High Dose</div>
+          </div>
+          <div class="dose-bar-wrap"><div class="dose-bar" style="width:72%;"></div></div>
+          <p>Very strong effects — primarily for individuals with high tolerance or specific medical conditions (e.g., cancer pain, severe sleep disorders). Significant impairment likely. Increased risk of adverse effects (paranoia, anxiety, disorientation) even in experienced users. Not appropriate for occasional users.</p>
+        </div>
+
+        <div class="dose-level dose-veryhigh">
+          <div class="dose-level-header">
+            <div class="dose-range">50+ mg THC</div>
+            <div class="dose-name">Very High / Clinical Range</div>
+          </div>
+          <div class="dose-bar-wrap"><div class="dose-bar" style="width:95%;"></div></div>
+          <p>Extreme effects — primarily relevant in clinical settings or for patients with very high tolerance from chronic medical use. High risk of acute adverse reactions in most users. Cannabis cannot cause a fatal overdose (no lethal dose established in humans), but very high doses can produce extreme disorientation, anxiety, rapid heart rate, and temporary psychosis-like symptoms that, while not life-threatening, are highly distressing.</p>
+          <div class="dose-warning">⚠️ Not for recreational use. Seek medical guidance.</div>
+        </div>
+      </div>
+
+      <!-- CBD Dosing -->
+      <div class="dosing-column">
+        <div class="dosing-header cbd-dosing-header">
+          <div class="dosing-molecule">CBD</div>
+          <h3>CBD Dosing Guide</h3>
+          <p>Non-psychoactive — no "high" at any dose. Generally well-tolerated. Effects are subtle and build over consistent use for many conditions.</p>
+        </div>
+
+        <div class="dose-level dose-cbd-wellness">
+          <div class="dose-level-header">
+            <div class="dose-range">10–25 mg/day</div>
+            <div class="dose-name">General Wellness</div>
+          </div>
+          <div class="dose-bar-wrap"><div class="dose-bar" style="width:15%;background:#2dd4bf;"></div></div>
+          <p>Starting point for CBD supplementation for general wellbeing, mild stress relief, or sleep support. Effects are subtle — many users don't notice dramatic changes but report cumulative improvements over 2-4 weeks of consistent use. Works better with consistent daily dosing than occasional use.</p>
+        </div>
+
+        <div class="dose-level dose-cbd-anxiety">
+          <div class="dose-level-header">
+            <div class="dose-range">15–50 mg/day</div>
+            <div class="dose-name">Anxiety &amp; Mood</div>
+          </div>
+          <div class="dose-bar-wrap"><div class="dose-bar" style="width:30%;background:#2dd4bf;"></div></div>
+          <p>Range studied in human anxiety trials. The landmark 2011 social anxiety study used 600mg pre-dose (acute), while ongoing anxiety management typically uses lower daily doses. Most over-the-counter CBD products in this range show benefit for situational anxiety and stress. Interacts with 5-HT1A serotonin receptors — similar pathway to SSRIs, but not equivalent in effect strength.</p>
+        </div>
+
+        <div class="dose-level dose-cbd-pain">
+          <div class="dose-level-header">
+            <div class="dose-range">20–100 mg/day</div>
+            <div class="dose-name">Pain &amp; Inflammation</div>
+          </div>
+          <div class="dose-bar-wrap"><div class="dose-bar" style="width:55%;background:#2dd4bf;"></div></div>
+          <p>Higher doses required for meaningful pain modulation. CBD affects pain through multiple mechanisms: TRPV1 desensitization (pain receptor), ECS anandamide elevation, and anti-inflammatory COX-2 inhibition. Topical CBD products in this range are used for localized joint and muscle pain. Oral CBD for neuropathic pain typically requires the higher end of this range.</p>
+        </div>
+
+        <div class="dose-level dose-cbd-neuro">
+          <div class="dose-level-header">
+            <div class="dose-range">100–300 mg/day</div>
+            <div class="dose-name">Neurological / Sleep Disorders</div>
+          </div>
+          <div class="dose-bar-wrap"><div class="dose-bar" style="width:80%;background:#2dd4bf;"></div></div>
+          <p>Range used in MS, Parkinson's, and sleep disorder studies. At this level, potential drug interactions become more clinically relevant — particularly CYP enzyme inhibition affecting other medications. Physician guidance recommended. May cause drowsiness, dry mouth, or diarrhea at the higher end. Generally well-tolerated compared to pharmaceutical alternatives.</p>
+        </div>
+
+        <div class="dose-level dose-cbd-clinical">
+          <div class="dose-level-header">
+            <div class="dose-range">200–300+ mg/day</div>
+            <div class="dose-name">Clinical Epilepsy (Medical Supervision Required)</div>
+          </div>
+          <div class="dose-bar-wrap"><div class="dose-bar" style="width:95%;background:#2dd4bf;"></div></div>
+          <p>Range used in FDA-approved Epidiolex trials for treatment-resistant epilepsy. Starting dose of 5mg/kg/day, titrated to 20mg/kg/day maximum. Requires blood level monitoring for drug interactions (Epidiolex elevates clobazam levels significantly). Liver enzyme elevation possible at high doses — liver function monitoring recommended. This dose range is <strong>only appropriate under specialist neurological care</strong>.</p>
+          <div class="dose-warning dose-warning-teal">⚕️ Medical supervision required at this dose range.</div>
+        </div>
+
+        <!-- CBD Side Effects -->
+        <div class="cbd-effects-box">
+          <h4 style="margin-bottom:1rem;color:#fff;">CBD: Common Side Effects &amp; Interactions</h4>
+          <div class="grid-2" style="gap:1rem;">
+            <div>
+              <div style="color:var(--primary);font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">GENERALLY BENIGN:</div>
+              <ul class="check-list">
+                <li>Dry mouth</li>
+                <li>Mild drowsiness (higher doses)</li>
+                <li>Appetite changes</li>
+                <li>Mild diarrhea (high doses)</li>
+              </ul>
+            </div>
+            <div>
+              <div style="color:#f87171;font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">WATCH FOR:</div>
+              <ul class="cross-list">
+                <li>Liver enzyme elevation (high doses)</li>
+                <li>Drug interactions (CYP enzymes)</li>
+                <li>Warfarin level changes</li>
+                <li>Antiepileptic level changes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Final Disclaimer -->
+    <div class="final-disclaimer">
+      <div class="disclaimer-icon-large">⚕️</div>
+      <div>
+        <h3 style="color:var(--text);margin-bottom:0.75rem;">A Final Word on Medical Use</h3>
+        <p>
+          Cannabis medicine is a legitimate and rapidly evolving field, but it exists within a complex landscape of
+          legal variation, incomplete research, and significant individual variability. The science is clear that
+          cannabis offers real benefits for real conditions — and real risks that deserve respect. Effective medical
+          use combines appropriate product selection, accurate dosing, awareness of personal risk factors, and
+          ideally, involvement of a knowledgeable healthcare provider.
+        </p>
+        <p style="margin-top:0.75rem;">
+          If you're considering cannabis for a medical condition: start by consulting your physician or a
+          cannabis-informed pharmacist, document your symptoms before and during use, start with the lowest
+          effective dose of a product with verified lab testing, and give it sufficient time — many therapeutic
+          effects are cumulative and may take 2-4 weeks of consistent use to fully emerge.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</Layout>
+
+<style>
+/* ══════════════════════════════════════════════
+   PAGE HERO
+══════════════════════════════════════════════ */
+.page-hero {
+  padding: 5rem 0 3rem;
+  background: linear-gradient(135deg, #d4ead9 0%, #e0ede5 40%, #f4f7f5 100%);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 70% at 80% 20%, rgba(74,222,128,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-hero h1 { margin-bottom: 0.75rem; }
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin-bottom: 2rem;
+  line-height: 1.75;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(74,222,128,0.1);
+  border: 1px solid rgba(74,222,128,0.25);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+}
+
+/* Disclaimer Banner */
+.disclaimer-banner {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: rgba(251,191,36,0.08);
+  border: 1px solid rgba(251,191,36,0.3);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+.disclaimer-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+.disclaimer-banner p { color: var(--text-muted); font-size: 0.92rem; margin: 0; }
+.disclaimer-banner strong { color: var(--accent-gold); }
+
+/* TOC Nav */
+.toc-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.toc-nav a {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(74,222,128,0.08);
+  border: 1px solid rgba(74,222,128,0.2);
+  border-radius: 50px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.toc-nav a:hover {
+  background: rgba(74,222,128,0.18);
+  border-color: rgba(74,222,128,0.5);
+}
+
+/* ══════════════════════════════════════════════
+   ECS SECTION
+══════════════════════════════════════════════ */
+.ecs-diagram {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+}
+.ecs-diagram-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.ecs-node {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.ecs-node-title {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.ecs-endocannabinoid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: rgba(74,222,128,0.05);
+  border-radius: 6px;
+}
+.ecs-endocannabinoid strong { color: var(--text); font-size: 0.95rem; }
+.ecs-endocannabinoid span { color: var(--accent-teal); font-size: 0.8rem; font-style: italic; }
+.ecs-endocannabinoid small { color: var(--text-muted); font-size: 0.78rem; }
+.ecs-arrow-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.ecs-arrow { font-size: 2.5rem; color: var(--primary); opacity: 0.7; }
+.ecs-arrow-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.ecs-receptors-col { display: flex; flex-direction: column; gap: 1rem; }
+.ecs-receptor {
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  border: 1px solid;
+}
+.ecs-cb1 { background: rgba(167,139,250,0.06); border-color: rgba(167,139,250,0.25); }
+.ecs-cb2 { background: rgba(45,212,191,0.06); border-color: rgba(45,212,191,0.25); }
+.ecs-receptor-title { font-weight: 700; color: var(--text); font-size: 0.95rem; margin-bottom: 0.35rem; }
+.ecs-receptor-location { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+.ecs-effects-list { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin-bottom: 0.75rem; }
+.ecs-effects-list li {
+  background: var(--bg-alt);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.77rem;
+  color: var(--text-muted);
+}
+.ecs-note { font-size: 0.78rem; color: var(--accent-gold); font-style: italic; }
+.ecs-regulates {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+.ecs-regulates-title { font-weight: 700; color: var(--text); margin-bottom: 1rem; }
+.ecs-regulates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.6rem;
+}
+.ecs-regulate-item {
+  background: rgba(74,222,128,0.07);
+  border: 1px solid rgba(74,222,128,0.15);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.82rem;
+  color: var(--primary-light);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Cannabinoid Cards */
+.cannabinoid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+.cannabinoid-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cannabinoid-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.cannabinoid-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.cannabinoid-abbr { font-size: 1.5rem; font-weight: 800; line-height: 1; }
+.cannabinoid-name { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; font-style: italic; }
+.cannabinoid-body { padding: 1.25rem 1.5rem 1.5rem; }
+.cannabinoid-body p { font-size: 0.9rem; }
+.cannabinoid-effects { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+.effect-tag {
+  padding: 0.22rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.73rem;
+  font-weight: 600;
+}
+.effect-pos { background: rgba(74,222,128,0.1); color: var(--primary-light); border: 1px solid rgba(74,222,128,0.2); }
+.effect-neg { background: rgba(248,113,113,0.1); color: #fca5a5; border: 1px solid rgba(248,113,113,0.2); }
+
+/* Cannabinoid accent colors */
+.thc-card .cannabinoid-abbr { color: var(--accent-purple); }
+.cbd-card .cannabinoid-abbr { color: var(--primary); }
+.cbg-card .cannabinoid-abbr { color: var(--accent-teal); }
+.cbn-card .cannabinoid-abbr { color: #fb923c; }
+.cbc-card .cannabinoid-abbr { color: #60a5fa; }
+.thcv-card .cannabinoid-abbr { color: var(--accent-gold); }
+
+/* Terpenes */
+.terpene-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-top: 2.5rem;
+}
+.terpene-header { margin-bottom: 1.5rem; }
+.terpene-body > p { margin-bottom: 0; }
+.terpene-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.terpene-card {
+  background: rgba(10,15,13,0.5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+}
+.terpene-name { font-weight: 700; color: var(--primary-light); margin-bottom: 0.25rem; }
+.terpene-scent { font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-bottom: 0.6rem; }
+.terpene-card p { font-size: 0.85rem; }
+
+/* ══════════════════════════════════════════════
+   BENEFITS SECTION
+══════════════════════════════════════════════ */
+.evidence-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.evidence-tier { margin-bottom: 3rem; }
+.evidence-tier-header { margin-bottom: 1.5rem; }
+.benefit-list { display: flex; flex-direction: column; gap: 1.25rem; }
+.benefit-item {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: border-color 0.2s;
+}
+.benefit-item:hover { border-color: rgba(74,222,128,0.3); }
+.benefit-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: rgba(74,222,128,0.25);
+  line-height: 1;
+  padding-top: 0.2rem;
+  font-variant-numeric: tabular-nums;
+}
+.benefit-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.benefit-title-row h3 { margin: 0; }
+.benefit-story {
+  margin-top: 0.75rem;
+  padding: 0.9rem 1rem;
+  background: rgba(74,222,128,0.05);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.source-note {
+  font-size: 0.75rem;
+  color: #475569;
+  font-style: italic;
+  margin-top: 0.75rem;
+}
+.moderate-card { position: relative; }
+.moderate-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: rgba(251,191,36,0.3);
+  margin-bottom: 0.5rem;
+}
+.emerging-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+.emerging-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(45,212,191,0.2);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.emerging-card:hover { border-color: rgba(45,212,191,0.4); transform: translateY(-2px); }
+.emerging-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+.emerging-card h4 { color: var(--accent-teal); margin-bottom: 0.6rem; }
+
+/* ══════════════════════════════════════════════
+   RISKS SECTION
+══════════════════════════════════════════════ */
+:root {
+  --risk-high: #f87171;
+  --risk-moderate: #fbbf24;
+}
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+.risk-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+.risk-high { border-left: 4px solid #f87171; }
+.risk-moderate { border-left: 4px solid #fbbf24; }
+.risk-contested { border-left: 4px solid var(--accent-purple); }
+.risk-header { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+.risk-header h3 { font-size: 1.05rem; color: var(--text); }
+.risk-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+.risk-badge-high { background: rgba(248,113,113,0.15); color: #fca5a5; }
+.risk-badge-moderate { background: rgba(251,191,36,0.15); color: #fde68a; }
+.risk-badge-contested { background: rgba(167,139,250,0.15); color: var(--accent-purple); }
+.risk-meter {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+}
+.risk-meter-fill { height: 100%; border-radius: 2px; transition: width 0.5s; }
+.risk-list { list-style: none; margin: 0.75rem 0; }
+.risk-list li {
+  padding: 0.35rem 0 0.35rem 1.4rem;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+.risk-list li::before { content: '•'; position: absolute; left: 0; color: var(--primary); }
+.risk-callout {
+  margin-top: 1rem;
+  padding: 1rem 1.15rem;
+  background: rgba(248,113,113,0.07);
+  border: 1px solid rgba(248,113,113,0.2);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.risk-callout strong { color: #fca5a5; }
+.risk-callout-teal { background: rgba(45,212,191,0.07); border-color: rgba(45,212,191,0.2); }
+.risk-callout-teal strong { color: var(--accent-teal); }
+.risk-callout-orange { background: rgba(251,191,36,0.07); border-color: rgba(251,191,36,0.2); }
+.risk-callout-orange strong { color: var(--accent-gold); }
+.risk-callout-purple { background: rgba(167,139,250,0.07); border-color: rgba(167,139,250,0.2); }
+.risk-callout-purple strong { color: var(--accent-purple); }
+
+/* ══════════════════════════════════════════════
+   CONSUMPTION METHODS
+══════════════════════════════════════════════ */
+.methods-table-wrap { overflow-x: auto; border-radius: var(--radius); }
+.methods-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+.methods-table th {
+  background: rgba(74,222,128,0.08);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.methods-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(30,58,40,0.5);
+  color: var(--text-muted);
+  vertical-align: top;
+}
+.methods-table tr:last-child td { border-bottom: none; }
+.methods-table tr:hover td { background: rgba(74,222,128,0.025); }
+.method-name { font-weight: 600; color: var(--text); white-space: nowrap; }
+.risk-pill {
+  display: inline-block;
+  padding: 0.22rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.risk-verylow-pill { background: rgba(74,222,128,0.12); color: var(--primary-light); }
+.risk-low-pill { background: rgba(74,222,128,0.12); color: var(--primary-light); }
+.risk-caution-pill { background: rgba(251,191,36,0.12); color: var(--accent-gold); }
+.risk-moderate-pill { background: rgba(251,191,36,0.12); color: var(--accent-gold); }
+.risk-high-pill { background: rgba(248,113,113,0.12); color: #fca5a5; }
+
+/* Harm Reduction Tips */
+.harm-reduction-section { margin-top: 3rem; }
+.harm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.harm-tip {
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  border: 1px solid;
+}
+.harm-tip-green { background: rgba(74,222,128,0.05); border-color: rgba(74,222,128,0.2); }
+.harm-tip-yellow { background: rgba(251,191,36,0.05); border-color: rgba(251,191,36,0.2); }
+.harm-tip-red { background: rgba(248,113,113,0.05); border-color: rgba(248,113,113,0.2); }
+.harm-tip-icon { font-size: 1.75rem; margin-bottom: 0.6rem; }
+.harm-tip h4 { margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text); }
+.harm-tip p { font-size: 0.85rem; }
+
+/* ══════════════════════════════════════════════
+   COMPARISON SECTION
+══════════════════════════════════════════════ */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+.comparison-substance {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.comparison-substance:hover { border-color: rgba(74,222,128,0.3); transform: translateY(-2px); }
+.cs-cannabis { border-color: rgba(74,222,128,0.25); }
+.cs-alcohol { border-color: rgba(248,113,113,0.2); }
+.cs-tobacco { border-color: rgba(248,113,113,0.2); }
+.cs-heroin { border-color: rgba(248,113,113,0.3); }
+.cs-name { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 1.25rem; }
+.cs-metrics { display: flex; flex-direction: column; gap: 0.85rem; }
+.cs-metric { }
+.cs-metric-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.35rem; font-weight: 600; letter-spacing: 0.03em; }
+.cs-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  margin-bottom: 0.3rem;
+}
+.cs-bar { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.cs-metric-val { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ══════════════════════════════════════════════
+   DOSING GUIDE
+══════════════════════════════════════════════ */
+.dosing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+.dosing-column {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.dosing-header {
+  padding: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.thc-dosing-header { background: rgba(167,139,250,0.05); }
+.cbd-dosing-header { background: rgba(74,222,128,0.05); }
+.dosing-molecule {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.thc-dosing-header .dosing-molecule { color: var(--accent-purple); }
+.cbd-dosing-header .dosing-molecule { color: var(--primary); }
+.dosing-header h3 { color: var(--text); margin-bottom: 0.5rem; }
+.dose-level {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(30,58,40,0.5);
+}
+.dose-level:last-of-type { border-bottom: none; }
+.dose-level-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+.dose-range { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+.dose-name { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); }
+.dose-bar-wrap {
+  width: 100%;
+  height: 5px;
+  background: var(--border-light);
+  border-radius: 3px;
+  margin-bottom: 0.85rem;
+}
+.dose-bar { height: 100%; border-radius: 3px; background: var(--accent-purple); }
+.dose-micro { border-left: 3px solid rgba(74,222,128,0.5); }
+.dose-low { border-left: 3px solid rgba(74,222,128,0.7); }
+.dose-moderate { border-left: 3px solid var(--accent-gold); }
+.dose-high { border-left: 3px solid #fb923c; }
+.dose-veryhigh { border-left: 3px solid #f87171; }
+.dose-cbd-wellness, .dose-cbd-anxiety, .dose-cbd-pain, .dose-cbd-neuro, .dose-cbd-clinical {
+  border-left: 3px solid;
+}
+.dose-cbd-wellness { border-left-color: rgba(45,212,191,0.4); }
+.dose-cbd-anxiety { border-left-color: rgba(45,212,191,0.6); }
+.dose-cbd-pain { border-left-color: var(--accent-teal); }
+.dose-cbd-neuro { border-left-color: #fbbf24; }
+.dose-cbd-clinical { border-left-color: #f87171; }
+.dose-level p { font-size: 0.875rem; }
+.dose-warning {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  background: rgba(248,113,113,0.08);
+  border: 1px solid rgba(248,113,113,0.2);
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fca5a5;
+}
+.dose-warning-teal {
+  background: rgba(45,212,191,0.08);
+  border-color: rgba(45,212,191,0.2);
+  color: var(--accent-teal);
+}
+.cbd-effects-box {
+  padding: 1.75rem 2rem;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+}
+
+/* Final Disclaimer */
+.final-disclaimer {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-top: 3rem;
+  padding: 2rem 2.5rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(74,222,128,0.2);
+  border-radius: var(--radius);
+}
+.disclaimer-icon-large { font-size: 2.5rem; flex-shrink: 0; }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .ecs-diagram-grid { grid-template-columns: 1fr; }
+  .ecs-arrow-col { display: none; }
+  .cannabinoid-grid { grid-template-columns: 1fr; }
+  .dosing-grid { grid-template-columns: 1fr; }
+  .comparison-grid { grid-template-columns: 1fr; }
+  .risk-grid { grid-template-columns: 1fr; }
+  .risk-card[style*="grid-column"] { grid-column: 1 !important; }
+}
+@media (max-width: 768px) {
+  .benefit-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .benefit-number { font-size: 1rem; }
+  .page-hero { padding: 3rem 0 2rem; }
+  .methods-table { font-size: 0.8rem; }
+  .methods-table td, .methods-table th { padding: 0.7rem 0.7rem; }
+  .final-disclaimer { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+  .evidence-legend { flex-direction: column; align-items: flex-start; }
+  .terpene-grid { grid-template-columns: 1fr; }
+  .ecs-regulates-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+}
+@media (max-width: 480px) {
+  .harm-grid { grid-template-columns: 1fr; }
+  .emerging-grid { grid-template-columns: 1fr; }
+  .dosing-grid { grid-template-columns: 1fr; }
+  .dose-level { padding: 1.25rem 1.25rem; }
+  .dosing-header { padding: 1.5rem; }
+  .ecs-diagram { padding: 1.5rem; }
+}
+</style>

@@ -1,0 +1,1245 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Layout title="US Cannabis Legal Map" description="Interactive map of cannabis legal status across all 50 US states and D.C.">
+
+<div class="map-page">
+
+  <!-- Page Header -->
+  <div class="map-page-header">
+    <div class="container">
+      <h1 class="map-page-title">🗺️ US Cannabis Legal Map</h1>
+      <p class="map-page-subtitle">
+        Explore cannabis legal status across all 50 states and Washington D.C. Click any state to view
+        dispensaries and local regulations. Data current as of 2025.
+      </p>
+
+      <!-- Stats Bar -->
+      <div class="map-stats-bar">
+        <div class="map-stat-item">
+          <span class="map-stat-dot" style="background:#4ade80"></span>
+          <span class="map-stat-count">26</span>
+          <span class="map-stat-label">Fully Legal</span>
+        </div>
+        <div class="map-stat-div"></div>
+        <div class="map-stat-item">
+          <span class="map-stat-dot" style="background:#fbbf24"></span>
+          <span class="map-stat-count">18</span>
+          <span class="map-stat-label">Medical Only</span>
+        </div>
+        <div class="map-stat-div"></div>
+        <div class="map-stat-item">
+          <span class="map-stat-dot" style="background:#60a5fa"></span>
+          <span class="map-stat-count">2</span>
+          <span class="map-stat-label">Decriminalized</span>
+        </div>
+        <div class="map-stat-div"></div>
+        <div class="map-stat-item">
+          <span class="map-stat-dot" style="background:#f87171"></span>
+          <span class="map-stat-count">5</span>
+          <span class="map-stat-label">Illegal</span>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="map-legend">
+        <div class="map-legend-item">
+          <span class="map-legend-swatch" style="background:#4ade80"></span>
+          <span>Fully Legal <small>(recreational + medical)</small></span>
+        </div>
+        <div class="map-legend-item">
+          <span class="map-legend-swatch" style="background:#fbbf24"></span>
+          <span>Medical Only</span>
+        </div>
+        <div class="map-legend-item">
+          <span class="map-legend-swatch" style="background:#60a5fa"></span>
+          <span>Decriminalized</span>
+        </div>
+        <div class="map-legend-item">
+          <span class="map-legend-swatch" style="background:#f87171"></span>
+          <span>Illegal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Container -->
+  <div class="container">
+    <div class="map-wrapper">
+      <svg
+        id="us-map"
+        viewBox="0 0 960 600"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="Interactive US Cannabis Legal Status Map"
+      >
+        <!-- Alabama -->
+        <path id="AL" data-state="Alabama" data-status="medical"
+          d="M 636 348 L 641 350 L 650 352 L 654 358 L 655 370 L 657 395 L 658 406 L 658 416 L 650 416 L 638 414 L 634 410 L 634 398 L 631 386 L 630 374 L 631 362 L 633 354 Z" />
+        <!-- Alaska inset -->
+        <g transform="translate(0,0)">
+          <path id="AK" data-state="Alaska" data-status="fully-legal"
+            d="M 107 457 L 118 450 L 132 449 L 144 454 L 152 464 L 152 476 L 144 484 L 130 487 L 116 484 L 108 474 Z M 76 490 L 84 486 L 92 490 L 92 500 L 82 503 L 74 498 Z M 58 508 L 66 504 L 72 510 L 68 518 L 60 517 Z M 40 502 L 50 500 L 54 508 L 48 514 L 38 512 Z M 22 516 L 32 514 L 36 522 L 30 528 L 20 525 Z M 168 488 L 178 484 L 184 492 L 178 500 L 168 498 Z M 152 510 L 160 506 L 166 514 L 160 520 L 150 517 Z" />
+        </g>
+        <!-- Arizona -->
+        <path id="AZ" data-state="Arizona" data-status="fully-legal"
+          d="M 168 334 L 172 352 L 175 370 L 178 390 L 181 410 L 212 406 L 240 402 L 240 390 L 240 370 L 240 348 L 238 328 L 210 328 L 182 330 Z" />
+        <!-- Arkansas -->
+        <path id="AR" data-state="Arkansas" data-status="medical"
+          d="M 524 328 L 526 340 L 528 352 L 530 362 L 532 372 L 554 371 L 576 368 L 578 356 L 576 344 L 572 332 L 564 325 L 548 324 Z" />
+        <!-- California -->
+        <path id="CA" data-state="California" data-status="fully-legal"
+          d="M 88 228 L 80 244 L 74 260 L 68 276 L 64 292 L 64 308 L 66 322 L 70 336 L 76 348 L 86 360 L 100 370 L 112 376 L 124 378 L 136 374 L 148 366 L 155 354 L 160 340 L 165 328 L 166 318 L 160 308 L 152 296 L 144 282 L 136 268 L 128 252 L 120 238 L 108 228 Z" />
+        <!-- Colorado -->
+        <path id="CO" data-state="Colorado" data-status="fully-legal"
+          d="M 244 272 L 246 288 L 248 304 L 248 320 L 318 316 L 318 300 L 318 284 L 316 268 L 316 256 L 246 260 Z" />
+        <!-- Connecticut -->
+        <path id="CT" data-state="Connecticut" data-status="fully-legal"
+          d="M 826 192 L 832 190 L 840 194 L 840 204 L 834 210 L 824 208 L 820 200 Z" />
+        <!-- Delaware -->
+        <path id="DE" data-state="Delaware" data-status="fully-legal"
+          d="M 812 218 L 820 214 L 826 218 L 826 228 L 822 238 L 812 236 L 810 228 Z" />
+        <!-- Florida -->
+        <path id="FL" data-state="Florida" data-status="fully-legal"
+          d="M 658 416 L 660 428 L 664 440 L 670 452 L 676 462 L 682 470 L 686 482 L 688 494 L 692 504 L 700 510 L 710 508 L 718 502 L 720 492 L 716 480 L 710 468 L 704 458 L 700 448 L 702 440 L 710 436 L 720 434 L 730 432 L 738 428 L 742 418 L 736 412 L 724 412 L 710 414 L 696 416 L 682 416 L 670 416 Z" />
+        <!-- Georgia -->
+        <path id="GA" data-state="Georgia" data-status="medical"
+          d="M 658 356 L 666 354 L 676 354 L 686 354 L 696 352 L 702 360 L 704 372 L 702 384 L 698 396 L 694 408 L 686 416 L 676 418 L 666 416 L 658 416 L 657 404 L 655 390 L 653 375 L 653 362 Z" />
+        <!-- Hawaii inset -->
+        <path id="HI" data-state="Hawaii" data-status="medical"
+          d="M 200 530 L 208 526 L 214 532 L 210 540 L 202 538 Z M 218 522 L 226 518 L 232 524 L 228 532 L 218 530 Z M 236 514 L 244 510 L 250 516 L 246 524 L 236 522 Z M 254 506 L 262 502 L 268 508 L 264 516 L 254 514 Z M 274 498 L 284 494 L 290 502 L 284 510 L 274 508 Z" />
+        <!-- Idaho -->
+        <path id="ID" data-state="Idaho" data-status="illegal"
+          d="M 176 148 L 174 162 L 174 178 L 176 194 L 178 210 L 180 226 L 182 238 L 192 236 L 204 230 L 214 222 L 216 208 L 212 192 L 208 176 L 204 162 L 202 148 L 194 140 L 184 140 Z" />
+        <!-- Illinois -->
+        <path id="IL" data-state="Illinois" data-status="fully-legal"
+          d="M 570 236 L 566 250 L 564 266 L 562 282 L 560 298 L 558 314 L 560 328 L 564 340 L 570 348 L 578 348 L 584 340 L 584 326 L 582 310 L 582 294 L 584 278 L 584 262 L 582 248 L 578 238 Z" />
+        <!-- Indiana -->
+        <path id="IN" data-state="Indiana" data-status="medical"
+          d="M 600 244 L 596 260 L 594 276 L 592 292 L 590 308 L 592 320 L 600 322 L 608 318 L 614 310 L 616 298 L 616 282 L 614 266 L 610 252 L 604 244 Z" />
+        <!-- Iowa -->
+        <path id="IA" data-state="Iowa" data-status="medical"
+          d="M 502 234 L 500 248 L 500 262 L 502 274 L 506 282 L 516 284 L 528 284 L 538 280 L 546 272 L 548 258 L 546 244 L 538 236 L 526 232 L 512 232 Z" />
+        <!-- Kansas -->
+        <path id="KS" data-state="Kansas" data-status="illegal"
+          d="M 382 292 L 384 308 L 386 324 L 388 340 L 390 354 L 452 350 L 452 336 L 452 320 L 450 306 L 448 292 L 416 290 Z" />
+        <!-- Kentucky -->
+        <path id="KY" data-state="Kentucky" data-status="medical"
+          d="M 618 290 L 626 288 L 636 286 L 648 284 L 658 282 L 666 284 L 672 292 L 668 302 L 658 308 L 648 312 L 636 314 L 624 314 L 616 308 L 614 298 Z" />
+        <!-- Louisiana -->
+        <path id="LA" data-state="Louisiana" data-status="medical"
+          d="M 538 390 L 540 404 L 542 416 L 546 426 L 554 432 L 564 436 L 574 436 L 582 430 L 584 420 L 578 412 L 568 406 L 558 400 L 548 394 Z" />
+        <!-- Maine -->
+        <path id="ME" data-state="Maine" data-status="fully-legal"
+          d="M 862 112 L 866 106 L 874 104 L 880 110 L 882 120 L 878 132 L 872 140 L 864 142 L 858 136 L 856 126 Z" />
+        <!-- Maryland -->
+        <path id="MD" data-state="Maryland" data-status="fully-legal"
+          d="M 784 230 L 792 226 L 802 224 L 812 228 L 816 236 L 812 244 L 804 248 L 794 246 L 784 240 Z" />
+        <!-- Massachusetts -->
+        <path id="MA" data-state="Massachusetts" data-status="fully-legal"
+          d="M 830 176 L 840 172 L 850 172 L 858 178 L 858 188 L 850 194 L 838 194 L 828 188 Z" />
+        <!-- Michigan (Lower Peninsula) -->
+        <path id="MI" data-state="Michigan" data-status="fully-legal"
+          d="M 582 188 L 578 202 L 578 216 L 582 228 L 590 234 L 598 234 L 604 228 L 604 216 L 600 206 L 594 196 Z M 624 172 L 620 184 L 620 196 L 626 204 L 636 206 L 644 200 L 646 190 L 642 180 L 634 174 Z" />
+        <!-- Minnesota -->
+        <path id="MN" data-state="Minnesota" data-status="fully-legal"
+          d="M 470 148 L 468 162 L 468 178 L 470 194 L 472 210 L 476 224 L 488 226 L 500 224 L 504 214 L 504 200 L 502 184 L 498 168 L 494 154 L 486 148 Z" />
+        <!-- Mississippi -->
+        <path id="MS" data-state="Mississippi" data-status="medical"
+          d="M 586 350 L 590 364 L 592 378 L 592 392 L 590 406 L 584 416 L 576 420 L 566 416 L 560 406 L 560 392 L 562 376 L 564 362 L 570 352 L 578 348 Z" />
+        <!-- Missouri -->
+        <path id="MO" data-state="Missouri" data-status="fully-legal"
+          d="M 504 284 L 506 298 L 510 312 L 512 326 L 514 340 L 516 352 L 528 352 L 540 350 L 550 346 L 556 338 L 556 324 L 558 308 L 558 294 L 556 282 L 546 278 L 532 278 L 516 280 Z" />
+        <!-- Montana -->
+        <path id="MT" data-state="Montana" data-status="fully-legal"
+          d="M 208 136 L 210 152 L 212 168 L 214 184 L 216 198 L 280 196 L 320 192 L 320 178 L 320 162 L 318 148 L 316 136 L 290 134 L 256 134 Z" />
+        <!-- Nebraska -->
+        <path id="NE" data-state="Nebraska" data-status="medical"
+          d="M 384 244 L 382 258 L 380 274 L 380 290 L 382 302 L 450 298 L 450 284 L 452 268 L 452 254 L 450 242 L 418 240 Z" />
+        <!-- Nevada -->
+        <path id="NV" data-state="Nevada" data-status="fully-legal"
+          d="M 132 228 L 136 244 L 140 260 L 144 278 L 148 296 L 152 312 L 158 328 L 166 334 L 168 322 L 164 308 L 162 292 L 164 276 L 166 260 L 168 244 L 166 232 L 158 224 L 148 220 L 138 222 Z" />
+        <!-- New Hampshire -->
+        <path id="NH" data-state="New Hampshire" data-status="medical"
+          d="M 844 144 L 846 156 L 848 168 L 850 178 L 844 178 L 838 174 L 836 162 L 838 150 Z" />
+        <!-- New Jersey -->
+        <path id="NJ" data-state="New Jersey" data-status="fully-legal"
+          d="M 808 204 L 816 200 L 822 206 L 824 216 L 820 226 L 812 228 L 808 220 L 806 212 Z" />
+        <!-- New Mexico -->
+        <path id="NM" data-state="New Mexico" data-status="fully-legal"
+          d="M 246 320 L 248 336 L 250 352 L 252 368 L 254 384 L 254 398 L 308 394 L 308 380 L 308 364 L 306 348 L 306 332 L 304 318 L 252 316 Z" />
+        <!-- New York -->
+        <path id="NY" data-state="New York" data-status="fully-legal"
+          d="M 762 164 L 764 176 L 768 188 L 776 196 L 786 200 L 798 200 L 810 196 L 816 188 L 814 178 L 808 170 L 798 164 L 786 162 L 774 162 Z" />
+        <!-- North Carolina -->
+        <path id="NC" data-state="North Carolina" data-status="decriminalized"
+          d="M 692 304 L 702 298 L 714 296 L 726 296 L 740 296 L 752 300 L 760 308 L 758 318 L 748 324 L 734 326 L 718 326 L 704 322 L 694 316 Z" />
+        <!-- North Dakota -->
+        <path id="ND" data-state="North Dakota" data-status="medical"
+          d="M 378 150 L 380 166 L 382 182 L 384 196 L 386 210 L 442 206 L 442 192 L 440 176 L 440 162 L 438 150 L 412 148 Z" />
+        <!-- Ohio -->
+        <path id="OH" data-state="Ohio" data-status="fully-legal"
+          d="M 642 232 L 638 246 L 636 260 L 634 274 L 636 286 L 638 298 L 644 308 L 654 312 L 664 308 L 670 298 L 670 286 L 668 272 L 664 258 L 660 246 L 654 234 Z" />
+        <!-- Oklahoma -->
+        <path id="OK" data-state="Oklahoma" data-status="medical"
+          d="M 388 350 L 390 364 L 392 378 L 394 390 L 456 386 L 456 372 L 456 358 L 454 344 L 390 342 Z" />
+        <!-- Oregon -->
+        <path id="OR" data-state="Oregon" data-status="fully-legal"
+          d="M 84 192 L 82 208 L 82 224 L 86 234 L 98 236 L 112 238 L 126 238 L 140 234 L 148 226 L 148 210 L 148 196 L 146 184 L 138 176 L 124 176 L 110 178 L 96 184 Z" />
+        <!-- Pennsylvania -->
+        <path id="PA" data-state="Pennsylvania" data-status="medical"
+          d="M 744 200 L 748 210 L 756 216 L 768 220 L 780 220 L 794 218 L 806 214 L 808 204 L 802 196 L 790 192 L 776 192 L 762 196 L 750 198 Z" />
+        <!-- Rhode Island -->
+        <path id="RI" data-state="Rhode Island" data-status="fully-legal"
+          d="M 846 188 L 852 186 L 856 192 L 854 200 L 848 202 L 844 196 Z" />
+        <!-- South Carolina -->
+        <path id="SC" data-state="South Carolina" data-status="illegal"
+          d="M 700 322 L 710 318 L 722 316 L 734 318 L 742 324 L 746 334 L 742 344 L 732 350 L 720 352 L 708 350 L 700 342 L 696 332 Z" />
+        <!-- South Dakota -->
+        <path id="SD" data-state="South Dakota" data-status="medical"
+          d="M 382 210 L 384 224 L 384 238 L 386 252 L 386 264 L 448 260 L 448 246 L 448 232 L 446 218 L 444 208 L 414 208 Z" />
+        <!-- Tennessee -->
+        <path id="TN" data-state="Tennessee" data-status="illegal"
+          d="M 604 316 L 610 308 L 618 302 L 630 298 L 644 296 L 656 298 L 666 304 L 670 312 L 664 320 L 650 324 L 634 326 L 618 324 L 608 320 Z" />
+        <!-- Texas -->
+        <path id="TX" data-state="Texas" data-status="medical"
+          d="M 308 352 L 310 368 L 314 384 L 316 402 L 320 418 L 326 434 L 334 446 L 346 456 L 358 464 L 372 468 L 386 468 L 398 464 L 408 456 L 416 446 L 422 432 L 426 416 L 428 400 L 428 384 L 422 372 L 410 362 L 394 356 L 376 352 L 358 350 L 338 350 Z" />
+        <!-- Utah -->
+        <path id="UT" data-state="Utah" data-status="decriminalized"
+          d="M 212 258 L 214 274 L 216 290 L 218 306 L 218 320 L 242 318 L 244 302 L 244 286 L 242 270 L 240 256 L 238 244 L 214 246 Z" />
+        <!-- Vermont -->
+        <path id="VT" data-state="Vermont" data-status="fully-legal"
+          d="M 830 144 L 832 156 L 836 168 L 836 178 L 828 178 L 820 172 L 820 160 L 824 148 Z" />
+        <!-- Virginia -->
+        <path id="VA" data-state="Virginia" data-status="fully-legal"
+          d="M 716 278 L 724 272 L 734 268 L 746 266 L 758 268 L 766 278 L 764 290 L 756 298 L 744 302 L 730 300 L 718 296 L 712 286 Z" />
+        <!-- Washington -->
+        <path id="WA" data-state="Washington" data-status="fully-legal"
+          d="M 88 146 L 88 160 L 90 174 L 94 186 L 104 190 L 116 188 L 128 184 L 140 178 L 150 174 L 150 164 L 148 152 L 142 146 L 130 142 L 118 142 L 104 144 Z" />
+        <!-- West Virginia -->
+        <path id="WV" data-state="West Virginia" data-status="medical"
+          d="M 700 262 L 708 258 L 716 256 L 722 262 L 724 272 L 720 282 L 712 288 L 702 288 L 694 282 L 692 272 Z" />
+        <!-- Wisconsin -->
+        <path id="WI" data-state="Wisconsin" data-status="medical"
+          d="M 546 186 L 542 200 L 540 216 L 540 232 L 544 244 L 554 248 L 564 246 L 572 240 L 574 228 L 572 214 L 568 200 L 562 190 L 554 186 Z" />
+        <!-- Wyoming -->
+        <path id="WY" data-state="Wyoming" data-status="illegal"
+          d="M 218 194 L 220 210 L 220 226 L 220 242 L 220 256 L 284 250 L 284 236 L 282 220 L 280 206 L 280 194 L 252 192 Z" />
+
+        <!-- Washington D.C. -->
+        <circle id="DC" data-state="Washington D.C." data-status="fully-legal"
+          cx="795" cy="252" r="6" />
+
+        <!-- State Labels -->
+        <g class="state-labels" font-size="7" fill="#1a2e1f" font-family="Inter,system-ui,sans-serif" font-weight="700" text-anchor="middle" pointer-events="none">
+          <text x="643" y="385">AL</text>
+          <text x="126" y="470">AK</text>
+          <text x="206" y="370">AZ</text>
+          <text x="549" y="349">AR</text>
+          <text x="112" y="306">CA</text>
+          <text x="281" y="290">CO</text>
+          <text x="832" y="203">CT</text>
+          <text x="819" y="228">DE</text>
+          <text x="704" y="464">FL</text>
+          <text x="680" y="385">GA</text>
+          <text x="242" y="528">HI</text>
+          <text x="194" y="193">ID</text>
+          <text x="572" y="295">IL</text>
+          <text x="604" y="284">IN</text>
+          <text x="524" y="258">IA</text>
+          <text x="416" y="322">KS</text>
+          <text x="643" y="300">KY</text>
+          <text x="562" y="414">LA</text>
+          <text x="869" y="126">ME</text>
+          <text x="800" y="237">MD</text>
+          <text x="843" y="183">MA</text>
+          <text x="594" y="214">MI</text>
+          <text x="486" y="190">MN</text>
+          <text x="576" y="385">MS</text>
+          <text x="533" y="318">MO</text>
+          <text x="264" y="166">MT</text>
+          <text x="416" y="272">NE</text>
+          <text x="150" y="280">NV</text>
+          <text x="843" y="163">NH</text>
+          <text x="815" y="214">NJ</text>
+          <text x="278" y="358">NM</text>
+          <text x="788" y="183">NY</text>
+          <text x="726" y="312">NC</text>
+          <text x="412" y="178">ND</text>
+          <text x="654" y="272">OH</text>
+          <text x="423" y="366">OK</text>
+          <text x="114" y="210">OR</text>
+          <text x="775" y="208">PA</text>
+          <text x="849" y="195">RI</text>
+          <text x="722" y="336">SC</text>
+          <text x="414" y="234">SD</text>
+          <text x="637" y="313">TN</text>
+          <text x="370" y="410">TX</text>
+          <text x="228" y="285">UT</text>
+          <text x="828" y="160">VT</text>
+          <text x="740" y="284">VA</text>
+          <text x="118" y="164">WA</text>
+          <text x="708" y="274">WV</text>
+          <text x="558" y="218">WI</text>
+          <text x="252" y="224">WY</text>
+          <text x="795" y="255" font-size="5">DC</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Tooltip -->
+    <div id="map-tooltip" class="map-tooltip" style="display:none">
+      <span id="map-tooltip-state"></span>
+      <span id="map-tooltip-badge" class="map-status-badge"></span>
+    </div>
+  </div>
+
+  <!-- Slide-in Panel -->
+  <div id="state-panel" class="state-panel" role="dialog" aria-modal="true" aria-label="State cannabis information">
+    <button class="panel-close" id="panel-close" aria-label="Close panel">×</button>
+    <div class="panel-header" id="panel-header">
+      <h2 id="panel-state-name"></h2>
+      <span id="panel-status-badge" class="map-status-badge map-status-badge-lg"></span>
+    </div>
+    <div class="panel-body" id="panel-body"></div>
+  </div>
+  <div id="panel-overlay" class="panel-overlay"></div>
+
+</div><!-- end map-page -->
+
+</Layout>
+
+<style>
+  /* ---- Page wrapper ---- */
+  .map-page {
+    padding-bottom: 4rem;
+  }
+
+  /* ---- Header ---- */
+  .map-page-header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    background: linear-gradient(180deg, rgba(13,22,16,0.9) 0%, transparent 100%);
+  }
+  .map-page-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.5px;
+  }
+  .map-page-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 640px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.7;
+  }
+
+  /* ---- Stats Bar ---- */
+  .map-stats-bar {
+    display: inline-flex;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 1.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+  .map-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.9rem;
+  }
+  .map-stat-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .map-stat-count {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .map-stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .map-stat-div {
+    width: 1px;
+    height: 24px;
+    background: var(--border);
+  }
+
+  /* ---- Legend ---- */
+  .map-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+  .map-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.87rem;
+    color: var(--text);
+  }
+  .map-legend-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .map-legend-item small {
+    color: var(--text-muted);
+  }
+
+  /* ---- Map wrapper ---- */
+  .map-wrapper {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.25rem;
+    overflow: hidden;
+  }
+  #us-map {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  #us-map path, #us-map circle {
+    stroke: rgba(10,15,13,0.7);
+    stroke-width: 0.8;
+    cursor: pointer;
+    transition: filter 0.15s ease, stroke-width 0.15s ease, stroke 0.15s ease;
+  }
+  /* Status fill colors */
+  #us-map .status-fully-legal    { fill: #4ade80; }
+  #us-map .status-medical        { fill: #fbbf24; }
+  #us-map .status-decriminalized { fill: #60a5fa; }
+  #us-map .status-illegal        { fill: #f87171; }
+  /* Hover state */
+  #us-map path:hover, #us-map circle:hover {
+    filter: brightness(1.3) drop-shadow(0 0 5px rgba(255,255,255,0.25));
+    stroke-width: 1.5;
+    stroke: rgba(255,255,255,0.8);
+  }
+  /* Active/clicked state */
+  #us-map path.map-active, #us-map circle.map-active {
+    filter: brightness(1.45) drop-shadow(0 0 8px rgba(255,255,255,0.4));
+    stroke: #ffffff;
+    stroke-width: 2;
+  }
+
+  /* ---- Tooltip ---- */
+  .map-tooltip {
+    position: fixed;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    pointer-events: none;
+    z-index: 250;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text);
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+
+  /* ---- Status Badges (map-specific, don't conflict with global .badge) ---- */
+  .map-status-badge {
+    display: inline-block;
+    padding: 0.18rem 0.6rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .map-status-badge-lg {
+    padding: 0.28rem 0.85rem;
+    font-size: 0.76rem;
+  }
+  .map-status-badge.status-fully-legal    { background: rgba(74,222,128,0.15); color: #4ade80; border: 1px solid rgba(74,222,128,0.4); }
+  .map-status-badge.status-medical        { background: rgba(251,191,36,0.15);  color: #fbbf24; border: 1px solid rgba(251,191,36,0.4); }
+  .map-status-badge.status-decriminalized { background: rgba(96,165,250,0.15);  color: #60a5fa; border: 1px solid rgba(96,165,250,0.4); }
+  .map-status-badge.status-illegal        { background: rgba(248,113,113,0.15); color: #f87171; border: 1px solid rgba(248,113,113,0.4); }
+
+  /* ---- Slide-in Panel ---- */
+  .panel-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 299;
+    backdrop-filter: blur(2px);
+  }
+  .panel-overlay.open { display: block; }
+
+  .state-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 390px;
+    max-width: 96vw;
+    height: 100%;
+    background: var(--bg-card);
+    border-left: 1px solid var(--border);
+    z-index: 300;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .state-panel.open {
+    transform: translateX(0);
+    box-shadow: -8px 0 40px rgba(0,0,0,0.5);
+  }
+  .panel-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--border);
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background 0.2s, color 0.2s;
+    z-index: 1;
+  }
+  .panel-close:hover {
+    background: var(--primary);
+    color: #ffffff;
+  }
+  .panel-header {
+    padding: 1.5rem 3.5rem 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .panel-header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+  }
+  .panel-body {
+    padding: 1.25rem 1.5rem;
+    flex: 1;
+  }
+
+  /* ---- Panel content ---- */
+  .panel-law-note {
+    background: rgba(13,22,16,0.7);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .panel-law-note p { margin: 0; color: var(--text-muted); }
+  .panel-section-label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  .panel-disp-card {
+    background: rgba(13,22,16,0.7);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.6rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+    cursor: default;
+  }
+  .panel-disp-card:hover { border-color: rgba(74,222,128,0.4); }
+  .panel-disp-icon { font-size: 1.15rem; flex-shrink: 0; margin-top: 0.05rem; }
+  .panel-disp-info { flex: 1; min-width: 0; }
+  .panel-disp-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.18rem;
+    line-height: 1.35;
+  }
+  .panel-disp-city {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    margin-bottom: 0.12rem;
+  }
+  .panel-disp-address {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+  }
+  .panel-disp-phone {
+    font-size: 0.74rem;
+    color: var(--primary);
+    margin-top: 0.2rem;
+  }
+  .panel-illegal-msg {
+    background: rgba(248,113,113,0.07);
+    border: 1px solid rgba(248,113,113,0.25);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    color: #991b1b;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .panel-illegal-msg strong { color: #dc2626; }
+  .panel-learn-more {
+    display: inline-block;
+    margin-top: 1.1rem;
+    color: var(--primary);
+    font-size: 0.84rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .panel-learn-more:hover { color: var(--primary-light); }
+  .panel-no-disp {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 640px) {
+    .map-page-title { font-size: 1.8rem; }
+    .map-stats-bar { padding: 0.4rem 0.6rem; }
+    .map-stat-item { padding: 0.2rem 0.5rem; }
+    .map-stat-label { display: none; }
+    .map-legend { gap: 0.8rem; }
+    .state-panel { width: 100%; max-width: 100%; }
+  }
+</style>
+
+<script>
+  // ===================================================================
+  // STATE DATA
+  // ===================================================================
+  const stateData = {
+    AL: {
+      name: "Alabama", status: "medical",
+      note: "Medical cannabis was legalized in 2021. Patients with qualifying conditions may obtain a medical cannabis card to purchase from licensed dispensaries. Recreational use remains illegal.",
+      dispensaries: [
+        { name: "Trulieve Alabama", city: "Birmingham, AL", address: "1800 4th Ave N", phone: "(205) 555-0142" },
+        { name: "Curaleaf Huntsville", city: "Huntsville, AL", address: "3650 Memorial Pkwy SW", phone: "(256) 555-0193" },
+        { name: "Ayr Wellness Montgomery", city: "Montgomery, AL", address: "4120 Atlanta Hwy", phone: "(334) 555-0177" },
+      ]
+    },
+    AK: {
+      name: "Alaska", status: "fully-legal",
+      note: "Adults 21+ may possess up to 1 oz of cannabis and grow up to 6 plants for personal use. Licensed retail stores have been operating statewide since 2016.",
+      dispensaries: [
+        { name: "Herbal Outfitters", city: "Anchorage, AK", address: "3201 Spenard Rd", phone: "(907) 555-0134" },
+        { name: "Green Jar Cannabis", city: "Fairbanks, AK", address: "1625 Airport Way", phone: "(907) 555-0185" },
+        { name: "Pakalolo Supply Co.", city: "Juneau, AK", address: "4400 Glacier Hwy", phone: "(907) 555-0167" },
+        { name: "Denali Dispensaries", city: "Wasilla, AK", address: "600 W Bogard Rd", phone: "(907) 555-0112" },
+      ]
+    },
+    AZ: {
+      name: "Arizona", status: "fully-legal",
+      note: "Proposition 207 (2020) legalized recreational cannabis. Adults 21+ may possess up to 1 oz and grow up to 6 plants at home. Licensed dispensaries operate throughout the state.",
+      dispensaries: [
+        { name: "Harvest House of Cannabis", city: "Phoenix, AZ", address: "6318 E McDowell Rd", phone: "(602) 555-0148" },
+        { name: "Trulieve Tucson", city: "Tucson, AZ", address: "1840 E Broadway Blvd", phone: "(520) 555-0199" },
+        { name: "4Front Scottsdale", city: "Scottsdale, AZ", address: "9375 E Shea Blvd", phone: "(480) 555-0162" },
+        { name: "Curaleaf Mesa", city: "Mesa, AZ", address: "6501 E Main St", phone: "(480) 555-0183" },
+        { name: "Verano Tempe", city: "Tempe, AZ", address: "1445 W Elliot Rd", phone: "(480) 555-0117" },
+      ]
+    },
+    AR: {
+      name: "Arkansas", status: "medical",
+      note: "Medical marijuana was legalized in 2016. Qualifying patients may purchase from state-licensed dispensaries. Recreational use remains illegal.",
+      dispensaries: [
+        { name: "Natural State Medicinals", city: "Little Rock, AR", address: "5800 Baseline Rd", phone: "(501) 555-0144" },
+        { name: "Harvest Cannabis Dispensary", city: "Fayetteville, AR", address: "200 N College Ave", phone: "(479) 555-0128" },
+        { name: "Deep Roots Harvest", city: "Fort Smith, AR", address: "3100 Jenny Lind Rd", phone: "(479) 555-0191" },
+      ]
+    },
+    CA: {
+      name: "California", status: "fully-legal",
+      note: "Adults 21+ may possess up to 1 oz and grow up to 6 plants. Proposition 64 (2016) legalized recreational cannabis. California has the largest legal cannabis market in the US.",
+      dispensaries: [
+        { name: "MedMen Los Angeles", city: "Los Angeles, CA", address: "8208 Santa Monica Blvd", phone: "(310) 555-0156" },
+        { name: "Harborside San Jose", city: "San Jose, CA", address: "1840 Embarcadero", phone: "(510) 555-0173" },
+        { name: "The Green Solution SF", city: "San Francisco, CA", address: "2525 Mission St", phone: "(415) 555-0188" },
+        { name: "Cookies San Diego", city: "San Diego, CA", address: "2245 Palm Ave", phone: "(619) 555-0132" },
+        { name: "Columbia Care Sacramento", city: "Sacramento, CA", address: "4505 Folsom Blvd", phone: "(916) 555-0147" },
+      ]
+    },
+    CO: {
+      name: "Colorado", status: "fully-legal",
+      note: "Colorado was one of the first states to legalize recreational cannabis in 2012. Adults 21+ may possess up to 1 oz and grow up to 3 mature plants for personal use.",
+      dispensaries: [
+        { name: "LivWell Denver", city: "Denver, CO", address: "1048 Cherokee St", phone: "(720) 555-0163" },
+        { name: "Native Roots Boulder", city: "Boulder, CO", address: "1875 28th St", phone: "(303) 555-0184" },
+        { name: "Terrapin Aurora", city: "Aurora, CO", address: "10th & Havana St", phone: "(303) 555-0119" },
+        { name: "The Green Solution Pueblo", city: "Pueblo, CO", address: "1400 US Hwy 50 W", phone: "(719) 555-0141" },
+        { name: "Medicine Man Colorado Springs", city: "Colorado Springs, CO", address: "4665 Town Center Dr", phone: "(719) 555-0196" },
+      ]
+    },
+    CT: {
+      name: "Connecticut", status: "fully-legal",
+      note: "Connecticut legalized recreational cannabis in 2021 for adults 21+. Adults may possess up to 1.5 oz in public and 5 oz at home. Home cultivation of up to 6 plants is permitted.",
+      dispensaries: [
+        { name: "Fine Fettle Hartford", city: "Hartford, CT", address: "940 Farmington Ave", phone: "(860) 555-0153" },
+        { name: "Curaleaf Stamford", city: "Stamford, CT", address: "2701 Summer St", phone: "(203) 555-0178" },
+        { name: "Zen Leaf New Haven", city: "New Haven, CT", address: "85 Willard St", phone: "(203) 555-0165" },
+        { name: "PharmaCann Waterbury", city: "Waterbury, CT", address: "920 Wolcott St", phone: "(203) 555-0137" },
+      ]
+    },
+    DE: {
+      name: "Delaware", status: "fully-legal",
+      note: "Delaware legalized recreational cannabis in 2023 for adults 21+. Adults may possess up to 1 oz. Home cultivation is not currently permitted under the law.",
+      dispensaries: [
+        { name: "Columbia Care Wilmington", city: "Wilmington, DE", address: "3423 Lancaster Pike", phone: "(302) 555-0189" },
+        { name: "Cresco Labs Dover", city: "Dover, DE", address: "1215 S Governor's Ave", phone: "(302) 555-0154" },
+        { name: "Ayr Wellness Newark", city: "Newark, DE", address: "600 Churchmans Rd", phone: "(302) 555-0122" },
+      ]
+    },
+    FL: {
+      name: "Florida", status: "fully-legal",
+      note: "Florida voters approved Amendment 3 in November 2024, legalizing recreational cannabis for adults 21+. Medical marijuana has been legal since 2016 with a robust licensed dispensary network.",
+      dispensaries: [
+        { name: "Trulieve Miami", city: "Miami, FL", address: "3540 Biscayne Blvd", phone: "(305) 555-0171" },
+        { name: "Curaleaf Orlando", city: "Orlando, FL", address: "7412 Aloma Ave", phone: "(407) 555-0138" },
+        { name: "MedMen Tampa", city: "Tampa, FL", address: "4811 Henderson Blvd", phone: "(813) 555-0192" },
+        { name: "Verano Jacksonville", city: "Jacksonville, FL", address: "9490 Regency Square Blvd", phone: "(904) 555-0159" },
+        { name: "Harvest Tallahassee", city: "Tallahassee, FL", address: "2810 N Monroe St", phone: "(850) 555-0126" },
+      ]
+    },
+    GA: {
+      name: "Georgia", status: "medical",
+      note: "Georgia allows only low-THC cannabis oil (up to 5% THC) for specific medical conditions via a patient registry. Recreational cannabis remains fully illegal.",
+      dispensaries: [
+        { name: "Botanical Sciences Atlanta", city: "Atlanta, GA", address: "3330 Piedmont Rd NE", phone: "(404) 555-0143" },
+        { name: "Treevana Augusta", city: "Augusta, GA", address: "2820 Washington Rd", phone: "(706) 555-0176" },
+        { name: "Columbia Care Savannah", city: "Savannah, GA", address: "1800 E Victory Dr", phone: "(912) 555-0115" },
+      ]
+    },
+    HI: {
+      name: "Hawaii", status: "medical",
+      note: "Hawaii has had a medical cannabis program since 2000. Adults may purchase from licensed dispensaries with a valid medical card. Recreational legalization efforts are ongoing in the legislature.",
+      dispensaries: [
+        { name: "Aloha Green Dispensary", city: "Honolulu, HI", address: "1414 Dillingham Blvd", phone: "(808) 555-0182" },
+        { name: "Lau Ola Dispensary", city: "Honolulu, HI", address: "680 Iwilei Rd", phone: "(808) 555-0157" },
+        { name: "Maui Wellness Group", city: "Wailuku, HI", address: "55 Mahalani St", phone: "(808) 555-0194" },
+      ]
+    },
+    ID: {
+      name: "Idaho", status: "illegal",
+      note: "Cannabis is fully illegal in Idaho. There is no medical or recreational program. Possession of any amount is a criminal offense. Idaho has some of the strictest cannabis laws in the nation.",
+      dispensaries: []
+    },
+    IL: {
+      name: "Illinois", status: "fully-legal",
+      note: "Illinois legalized recreational cannabis in 2020. Adults 21+ may possess up to 30g of cannabis flower from a licensed retailer. Chicago and surrounding areas have a large number of licensed dispensaries.",
+      dispensaries: [
+        { name: "Green Thumb Industries Chicago", city: "Chicago, IL", address: "2700 N Halsted St", phone: "(312) 555-0168" },
+        { name: "Sunnyside Chicago", city: "Chicago, IL", address: "1242 W Belmont Ave", phone: "(312) 555-0149" },
+        { name: "Cresco Labs Wrigleyville", city: "Chicago, IL", address: "3530 N Clark St", phone: "(773) 555-0186" },
+        { name: "Verano Naperville", city: "Naperville, IL", address: "1512 N Naper Blvd", phone: "(630) 555-0121" },
+        { name: "PharmaCann Rockford", city: "Rockford, IL", address: "4920 E State St", phone: "(815) 555-0164" },
+      ]
+    },
+    IN: {
+      name: "Indiana", status: "medical",
+      note: "Indiana only allows CBD products with no more than 0.3% THC. There is no comprehensive medical cannabis program and recreational use is fully illegal.",
+      dispensaries: [
+        { name: "CBD American Shaman Indianapolis", city: "Indianapolis, IN", address: "8510 W 10th St", phone: "(317) 555-0145" },
+        { name: "Nature's Wellness Fort Wayne", city: "Fort Wayne, IN", address: "3722 Illinois Rd", phone: "(260) 555-0179" },
+      ]
+    },
+    IA: {
+      name: "Iowa", status: "medical",
+      note: "Iowa has a limited medical cannabidiol (CBD) program for qualifying patients. THC content is capped and recreational cannabis is illegal.",
+      dispensaries: [
+        { name: "MedPharm Iowa Des Moines", city: "Des Moines, IA", address: "1620 Pleasant St", phone: "(515) 555-0156" },
+        { name: "DMARC CBD Pharmacy", city: "Cedar Rapids, IA", address: "4850 1st Ave SE", phone: "(319) 555-0188" },
+      ]
+    },
+    KS: {
+      name: "Kansas", status: "illegal",
+      note: "Cannabis is illegal in Kansas. No medical or recreational program exists. Even CBD derived from hemp is in a legal gray area under state law.",
+      dispensaries: []
+    },
+    KY: {
+      name: "Kentucky", status: "medical",
+      note: "Kentucky legalized medical cannabis in 2023, with dispensaries expected to open in 2025. The program covers qualifying conditions. Recreational use remains illegal.",
+      dispensaries: [
+        { name: "Acreage Holdings Louisville", city: "Louisville, KY", address: "3624 Poplar Level Rd", phone: "(502) 555-0172" },
+        { name: "Columbia Care Lexington", city: "Lexington, KY", address: "1020 Export St", phone: "(859) 555-0131" },
+        { name: "Verano Bowling Green", city: "Bowling Green, KY", address: "740 US Hwy 31-W Bypass", phone: "(270) 555-0161" },
+      ]
+    },
+    LA: {
+      name: "Louisiana", status: "medical",
+      note: "Louisiana has a medical cannabis program for qualifying patients. Recreational cannabis is illegal. The state permits whole-flower cannabis products for medical use.",
+      dispensaries: [
+        { name: "Wellcana New Orleans", city: "New Orleans, LA", address: "2001 Magazine St", phone: "(504) 555-0147" },
+        { name: "Vyrde Baton Rouge", city: "Baton Rouge, LA", address: "9355 Florida Blvd", phone: "(225) 555-0183" },
+        { name: "GB Sciences Lafayette", city: "Lafayette, LA", address: "3900 Ambassador Caffery Pkwy", phone: "(337) 555-0119" },
+      ]
+    },
+    ME: {
+      name: "Maine", status: "fully-legal",
+      note: "Maine legalized recreational cannabis in 2016, with licensed retail stores opening in 2020. Adults 21+ may possess up to 2.5 oz and grow up to 3 mature plants at home.",
+      dispensaries: [
+        { name: "Wellness Connection Portland", city: "Portland, ME", address: "464 Baxter Blvd", phone: "(207) 555-0158" },
+        { name: "Cookies Bangor", city: "Bangor, ME", address: "330 Haskell Rd", phone: "(207) 555-0195" },
+        { name: "Green Elephant Biddeford", city: "Biddeford, ME", address: "1 Main St", phone: "(207) 555-0127" },
+      ]
+    },
+    MD: {
+      name: "Maryland", status: "fully-legal",
+      note: "Maryland legalized recreational cannabis in 2023. Adults 21+ may possess up to 1.5 oz and grow up to 2 plants at home. Licensed dispensaries serve both medical and recreational customers.",
+      dispensaries: [
+        { name: "Curio Wellness Baltimore", city: "Baltimore, MD", address: "1495 Reisterstown Rd", phone: "(410) 555-0166" },
+        { name: "Herbiculture Annapolis", city: "Annapolis, MD", address: "1905 Generals Hwy", phone: "(410) 555-0139" },
+        { name: "Trulieve Rockville", city: "Rockville, MD", address: "15826 Shady Grove Rd", phone: "(301) 555-0187" },
+        { name: "Zen Leaf Silver Spring", city: "Silver Spring, MD", address: "8040 Georgia Ave", phone: "(301) 555-0153" },
+      ]
+    },
+    MA: {
+      name: "Massachusetts", status: "fully-legal",
+      note: "Massachusetts legalized recreational cannabis in 2016 via ballot initiative. Adults 21+ may possess up to 1 oz in public (10 oz at home) and grow up to 6 plants per person.",
+      dispensaries: [
+        { name: "NETA Brookline", city: "Brookline, MA", address: "160 Washington St", phone: "(617) 555-0174" },
+        { name: "Curaleaf Boston", city: "Boston, MA", address: "8 Tremont St", phone: "(617) 555-0148" },
+        { name: "Theory Wellness Great Barrington", city: "Great Barrington, MA", address: "394 Stockbridge Rd", phone: "(413) 555-0185" },
+        { name: "Sira Worcester", city: "Worcester, MA", address: "248 Mill St", phone: "(508) 555-0123" },
+      ]
+    },
+    MI: {
+      name: "Michigan", status: "fully-legal",
+      note: "Michigan legalized recreational cannabis in 2018. Adults 21+ may possess up to 2.5 oz in public (10 oz at home) and grow up to 12 plants for personal use.",
+      dispensaries: [
+        { name: "Lume Cannabis Detroit", city: "Detroit, MI", address: "6700 Michigan Ave", phone: "(313) 555-0169" },
+        { name: "Gage Cannabis Ann Arbor", city: "Ann Arbor, MI", address: "2793 Packard St", phone: "(734) 555-0142" },
+        { name: "Bloom City Club Grand Rapids", city: "Grand Rapids, MI", address: "1130 E Fulton St", phone: "(616) 555-0191" },
+        { name: "Skymint Lansing", city: "Lansing, MI", address: "4320 W Saginaw Hwy", phone: "(517) 555-0156" },
+        { name: "Pleasantrees Mt. Clemens", city: "Mt. Clemens, MI", address: "51 S Gratiot Ave", phone: "(586) 555-0178" },
+      ]
+    },
+    MN: {
+      name: "Minnesota", status: "fully-legal",
+      note: "Minnesota legalized recreational cannabis in 2023. Adults 21+ may possess up to 2 oz in public and grow up to 8 plants at home (4 mature). Retail sales launched in 2025.",
+      dispensaries: [
+        { name: "Giving Tree Cannabis Minneapolis", city: "Minneapolis, MN", address: "2700 Lyndale Ave S", phone: "(612) 555-0136" },
+        { name: "Green Goods St. Paul", city: "St. Paul, MN", address: "1590 Selby Ave", phone: "(651) 555-0174" },
+        { name: "Vireo Health Rochester", city: "Rochester, MN", address: "3706 Hwy 52 N", phone: "(507) 555-0159" },
+        { name: "Nira Cannabis Duluth", city: "Duluth, MN", address: "4015 W Superior St", phone: "(218) 555-0182" },
+      ]
+    },
+    MS: {
+      name: "Mississippi", status: "medical",
+      note: "Mississippi voters approved medical cannabis in 2020. Qualifying patients may purchase from licensed dispensaries. Recreational cannabis is illegal.",
+      dispensaries: [
+        { name: "Bloom Dispensaries Jackson", city: "Jackson, MS", address: "1200 E County Line Rd", phone: "(601) 555-0145" },
+        { name: "Magnolia Medical Biloxi", city: "Biloxi, MS", address: "3455 Pass Rd", phone: "(228) 555-0178" },
+        { name: "Sanctuary Hattiesburg", city: "Hattiesburg, MS", address: "6301 US Hwy 98 W", phone: "(601) 555-0163" },
+      ]
+    },
+    MO: {
+      name: "Missouri", status: "fully-legal",
+      note: "Missouri voters legalized recreational cannabis in 2022. Adults 21+ may possess up to 3 oz and grow up to 6 plants at home. Recreational retail sales began in February 2023.",
+      dispensaries: [
+        { name: "Greenlight St. Louis", city: "St. Louis, MO", address: "3829 S Broadway", phone: "(314) 555-0197" },
+        { name: "Clovr Kansas City", city: "Kansas City, MO", address: "8000 Wornall Rd", phone: "(816) 555-0154" },
+        { name: "Good Day Farm Springfield", city: "Springfield, MO", address: "2735 S Campbell Ave", phone: "(417) 555-0128" },
+        { name: "Luxury Leaf Columbia", city: "Columbia, MO", address: "2117 W Worley St", phone: "(573) 555-0186" },
+      ]
+    },
+    MT: {
+      name: "Montana", status: "fully-legal",
+      note: "Montana legalized recreational cannabis in 2020. Adults 21+ may possess up to 1 oz in public and grow up to 4 plants at home. Retail sales began January 2022.",
+      dispensaries: [
+        { name: "Glacier Cannabis Billings", city: "Billings, MT", address: "1900 Broadwater Ave", phone: "(406) 555-0143" },
+        { name: "Green Leaf Missoula", city: "Missoula, MT", address: "2620 Brooks St", phone: "(406) 555-0177" },
+        { name: "Western Montana Growers", city: "Great Falls, MT", address: "3000 10th Ave S", phone: "(406) 555-0162" },
+        { name: "Chalice Farms Bozeman", city: "Bozeman, MT", address: "404 W Oak St", phone: "(406) 555-0134" },
+      ]
+    },
+    NE: {
+      name: "Nebraska", status: "medical",
+      note: "Nebraska voters approved a medical cannabis initiative in 2024. The program is being implemented and dispensaries are expected to open in 2025–2026. Recreational cannabis remains illegal.",
+      dispensaries: [
+        { name: "Trulieve Omaha", city: "Omaha, NE", address: "13330 W Maple Rd", phone: "(402) 555-0169" },
+        { name: "Harvest Lincoln", city: "Lincoln, NE", address: "4901 O St", phone: "(402) 555-0141" },
+      ]
+    },
+    NV: {
+      name: "Nevada", status: "fully-legal",
+      note: "Nevada legalized recreational cannabis in 2016. Adults 21+ may possess up to 1 oz of flower. Las Vegas has a high concentration of licensed dispensaries serving both tourists and residents.",
+      dispensaries: [
+        { name: "Planet 13 Las Vegas", city: "Las Vegas, NV", address: "2548 W Desert Inn Rd", phone: "(702) 555-0193" },
+        { name: "Reef Dispensaries Las Vegas", city: "Las Vegas, NV", address: "3400 Western Ave", phone: "(702) 555-0158" },
+        { name: "NuWu Cannabis Marketplace", city: "Las Vegas, NV", address: "1235 Paiute Cir", phone: "(702) 555-0175" },
+        { name: "Sierra Wellness Reno", city: "Reno, NV", address: "4684 Longley Ln", phone: "(775) 555-0126" },
+        { name: "The+Source Henderson", city: "Henderson, NV", address: "6 Water St", phone: "(702) 555-0147" },
+      ]
+    },
+    NH: {
+      name: "New Hampshire", status: "medical",
+      note: "New Hampshire has a medical cannabis program with licensed therapeutic cannabis centers. Recreational cannabis has been debated but not yet legalized. Small possession has been decriminalized.",
+      dispensaries: [
+        { name: "Releaf Center Manchester", city: "Manchester, NH", address: "1111 Elm St", phone: "(603) 555-0182" },
+        { name: "NH Therapeutics Concord", city: "Concord, NH", address: "120 N Main St", phone: "(603) 555-0157" },
+        { name: "Temescal Wellness Portsmouth", city: "Portsmouth, NH", address: "2841 Lafayette Rd", phone: "(603) 555-0139" },
+      ]
+    },
+    NJ: {
+      name: "New Jersey", status: "fully-legal",
+      note: "New Jersey legalized recreational cannabis in 2020. Adults 21+ may possess up to 6 oz. Recreational retail sales launched in 2022 across numerous licensed dispensaries statewide.",
+      dispensaries: [
+        { name: "Curaleaf Newark", city: "Newark, NJ", address: "1000 McCarter Hwy", phone: "(973) 555-0164" },
+        { name: "Verano Jersey City", city: "Jersey City, NJ", address: "520 Newark Ave", phone: "(201) 555-0148" },
+        { name: "Columbia Care Vineland", city: "Vineland, NJ", address: "1700 S Lincoln Ave", phone: "(856) 555-0185" },
+        { name: "Zen Leaf Elizabeth", city: "Elizabeth, NJ", address: "840 Newark Ave", phone: "(908) 555-0123" },
+        { name: "GTI Paramus", city: "Paramus, NJ", address: "225 Route 4 W", phone: "(201) 555-0197" },
+      ]
+    },
+    NM: {
+      name: "New Mexico", status: "fully-legal",
+      note: "New Mexico legalized recreational cannabis in 2021. Adults 21+ may possess up to 2 oz and grow up to 6 mature plants at home. Retail sales began in June 2022.",
+      dispensaries: [
+        { name: "Ultra Health Albuquerque", city: "Albuquerque, NM", address: "8909 4th St NW", phone: "(505) 555-0153" },
+        { name: "High Desert Relief Santa Fe", city: "Santa Fe, NM", address: "2858 Trades West Rd", phone: "(505) 555-0179" },
+        { name: "The Verdes Foundation", city: "Albuquerque, NM", address: "7437 Central Ave NW", phone: "(505) 555-0167" },
+        { name: "Harvest Las Cruces", city: "Las Cruces, NM", address: "500 S Telshor Blvd", phone: "(575) 555-0138" },
+      ]
+    },
+    NY: {
+      name: "New York", status: "fully-legal",
+      note: "New York legalized recreational cannabis in 2021. Adults 21+ may possess up to 3 oz in public (5 lbs at home). Licensed retail dispensaries have been opening across the state since 2023.",
+      dispensaries: [
+        { name: "Housing Works Cannabis Co.", city: "New York, NY", address: "750 Broadway", phone: "(212) 555-0176" },
+        { name: "MedMen Manhattan", city: "New York, NY", address: "1046 Fifth Ave", phone: "(212) 555-0142" },
+        { name: "Gotham Cannabis Brooklyn", city: "Brooklyn, NY", address: "2234 Flatbush Ave", phone: "(718) 555-0188" },
+        { name: "Cookies Albany", city: "Albany, NY", address: "345 Broadway", phone: "(518) 555-0154" },
+        { name: "Columbia Care Buffalo", city: "Buffalo, NY", address: "4880 Harlem Rd", phone: "(716) 555-0167" },
+      ]
+    },
+    NC: {
+      name: "North Carolina", status: "decriminalized",
+      note: "North Carolina has decriminalized possession of up to 0.5 oz (civil penalty only, no criminal record). There is no medical or recreational program. Larger amounts remain criminal offenses.",
+      dispensaries: []
+    },
+    ND: {
+      name: "North Dakota", status: "medical",
+      note: "North Dakota legalized medical cannabis in 2016. Qualifying patients may purchase from licensed compassion centers. Multiple recreational legalization efforts have been attempted but not passed.",
+      dispensaries: [
+        { name: "Dakota Organics Bismarck", city: "Bismarck, ND", address: "1015 S Washington St", phone: "(701) 555-0146" },
+        { name: "Releaf Fargo", city: "Fargo, ND", address: "4925 S Washington St", phone: "(701) 555-0183" },
+        { name: "Good Medicine Grand Forks", city: "Grand Forks, ND", address: "3202 S 42nd St", phone: "(701) 555-0159" },
+      ]
+    },
+    OH: {
+      name: "Ohio", status: "fully-legal",
+      note: "Ohio voters legalized recreational cannabis in November 2023. Adults 21+ may possess up to 2.5 oz and grow up to 6 plants. Licensed recreational retail sales began in 2024.",
+      dispensaries: [
+        { name: "Ayr Wellness Columbus", city: "Columbus, OH", address: "3730 W Broad St", phone: "(614) 555-0173" },
+        { name: "Bloom Dispensaries Cleveland", city: "Cleveland, OH", address: "4040 W 150th St", phone: "(216) 555-0148" },
+        { name: "Verilife Cincinnati", city: "Cincinnati, OH", address: "6800 Harrison Ave", phone: "(513) 555-0192" },
+        { name: "Sunnyside Toledo", city: "Toledo, OH", address: "4200 Monroe St", phone: "(419) 555-0134" },
+        { name: "Harvest Dayton", city: "Dayton, OH", address: "5001 Airway Rd", phone: "(937) 555-0167" },
+      ]
+    },
+    OK: {
+      name: "Oklahoma", status: "medical",
+      note: "Oklahoma has a broad medical cannabis program with one of the highest rates of patient registration per capita in the US. Recreational cannabis has been proposed but not yet approved by voters.",
+      dispensaries: [
+        { name: "Medleaf Oklahoma City", city: "Oklahoma City, OK", address: "5816 N Western Ave", phone: "(405) 555-0155" },
+        { name: "Green Goat Tulsa", city: "Tulsa, OK", address: "1313 S Harvard Ave", phone: "(918) 555-0182" },
+        { name: "Herbal Excellence Norman", city: "Norman, OK", address: "1200 N Porter Ave", phone: "(405) 555-0139" },
+        { name: "Native Leaf Broken Arrow", city: "Broken Arrow, OK", address: "3301 S Elm Pl", phone: "(918) 555-0167" },
+      ]
+    },
+    OR: {
+      name: "Oregon", status: "fully-legal",
+      note: "Oregon was one of the first states to legalize recreational cannabis in 2014. Adults 21+ may possess up to 1 oz in public (8 oz at home). Home growing of up to 4 plants is permitted.",
+      dispensaries: [
+        { name: "Farma Portland", city: "Portland, OR", address: "916 SE Hawthorne Blvd", phone: "(503) 555-0174" },
+        { name: "Oregrown Bend", city: "Bend, OR", address: "62930 O.B. Riley Rd", phone: "(541) 555-0158" },
+        { name: "Serra Eugene", city: "Eugene, OR", address: "2145 W 12th Ave", phone: "(541) 555-0193" },
+        { name: "TJ's Organic Salem", city: "Salem, OR", address: "3830 Portland Rd NE", phone: "(503) 555-0127" },
+        { name: "Green Bodhi Medford", city: "Medford, OR", address: "2810 N Pacific Hwy", phone: "(541) 555-0146" },
+      ]
+    },
+    PA: {
+      name: "Pennsylvania", status: "medical",
+      note: "Pennsylvania has a medical cannabis program for patients with qualifying conditions. Recreational legalization is actively debated in the legislature. Medical dispensaries operate throughout the state.",
+      dispensaries: [
+        { name: "Curaleaf Philadelphia", city: "Philadelphia, PA", address: "4012 Walnut St", phone: "(215) 555-0168" },
+        { name: "Jushi Holdings Pittsburgh", city: "Pittsburgh, PA", address: "1400 E Carson St", phone: "(412) 555-0185" },
+        { name: "GTI Erie", city: "Erie, PA", address: "3824 Pittsburgh Ave", phone: "(814) 555-0142" },
+        { name: "Terrapin Harrisburg", city: "Harrisburg, PA", address: "3400 Paxton St", phone: "(717) 555-0197" },
+        { name: "Maitri Allentown", city: "Allentown, PA", address: "3901 Tilghman St", phone: "(610) 555-0159" },
+      ]
+    },
+    RI: {
+      name: "Rhode Island", status: "fully-legal",
+      note: "Rhode Island legalized recreational cannabis in 2022. Adults 21+ may possess up to 1 oz and grow up to 3 mature plants. Recreational retail sales launched in December 2022.",
+      dispensaries: [
+        { name: "Thomas C. Slater Compassion Center", city: "Providence, RI", address: "1 Distribution Ave", phone: "(401) 555-0171" },
+        { name: "Ayr Wellness Warwick", city: "Warwick, RI", address: "1374 Elmwood Ave", phone: "(401) 555-0154" },
+        { name: "Summit Medical Cannabis", city: "North Smithfield, RI", address: "1 Industrial Way", phone: "(401) 555-0138" },
+      ]
+    },
+    SC: {
+      name: "South Carolina", status: "illegal",
+      note: "Cannabis is illegal in South Carolina. There is no medical or recreational program. Possession carries criminal penalties, including potential jail time for even small amounts.",
+      dispensaries: []
+    },
+    SD: {
+      name: "South Dakota", status: "medical",
+      note: "South Dakota voters approved medical cannabis in 2020. The program covers qualifying conditions. A recreational initiative previously passed but was struck down by the courts; future efforts are expected.",
+      dispensaries: [
+        { name: "Prairie Band Cannabis Sioux Falls", city: "Sioux Falls, SD", address: "3900 S Western Ave", phone: "(605) 555-0183" },
+        { name: "Black Hills Cannabis Rapid City", city: "Rapid City, SD", address: "2820 W Main St", phone: "(605) 555-0161" },
+        { name: "Journey Cannabis Aberdeen", city: "Aberdeen, SD", address: "1010 S Dakota St", phone: "(605) 555-0147" },
+      ]
+    },
+    TN: {
+      name: "Tennessee", status: "illegal",
+      note: "Cannabis is illegal in Tennessee. Only very limited CBD oil is permitted for specific seizure disorders. Possession of any other cannabis product is a criminal offense.",
+      dispensaries: []
+    },
+    TX: {
+      name: "Texas", status: "medical",
+      note: "Texas operates the Compassionate Use Program (CUP), which allows only low-THC cannabis oil (up to 1% THC) for specific conditions. Recreational cannabis is illegal with strict penalties.",
+      dispensaries: [
+        { name: "Compassionate Cultivation Austin", city: "Austin, TX", address: "4001 S Lamar Blvd", phone: "(512) 555-0176" },
+        { name: "Surterra Texas Houston", city: "Houston, TX", address: "3520 W Dallas St", phone: "(713) 555-0149" },
+        { name: "Cansativa Dallas", city: "Dallas, TX", address: "5200 Maple Ave", phone: "(214) 555-0192" },
+        { name: "Texas Original San Antonio", city: "San Antonio, TX", address: "2600 NE Loop 410", phone: "(210) 555-0127" },
+      ]
+    },
+    UT: {
+      name: "Utah", status: "decriminalized",
+      note: "Utah has a medical cannabis program and has decriminalized possession of small amounts (civil penalty). Recreational cannabis is not legal. Medical patients may purchase from licensed pharmacies.",
+      dispensaries: [
+        { name: "Dragonfly Wellness Salt Lake City", city: "Salt Lake City, UT", address: "1980 S West Temple", phone: "(801) 555-0163" },
+        { name: "Beehive Farmacy Brigham City", city: "Brigham City, UT", address: "65 N Main St", phone: "(435) 555-0184" },
+        { name: "Utah Therapeutic Health Center", city: "Provo, UT", address: "330 W 500 S", phone: "(801) 555-0152" },
+        { name: "Zion Medicinal St. George", city: "St. George, UT", address: "1280 E 100 S", phone: "(435) 555-0139" },
+      ]
+    },
+    VT: {
+      name: "Vermont", status: "fully-legal",
+      note: "Vermont was the first state to legalize recreational cannabis through the legislature (2018). Adults 21+ may possess up to 1 oz and grow up to 2 mature plants. Retail sales launched in October 2022.",
+      dispensaries: [
+        { name: "Vermont Dispensary Burlington", city: "Burlington, VT", address: "148 Main St", phone: "(802) 555-0177" },
+        { name: "Ceres Natural Remedies", city: "Burlington, VT", address: "144 Flynn Ave", phone: "(802) 555-0143" },
+        { name: "Mountainside Provisions Stowe", city: "Stowe, VT", address: "357 Mountain Rd", phone: "(802) 555-0168" },
+      ]
+    },
+    VA: {
+      name: "Virginia", status: "fully-legal",
+      note: "Virginia legalized recreational cannabis in 2021. Adults 21+ may possess up to 1 oz in public and grow up to 4 plants at home. Licensed retail dispensaries opened to recreational customers in 2024.",
+      dispensaries: [
+        { name: "Cookies Richmond", city: "Richmond, VA", address: "3245 W Broad St", phone: "(804) 555-0195" },
+        { name: "Bloom Northern Virginia", city: "Arlington, VA", address: "2800 Columbia Pike", phone: "(703) 555-0162" },
+        { name: "Nug Virginia Beach", city: "Virginia Beach, VA", address: "3301 Shore Dr", phone: "(757) 555-0138" },
+        { name: "Zenleaf Alexandria", city: "Alexandria, VA", address: "5040 Duke St", phone: "(703) 555-0174" },
+        { name: "Rise Dispensaries Roanoke", city: "Roanoke, VA", address: "4819 Williamson Rd NW", phone: "(540) 555-0157" },
+      ]
+    },
+    WA: {
+      name: "Washington", status: "fully-legal",
+      note: "Washington was one of the first two states to legalize recreational cannabis in 2012. Adults 21+ may possess up to 1 oz. Washington has a mature regulated market with hundreds of licensed retailers statewide.",
+      dispensaries: [
+        { name: "Have a Heart Seattle", city: "Seattle, WA", address: "2313 E Cherry St", phone: "(206) 555-0181" },
+        { name: "Diego Pellicer Seattle", city: "Seattle, WA", address: "2215 4th Ave S", phone: "(206) 555-0166" },
+        { name: "Green Theory Spokane", city: "Spokane, WA", address: "14104 E Sprague Ave", phone: "(509) 555-0143" },
+        { name: "Solstice Tacoma", city: "Tacoma, WA", address: "6702 Pacific Ave", phone: "(253) 555-0179" },
+        { name: "Buddy's Cannabis Bellingham", city: "Bellingham, WA", address: "4801 Northwest Dr", phone: "(360) 555-0127" },
+      ]
+    },
+    WV: {
+      name: "West Virginia", status: "medical",
+      note: "West Virginia has a medical cannabis program for qualifying patients. Dispensaries have been operational since 2021. Recreational cannabis is not legal.",
+      dispensaries: [
+        { name: "Trulieve Charleston", city: "Charleston, WV", address: "3720 MacCorkle Ave SE", phone: "(304) 555-0154" },
+        { name: "Verano Morgantown", city: "Morgantown, WV", address: "2041 University Ave", phone: "(304) 555-0188" },
+        { name: "Harvest Huntington", city: "Huntington, WV", address: "1700 5th Ave", phone: "(304) 555-0163" },
+      ]
+    },
+    WI: {
+      name: "Wisconsin", status: "medical",
+      note: "Wisconsin only allows CBD oil with no more than 0.3% THC. There is no comprehensive medical cannabis program. Recreational use is fully illegal. Legalization efforts continue in the state legislature.",
+      dispensaries: [
+        { name: "MedMen Milwaukee", city: "Milwaukee, WI", address: "3210 N Oakland Ave", phone: "(414) 555-0146" },
+        { name: "Nature's Wellness Madison", city: "Madison, WI", address: "710 S Park St", phone: "(608) 555-0179" },
+      ]
+    },
+    WY: {
+      name: "Wyoming", status: "illegal",
+      note: "Cannabis is illegal in Wyoming with some of the strictest laws in the nation. Only very limited CBD products are permitted. Possession of any cannabis carries criminal penalties.",
+      dispensaries: []
+    },
+    DC: {
+      name: "Washington D.C.", status: "fully-legal",
+      note: "D.C. voters legalized recreational cannabis in 2014. Adults 21+ may possess up to 2 oz and grow up to 6 plants. Congressional restrictions prevent licensed retail sales, but medical dispensaries are open.",
+      dispensaries: [
+        { name: "National Holistic Healing Center", city: "Washington, DC", address: "1440 W St NW", phone: "(202) 555-0189" },
+        { name: "Metropolitan Wellness Center", city: "Washington, DC", address: "3832 Georgia Ave NW", phone: "(202) 555-0153" },
+        { name: "Anacostia Organics", city: "Washington, DC", address: "3005 MLK Jr Ave SE", phone: "(202) 555-0172" },
+      ]
+    },
+  };
+
+  const statusLabels = {
+    'fully-legal':    'Fully Legal',
+    'medical':        'Medical Only',
+    'decriminalized': 'Decriminalized',
+    'illegal':        'Illegal',
+  };
+
+  const DISP_ICONS = ['🌿','💚','🍃','🌱','✨'];
+
+  // ===================================================================
+  // INIT MAP
+  // ===================================================================
+  (function initMap() {
+    const svg       = document.getElementById('us-map');
+    const tooltip   = document.getElementById('map-tooltip');
+    const ttState   = document.getElementById('map-tooltip-state');
+    const ttBadge   = document.getElementById('map-tooltip-badge');
+    const panel     = document.getElementById('state-panel');
+    const overlay   = document.getElementById('panel-overlay');
+    const btnClose  = document.getElementById('panel-close');
+    const panelName = document.getElementById('panel-state-name');
+    const panelBadge= document.getElementById('panel-status-badge');
+    const panelBody = document.getElementById('panel-body');
+
+    let activeEl = null;
+
+    // Apply CSS status classes to all SVG paths/circles
+    svg.querySelectorAll('[data-status]').forEach(el => {
+      el.classList.add('status-' + el.getAttribute('data-status'));
+    });
+
+    // ---- Tooltip on mousemove ----
+    svg.addEventListener('mousemove', (e) => {
+      const target = e.target.closest('[data-state]');
+      if (!target) { tooltip.style.display = 'none'; return; }
+      const status = target.getAttribute('data-status');
+      ttState.textContent = target.getAttribute('data-state');
+      ttBadge.textContent = statusLabels[status] || status;
+      ttBadge.className   = 'map-status-badge status-' + status;
+      tooltip.style.display = 'flex';
+      let x = e.clientX + 14, y = e.clientY + 14;
+      if (x + 240 > window.innerWidth)  x = e.clientX - 240;
+      if (y + 62  > window.innerHeight) y = e.clientY - 62;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top  = y + 'px';
+    });
+    svg.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+
+    // ---- Click to open panel ----
+    svg.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-state]');
+      if (!target) return;
+      tooltip.style.display = 'none';
+
+      const abbr = target.id;
+      const data = stateData[abbr];
+      if (!data) return;
+
+      // Update active highlight
+      if (activeEl) activeEl.classList.remove('map-active');
+      activeEl = target;
+      target.classList.add('map-active');
+
+      // Populate panel header
+      panelName.textContent   = data.name;
+      panelBadge.textContent  = statusLabels[data.status];
+      panelBadge.className    = 'map-status-badge map-status-badge-lg status-' + data.status;
+
+      // Populate panel body
+      if (data.status === 'illegal') {
+        panelBody.innerHTML = `
+          <div class="panel-illegal-msg">
+            <strong>⚠️ Cannabis is not legally available in ${escHtml(data.name)}.</strong>
+            <br><br>${escHtml(data.note)}
+          </div>`;
+      } else {
+        const cards = data.dispensaries.length
+          ? data.dispensaries.map((d, i) => `
+              <div class="panel-disp-card">
+                <span class="panel-disp-icon">${DISP_ICONS[i % DISP_ICONS.length]}</span>
+                <div class="panel-disp-info">
+                  <div class="panel-disp-name">${escHtml(d.name)}</div>
+                  <div class="panel-disp-city">📍 ${escHtml(d.city)}</div>
+                  <div class="panel-disp-address">${escHtml(d.address)}</div>
+                  <div class="panel-disp-phone">${escHtml(d.phone)}</div>
+                </div>
+              </div>`).join('')
+          : '<p class="panel-no-disp">No licensed dispensaries currently listed.</p>';
+
+        panelBody.innerHTML = `
+          <div class="panel-law-note"><p>📋 ${escHtml(data.note)}</p></div>
+          <div class="panel-section-label">Dispensaries in ${escHtml(data.name)}</div>
+          ${cards}
+          <a class="panel-learn-more" href="#" onclick="return false;">
+            Learn more about ${escHtml(data.name)} cannabis laws →
+          </a>`;
+      }
+
+      panel.classList.add('open');
+      overlay.classList.add('open');
+    });
+
+    // ---- Close panel ----
+    function closePanel() {
+      panel.classList.remove('open');
+      overlay.classList.remove('open');
+      if (activeEl) { activeEl.classList.remove('map-active'); activeEl = null; }
+    }
+    btnClose.addEventListener('click', closePanel);
+    overlay.addEventListener('click', closePanel);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
+
+    // ---- Helper: escape HTML ----
+    function escHtml(s) {
+      return String(s)
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;');
+    }
+  })();
+</script>
+
+</Layout>

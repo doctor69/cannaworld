@@ -1,0 +1,1798 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const strains = [
+  // ── INDICA ──────────────────────────────────────────────────────────────────
+  {
+    name: "Hindu Kush",
+    type: "indica",
+    origin: "Afghanistan / Pakistan",
+    thc: "18-22%",
+    thcNum: 20,
+    cbd: "0.2%",
+    cbdNum: 0.2,
+    effects: ["Relaxed", "Sleepy", "Happy", "Euphoric", "Hungry"],
+    flavors: ["Earthy", "Sweet", "Woody", "Pine"],
+    medical: ["Insomnia", "Pain", "Stress", "Nausea", "Anxiety"],
+    description: "A pure landrace indica from the mountain range between Afghanistan and Pakistan. One of the oldest and most revered strains in existence, it has been cultivated for centuries in its native region. Its thick resin coat made it ideal for producing the legendary charas (hand-rubbed hash) of the region.",
+    emoji: "🏔️",
+    color: "#a78bfa",
+    parentage: "Landrace (pure indica)",
+    growTime: "7-8 weeks",
+    yield: "Medium",
+    region: "Asia"
+  },
+  {
+    name: "Afghani",
+    type: "indica",
+    origin: "Afghanistan",
+    thc: "17-20%",
+    thcNum: 18,
+    cbd: "0.6%",
+    cbdNum: 0.6,
+    effects: ["Relaxed", "Sleepy", "Happy", "Hungry", "Euphoric"],
+    flavors: ["Earthy", "Sweet", "Pungent", "Woody"],
+    medical: ["Insomnia", "Pain", "Stress", "Lack of Appetite", "Anxiety"],
+    description: "A foundational landrace indica from the mountains of Afghanistan that has shaped modern cannabis breeding more than perhaps any other strain. Its genetics flow through countless legendary hybrids. Dense, resinous buds with a pungent, earthy aroma that leans heavily sedative.",
+    emoji: "🌙",
+    color: "#a78bfa",
+    parentage: "Landrace (pure indica)",
+    growTime: "7-8 weeks",
+    yield: "High",
+    region: "Asia"
+  },
+  {
+    name: "Northern Lights",
+    type: "indica",
+    origin: "Pacific Northwest, USA (Afghan genetics)",
+    thc: "16-21%",
+    thcNum: 18,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Sleepy", "Happy", "Euphoric", "Hungry"],
+    flavors: ["Sweet", "Spicy", "Pine", "Earthy"],
+    medical: ["Insomnia", "Pain", "Stress", "Depression", "Lack of Appetite"],
+    description: "One of the most award-winning strains in cannabis history, Northern Lights is a cornerstone of modern breeding. Born from Afghani landraces in the Pacific Northwest before being perfected in the Netherlands, its nearly pure indica genetics deliver a powerful body melt that leaves users blissfully couch-locked.",
+    emoji: "🌌",
+    color: "#a78bfa",
+    parentage: "Afghani landrace selections",
+    growTime: "6-7 weeks",
+    yield: "High",
+    region: "Americas"
+  },
+  {
+    name: "Purple Kush",
+    type: "indica",
+    origin: "Oakland, California, USA",
+    thc: "17-22%",
+    thcNum: 20,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Sleepy", "Euphoric", "Happy", "Hungry"],
+    flavors: ["Earthy", "Sweet", "Grape", "Berry"],
+    medical: ["Insomnia", "Pain", "Stress", "Muscle Spasms", "Anxiety"],
+    description: "Born in Oakland's notorious 'Purple Triangle,' Purple Kush is a striking pure indica renowned for its deep purple hues and grape-like aroma. A cross of two Afghani landraces, it delivers a long-lasting full-body euphoria that melts tension away and ushers users into restful sleep.",
+    emoji: "🍇",
+    color: "#a78bfa",
+    parentage: "Hindu Kush × Purple Afghani",
+    growTime: "8 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Granddaddy Purple",
+    type: "indica",
+    origin: "California, USA",
+    thc: "17-23%",
+    thcNum: 20,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Sleepy", "Euphoric", "Happy", "Hungry"],
+    flavors: ["Grape", "Berry", "Sweet", "Earthy"],
+    medical: ["Insomnia", "Pain", "Muscle Spasms", "Stress", "Lack of Appetite"],
+    description: "Introduced by breeder Ken Estes in 2003, Granddaddy Purple (GDP) quickly became a California icon. Its unmistakable deep purple buds, white trichomes, and intense grape-berry aroma set it apart from all others. The high fuses cerebral euphoria with a heavy body stone that's perfect for evening use.",
+    emoji: "💜",
+    color: "#a78bfa",
+    parentage: "Purple Urkle × Big Bud",
+    growTime: "8-11 weeks",
+    yield: "High",
+    region: "Americas"
+  },
+  {
+    name: "Blueberry",
+    type: "indica",
+    origin: "Oregon, USA",
+    thc: "15-20%",
+    thcNum: 17,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Euphoric", "Happy", "Sleepy", "Uplifted"],
+    flavors: ["Blueberry", "Berry", "Sweet", "Vanilla"],
+    medical: ["Stress", "Pain", "Depression", "Insomnia", "Headaches"],
+    description: "DJ Short's legendary Blueberry is one of cannabis's most celebrated creations, winning the High Times Cannabis Cup in 2000. Its striking blue and purple hues and intoxicating blueberry aroma are instantly recognizable. It delivers a long-lasting, relaxing body high with a gentle euphoric uplift.",
+    emoji: "🫐",
+    color: "#a78bfa",
+    parentage: "Purple Thai × Afghani",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Bubba Kush",
+    type: "indica",
+    origin: "California, USA",
+    thc: "15-22%",
+    thcNum: 18,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Sleepy", "Happy", "Euphoric", "Hungry"],
+    flavors: ["Earthy", "Coffee", "Chocolate", "Sweet"],
+    medical: ["Insomnia", "Pain", "Stress", "Anxiety", "Muscle Spasms"],
+    description: "A legendary California indica that emerged from New Orleans after a chance encounter between OG Kush and an unknown Northern Lights phenotype. Bubba Kush's chunky, hash-plant genetics and signature coffee-chocolate flavor have made it a staple in dispensaries across North America.",
+    emoji: "☕",
+    color: "#a78bfa",
+    parentage: "OG Kush × Northern Lights (unknown cross)",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "G-13",
+    type: "indica",
+    origin: "Mississippi, USA (mythical origin)",
+    thc: "20-24%",
+    thcNum: 22,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Happy", "Euphoric", "Sleepy", "Uplifted"],
+    flavors: ["Earthy", "Sweet", "Pungent", "Woody"],
+    medical: ["Pain", "Insomnia", "Stress", "Anxiety", "Depression"],
+    description: "Shrouded in legend, G-13 is said to have been developed by the U.S. government at the University of Mississippi in a top-secret program to breed the world's most potent cannabis. Whether myth or truth, this indica delivers a powerfully sedating body high that lives up to its legendary status.",
+    emoji: "🔬",
+    color: "#a78bfa",
+    parentage: "Afghani (government selection — alleged)",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Skywalker OG",
+    type: "indica",
+    origin: "California, USA",
+    thc: "20-26%",
+    thcNum: 23,
+    cbd: "0.2%",
+    cbdNum: 0.2,
+    effects: ["Relaxed", "Sleepy", "Happy", "Hungry", "Euphoric"],
+    flavors: ["Earthy", "Spicy", "Herbal", "Sweet"],
+    medical: ["Insomnia", "Pain", "Stress", "Anxiety", "Headaches"],
+    description: "A force-powered indica cross that lives up to its cosmic name. Skywalker OG combines the body-numbing power of OG Kush with Skywalker's tranquilizing indica genetics to produce an overwhelmingly sedating high. Its piney, spicy aroma and potent effects have earned it a devoted following.",
+    emoji: "⚔️",
+    color: "#a78bfa",
+    parentage: "Skywalker × OG Kush",
+    growTime: "9-10 weeks",
+    yield: "Medium-High",
+    region: "Americas"
+  },
+  {
+    name: "Blackberry Kush",
+    type: "indica",
+    origin: "Colorado, USA",
+    thc: "16-20%",
+    thcNum: 18,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Sleepy", "Happy", "Euphoric", "Hungry"],
+    flavors: ["Blackberry", "Berry", "Earthy", "Diesel"],
+    medical: ["Pain", "Insomnia", "Stress", "Anxiety", "Nausea"],
+    description: "A visually stunning indica that blends Afghani's sedating power with Blackberry's sweet, fruity genetics. The result is a deeply purple strain with a sweet berry-diesel aroma and powerful body high. Colorado's craft cannabis scene helped bring this gem to national prominence.",
+    emoji: "🫒",
+    color: "#a78bfa",
+    parentage: "Afghani × Blackberry",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+
+  // ── SATIVA ──────────────────────────────────────────────────────────────────
+  {
+    name: "Durban Poison",
+    type: "sativa",
+    origin: "Durban, South Africa",
+    thc: "16-26%",
+    thcNum: 20,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Energetic", "Uplifted", "Happy", "Focused", "Creative"],
+    flavors: ["Sweet", "Earthy", "Pine", "Anise"],
+    medical: ["Depression", "Fatigue", "Stress", "Anxiety", "Headaches"],
+    description: "South Africa's most famous cannabis export, Durban Poison is a pure sativa landrace prized for its energetic, clear-headed high. Collected from the port city of Durban and refined by legendary breeder Ed Rosenthal, it produces large resin glands and an intensely sweet, anise-pine aroma.",
+    emoji: "🌍",
+    color: "#fbbf24",
+    parentage: "Landrace (pure sativa)",
+    growTime: "8-9 weeks",
+    yield: "Medium-High",
+    region: "Africa"
+  },
+  {
+    name: "Thai Stick",
+    type: "sativa",
+    origin: "Thailand",
+    thc: "20-24%",
+    thcNum: 22,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Energetic", "Creative", "Uplifted", "Happy"],
+    flavors: ["Floral", "Sweet", "Citrus", "Tropical"],
+    medical: ["Depression", "Fatigue", "Stress", "Anxiety", "Pain"],
+    description: "A legendary Southeast Asian landrace that was smuggled into the USA during the Vietnam War era in the form of flower tied to bamboo sticks with string. Thai genetics are responsible for some of cannabis's most potent and cerebral highs, lending their power to strains like Haze, OG Kush, and Blueberry.",
+    emoji: "🎋",
+    color: "#fbbf24",
+    parentage: "Landrace (pure sativa)",
+    growTime: "12-14 weeks",
+    yield: "High",
+    region: "Asia"
+  },
+  {
+    name: "Acapulco Gold",
+    type: "sativa",
+    origin: "Guerrero, Mexico",
+    thc: "15-23%",
+    thcNum: 19,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Energetic", "Uplifted", "Relaxed"],
+    flavors: ["Earthy", "Toffee", "Sweet", "Woody"],
+    medical: ["Stress", "Depression", "Fatigue", "Pain", "Nausea"],
+    description: "Once called the finest cannabis in the world, Acapulco Gold was the most sought-after strain of the 1960s–70s. Originating near Acapulco, Mexico, its burnt-toffee aroma and golden coloration were unmistakable. A lanky landrace sativa that delivers a long, uplifting euphoria that has inspired generations of breeders.",
+    emoji: "🥇",
+    color: "#fbbf24",
+    parentage: "Landrace (pure sativa)",
+    growTime: "10-12 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Panama Red",
+    type: "sativa",
+    origin: "Panama",
+    thc: "10-16%",
+    thcNum: 13,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Energetic", "Creative", "Relaxed"],
+    flavors: ["Earthy", "Woody", "Sweet", "Spicy"],
+    medical: ["Depression", "Stress", "Fatigue", "Pain", "Anxiety"],
+    description: "A cult classic landrace sativa from Panama that dominated the American counterculture of the 1970s. Though lower in THC than modern strains, Panama Red delivers a uniquely clear, cerebral high that unfolds slowly and lasts for hours — prized for creative work and philosophical conversation.",
+    emoji: "🇵🇦",
+    color: "#fbbf24",
+    parentage: "Landrace (pure sativa)",
+    growTime: "11-12 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Maui Wowie",
+    type: "sativa",
+    origin: "Maui, Hawaii, USA",
+    thc: "13-20%",
+    thcNum: 16,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Energetic", "Uplifted", "Creative"],
+    flavors: ["Tropical", "Pineapple", "Citrus", "Sweet"],
+    medical: ["Depression", "Fatigue", "Stress", "Pain", "Anxiety"],
+    description: "Born on the volcanic slopes of Maui, this Hawaiian sativa became a symbol of the free-spirited 1970s. Its tropical pineapple flavor and energizing, stress-melting high made it a favorite of surfers and beach-goers. A true expression of the unique terroir of the Hawaiian islands.",
+    emoji: "🤙",
+    color: "#fbbf24",
+    parentage: "Hawaiian landrace",
+    growTime: "9-11 weeks",
+    yield: "Medium-High",
+    region: "Americas"
+  },
+  {
+    name: "Jack Herer",
+    type: "sativa",
+    origin: "Netherlands",
+    thc: "18-24%",
+    thcNum: 21,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Happy", "Uplifted", "Energetic", "Creative", "Focused"],
+    flavors: ["Earthy", "Pine", "Woody", "Spicy"],
+    medical: ["Depression", "Fatigue", "Stress", "Anxiety", "Pain"],
+    description: "Named in honor of cannabis activist and 'The Emperor Wears No Clothes' author Jack Herer, this Dutch masterpiece has won nine Cannabis Cup awards since its creation in the 1990s. A complex cross that blends Haze's energizing cerebral rush with Northern Lights' resin production and Shiva Skunk's potency.",
+    emoji: "✊",
+    color: "#fbbf24",
+    parentage: "Northern Lights #5 × Shiva Skunk × Haze",
+    growTime: "8-10 weeks",
+    yield: "Medium-High",
+    region: "Europe"
+  },
+  {
+    name: "Sour Diesel",
+    type: "sativa",
+    origin: "New York, USA",
+    thc: "19-25%",
+    thcNum: 22,
+    cbd: "0.2%",
+    cbdNum: 0.2,
+    effects: ["Energetic", "Uplifted", "Happy", "Euphoric", "Creative"],
+    flavors: ["Diesel", "Earthy", "Citrus", "Pungent"],
+    medical: ["Depression", "Stress", "Fatigue", "Pain", "Anxiety"],
+    description: "A fast-acting, dreamy cerebral strain that exploded out of New York's underground cannabis scene in the 1990s. Its pungent diesel-citrus aroma is instantly recognizable and its energizing, euphoric high made it the fuel of artists, musicians, and creative professionals across the East Coast.",
+    emoji: "⛽",
+    color: "#fbbf24",
+    parentage: "Chemdawg 91 × Super Skunk (disputed)",
+    growTime: "10-11 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Green Crack",
+    type: "sativa",
+    origin: "Athens, Georgia, USA",
+    thc: "17-24%",
+    thcNum: 20,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Energetic", "Uplifted", "Focused", "Happy", "Creative"],
+    flavors: ["Mango", "Citrus", "Sweet", "Earthy"],
+    medical: ["Fatigue", "Depression", "Stress", "Anxiety", "ADHD"],
+    description: "Named by Snoop Dogg for its intense, crack-like energizing effects, this sativa is a productivity powerhouse. Originally called 'Cush,' its mango-citrus flavor and sharp, focused mental buzz make it popular for daytime use. It's one of the most reliable strains for combating fatigue and depression.",
+    emoji: "⚡",
+    color: "#fbbf24",
+    parentage: "Skunk #1 (isolated phenotype)",
+    growTime: "7-9 weeks",
+    yield: "Medium-High",
+    region: "Americas"
+  },
+  {
+    name: "Strawberry Cough",
+    type: "sativa",
+    origin: "Vermont, USA",
+    thc: "15-20%",
+    thcNum: 17,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Uplifted", "Happy", "Energetic", "Euphoric", "Creative"],
+    flavors: ["Strawberry", "Berry", "Sweet", "Earthy"],
+    medical: ["Stress", "Anxiety", "Depression", "Fatigue", "PTSD"],
+    description: "A mysterious sativa said to have been found growing in a strawberry field in Vermont by breeder Kyle Kushman. Its overwhelmingly sweet strawberry scent and smooth, expansive smoke (which famously makes even experienced smokers cough) deliver a soaring, anxiety-melting euphoria.",
+    emoji: "🍓",
+    color: "#fbbf24",
+    parentage: "Strawberry Fields × Haze (unconfirmed)",
+    growTime: "9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Super Silver Haze",
+    type: "sativa",
+    origin: "Netherlands",
+    thc: "18-23%",
+    thcNum: 20,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Energetic", "Euphoric", "Happy", "Uplifted", "Creative"],
+    flavors: ["Citrus", "Earthy", "Skunk", "Sweet"],
+    medical: ["Depression", "Stress", "Fatigue", "Pain", "Anxiety"],
+    description: "A three-time Cannabis Cup champion (1997–1999) from Green House Seeds, Super Silver Haze is considered the pinnacle of Dutch sativa breeding. It takes the legendary Haze lineage and sharpens it with Skunk and Northern Lights genetics for a strain that delivers an electrifying, long-lasting head high.",
+    emoji: "🏆",
+    color: "#fbbf24",
+    parentage: "Skunk × Northern Lights × Haze",
+    growTime: "9-11 weeks",
+    yield: "High",
+    region: "Europe"
+  },
+  {
+    name: "Amnesia Haze",
+    type: "sativa",
+    origin: "Netherlands",
+    thc: "20-25%",
+    thcNum: 22,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Energetic", "Happy", "Creative", "Uplifted"],
+    flavors: ["Earthy", "Citrus", "Lemon", "Sweet"],
+    medical: ["Depression", "Stress", "Fatigue", "Anxiety", "PTSD"],
+    description: "A Cannabis Cup legend that blends East Asian landrace genetics with Afghani and Haze to produce a sativa of staggering potency. Its euphoric rush is so powerful it can temporarily cloud short-term memory — hence the name. A staple in Amsterdam's coffee shops for over two decades.",
+    emoji: "🌀",
+    color: "#fbbf24",
+    parentage: "South Asian Sativa × Afghani × Haze",
+    growTime: "10-11 weeks",
+    yield: "High",
+    region: "Europe"
+  },
+  {
+    name: "Chocolope",
+    type: "sativa",
+    origin: "Netherlands",
+    thc: "18-21%",
+    thcNum: 19,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Energetic", "Creative", "Uplifted"],
+    flavors: ["Chocolate", "Coffee", "Sweet", "Earthy"],
+    medical: ["Depression", "Stress", "Fatigue", "Anxiety", "Mood Swings"],
+    description: "DNA Genetics created this delectable sativa by crossing Chocolate Thai with Cannalope Haze. The result is a strain that smells and tastes uncannily like chocolate and coffee while delivering a soaring, uplifting sativa high. A unique sensory experience that has earned cult status among cannabis connoisseurs.",
+    emoji: "🍫",
+    color: "#fbbf24",
+    parentage: "Chocolate Thai × Cannalope Haze",
+    growTime: "9-10 weeks",
+    yield: "High",
+    region: "Europe"
+  },
+
+  // ── HYBRID ──────────────────────────────────────────────────────────────────
+  {
+    name: "OG Kush",
+    type: "hybrid",
+    origin: "Florida/California, USA",
+    thc: "20-25%",
+    thcNum: 23,
+    cbd: "0.3%",
+    cbdNum: 0.3,
+    effects: ["Euphoric", "Relaxed", "Happy", "Uplifted", "Hungry"],
+    flavors: ["Earthy", "Pine", "Woody", "Lemon"],
+    medical: ["Stress", "Pain", "Anxiety", "Depression", "Headaches"],
+    description: "The cornerstone of West Coast cannabis culture and perhaps the most influential strain ever bred. OG Kush's unique terpene profile — pungent fuel, skunk, and spice — set a new standard for what cannabis could smell and taste like. Its genetics underpin hundreds of today's most popular strains.",
+    emoji: "👑",
+    color: "#2dd4bf",
+    parentage: "Chemdawg × Hindu Kush",
+    growTime: "8-9 weeks",
+    yield: "Medium-High",
+    region: "Americas"
+  },
+  {
+    name: "Blue Dream",
+    type: "hybrid",
+    origin: "Santa Cruz, California, USA",
+    thc: "17-24%",
+    thcNum: 21,
+    cbd: "0.2%",
+    cbdNum: 0.2,
+    effects: ["Euphoric", "Happy", "Relaxed", "Creative", "Uplifted"],
+    flavors: ["Blueberry", "Sweet", "Berry", "Herbal"],
+    medical: ["Depression", "Pain", "Stress", "Anxiety", "Fatigue"],
+    description: "The most purchased strain in the USA for multiple years running, Blue Dream is the quintessential California hybrid. Its blueberry sweetness from its DJ Short Blueberry mother meets Haze's energizing cerebral high for an approachable, all-day smoke that appeals to beginners and veterans alike.",
+    emoji: "💙",
+    color: "#2dd4bf",
+    parentage: "Blueberry × Haze",
+    growTime: "9-10 weeks",
+    yield: "High",
+    region: "Americas"
+  },
+  {
+    name: "Girl Scout Cookies (GSC)",
+    type: "hybrid",
+    origin: "San Francisco, California, USA",
+    thc: "22-28%",
+    thcNum: 25,
+    cbd: "0.2%",
+    cbdNum: 0.2,
+    effects: ["Euphoric", "Happy", "Relaxed", "Uplifted", "Creative"],
+    flavors: ["Sweet", "Earthy", "Mint", "Cherry"],
+    medical: ["Pain", "Nausea", "Stress", "Depression", "Lack of Appetite"],
+    description: "Born from the Bay Area's Cookies Family collective, GSC exploded into a global phenomenon. Its unprecedented combination of OG Kush's power and Durban Poison's uplifting energy creates a potent, full-body high that feels simultaneously relaxing and euphoric. The Cookies genetic line spawned dozens of subsequent hit strains.",
+    emoji: "🍪",
+    color: "#2dd4bf",
+    parentage: "OG Kush × Durban Poison",
+    growTime: "9-10 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "White Widow",
+    type: "hybrid",
+    origin: "Netherlands",
+    thc: "18-25%",
+    thcNum: 21,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Uplifted", "Energetic", "Creative"],
+    flavors: ["Earthy", "Woody", "Floral", "Peppery"],
+    medical: ["Depression", "Stress", "Pain", "Fatigue", "Anxiety"],
+    description: "A landmark Dutch hybrid that has been a coffee shop staple since winning the Cannabis Cup in 1995. Its dense buds are completely blanketed in white crystalline trichomes — giving it its name. A balanced, bursting high that begins with a powerful euphoric rush before settling into a comfortable, functional body buzz.",
+    emoji: "🕸️",
+    color: "#2dd4bf",
+    parentage: "Brazilian Sativa × South Indian Indica",
+    growTime: "8-9 weeks",
+    yield: "Medium-High",
+    region: "Europe"
+  },
+  {
+    name: "Pineapple Express",
+    type: "hybrid",
+    origin: "Hawaii / Canada",
+    thc: "17-25%",
+    thcNum: 21,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Happy", "Uplifted", "Euphoric", "Energetic", "Creative"],
+    flavors: ["Pineapple", "Tropical", "Citrus", "Cedar"],
+    medical: ["Depression", "Stress", "Pain", "Anxiety", "Fatigue"],
+    description: "Popularized by the 2008 stoner comedy of the same name, Pineapple Express was already a beloved strain before Hollywood made it famous. Its tropical pineapple-citrus aroma and long-lasting, energetic high live up to the hype. A Hawaiian-Canadian hybrid that delivers the best of both worlds.",
+    emoji: "🍍",
+    color: "#2dd4bf",
+    parentage: "Trainwreck × Hawaiian",
+    growTime: "7-8 weeks",
+    yield: "Medium-High",
+    region: "Americas"
+  },
+  {
+    name: "Wedding Cake",
+    type: "hybrid",
+    origin: "California, USA",
+    thc: "22-27%",
+    thcNum: 25,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Happy", "Euphoric", "Uplifted", "Hungry"],
+    flavors: ["Sweet", "Vanilla", "Earthy", "Peppery"],
+    medical: ["Pain", "Stress", "Anxiety", "Insomnia", "Lack of Appetite"],
+    description: "Also known as Pink Cookies, Wedding Cake rose to prominence in California dispensaries through the Seed Junky Genetics collective. Its rich, tangy flavor with undertones of earthy pepper is cut from the same Cookies cloth as its parents. An indica-leaning hybrid that delivers a potent, joyous relaxation.",
+    emoji: "🎂",
+    color: "#2dd4bf",
+    parentage: "Triangle Kush × Animal Mints",
+    growTime: "7-9 weeks",
+    yield: "High",
+    region: "Americas"
+  },
+  {
+    name: "Gelato #33",
+    type: "hybrid",
+    origin: "San Francisco, California, USA",
+    thc: "20-25%",
+    thcNum: 23,
+    cbd: "0.2%",
+    cbdNum: 0.2,
+    effects: ["Euphoric", "Happy", "Relaxed", "Uplifted", "Creative"],
+    flavors: ["Sweet", "Citrus", "Lavender", "Berry"],
+    medical: ["Pain", "Stress", "Depression", "Fatigue", "Insomnia"],
+    description: "Created by the Cookies Family in partnership with Sherbinskis in the San Francisco Bay Area, Gelato #33 (Larry Bird) is a perfectly balanced hybrid that delivers a euphoric, creative rush alongside a soothing body relaxation. Its dessert-like sweetness — citrus, lavender, and berry — made it a sensation.",
+    emoji: "🍨",
+    color: "#2dd4bf",
+    parentage: "Sunset Sherbet × Thin Mint GSC",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Gorilla Glue #4 (GG4)",
+    type: "hybrid",
+    origin: "Colorado, USA",
+    thc: "25-30%",
+    thcNum: 27,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Euphoric", "Happy", "Sleepy", "Hungry"],
+    flavors: ["Earthy", "Diesel", "Pine", "Sour"],
+    medical: ["Pain", "Insomnia", "Stress", "Anxiety", "Depression"],
+    description: "GG4 — now legally required to go by 'Original Glue' after a trademark dispute with Gorilla Glue Co. — is one of the most potent strains ever bred. A happy accident from Colorado, it produces such enormous amounts of sticky resin that scissors become glued shut when trimming. Multiple Cannabis Cup winner.",
+    emoji: "🦍",
+    color: "#2dd4bf",
+    parentage: "Chem Sis × Sour Dubb × Chocolate Diesel",
+    growTime: "8-9 weeks",
+    yield: "High",
+    region: "Americas"
+  },
+  {
+    name: "Chemdawg",
+    type: "hybrid",
+    origin: "Massachusetts, USA",
+    thc: "18-26%",
+    thcNum: 22,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Relaxed", "Creative", "Uplifted"],
+    flavors: ["Diesel", "Chemical", "Earthy", "Pine"],
+    medical: ["Stress", "Pain", "Depression", "Anxiety", "Fatigue"],
+    description: "One of cannabis's most influential strains, Chemdawg's exact origin is hotly debated — it allegedly emerged from a bag of weed purchased at a Grateful Dead show. Its unmistakable diesel-chemical aroma and potent cerebral effects gave rise to OG Kush, Sour Diesel, and countless other legends.",
+    emoji: "🧪",
+    color: "#2dd4bf",
+    parentage: "Unknown (Thai × Nepalese suspected)",
+    growTime: "9-10 weeks",
+    yield: "Medium-High",
+    region: "Americas"
+  },
+  {
+    name: "AK-47",
+    type: "hybrid",
+    origin: "Netherlands",
+    thc: "17-22%",
+    thcNum: 20,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Happy", "Uplifted", "Euphoric", "Relaxed", "Creative"],
+    flavors: ["Earthy", "Floral", "Woody", "Sweet"],
+    medical: ["Stress", "Pain", "Depression", "Anxiety", "Fatigue"],
+    description: "Despite its fierce name, AK-47 is a gentle, sociable hybrid that won multiple Cannabis Cups in the 1990s. Serious Seeds in the Netherlands created this complex four-way cross to deliver a steady, long-lasting cerebral buzz that keeps users mentally alert while the body relaxes. A true connoisseur's strain.",
+    emoji: "🌸",
+    color: "#2dd4bf",
+    parentage: "Colombian × Mexican × Thai × Afghani",
+    growTime: "7-9 weeks",
+    yield: "Medium-High",
+    region: "Europe"
+  },
+  {
+    name: "Trainwreck",
+    type: "hybrid",
+    origin: "Northern California, USA",
+    thc: "18-25%",
+    thcNum: 21,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Energetic", "Creative", "Uplifted"],
+    flavors: ["Pine", "Lemon", "Earthy", "Spicy"],
+    medical: ["Pain", "Stress", "Depression", "PTSD", "Anxiety"],
+    description: "Named for the sativa-like rush that hits like a freight train, Trainwreck is a Northern California legend said to have been saved from a derailment near its grow site. Its complex terpene profile of lemon, pine, and earth fuel a mind-bending euphoric high that gradually eases into a soothing body buzz.",
+    emoji: "🚂",
+    color: "#2dd4bf",
+    parentage: "Mexican Sativa × Thai Sativa × Afghani",
+    growTime: "8-10 weeks",
+    yield: "High",
+    region: "Americas"
+  },
+  {
+    name: "Bruce Banner",
+    type: "hybrid",
+    origin: "Colorado, USA",
+    thc: "25-30%",
+    thcNum: 28,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Relaxed", "Creative", "Energetic"],
+    flavors: ["Sweet", "Diesel", "Earthy", "Strawberry"],
+    medical: ["Stress", "Depression", "Pain", "Fatigue", "Anxiety"],
+    description: "Named for the Incredible Hulk's alter-ego, Bruce Banner #3 is one of the strongest strains ever measured by THC content. Created by Dark Horse Genetics in Colorado, it delivers a powerful, fast-acting rush of euphoria before settling into a long-lasting, calm body relaxation — a gentle giant.",
+    emoji: "💚",
+    color: "#2dd4bf",
+    parentage: "OG Kush × Strawberry Diesel",
+    growTime: "8-10 weeks",
+    yield: "High",
+    region: "Americas"
+  },
+  {
+    name: "Lemon Haze",
+    type: "hybrid",
+    origin: "Netherlands",
+    thc: "17-25%",
+    thcNum: 21,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Happy", "Uplifted", "Energetic", "Euphoric", "Creative"],
+    flavors: ["Lemon", "Citrus", "Sweet", "Earthy"],
+    medical: ["Depression", "Stress", "Fatigue", "Anxiety", "Pain"],
+    medical_detail: ["Depression", "Stress", "Fatigue", "Anxiety", "Pain"],
+    description: "A Dutch-bred sativa-dominant hybrid that smells exactly like freshly peeled lemons. A cross of Lemon Skunk and Silver Haze, it delivers a cheerful, energizing high that's perfect for socializing and creative endeavors. Its bright citrus terpene profile has made it one of the most copied flavor profiles in modern breeding.",
+    emoji: "🍋",
+    color: "#2dd4bf",
+    parentage: "Lemon Skunk × Silver Haze",
+    growTime: "8-9 weeks",
+    yield: "High",
+    region: "Europe"
+  },
+  {
+    name: "Cherry Pie",
+    type: "hybrid",
+    origin: "California, USA",
+    thc: "16-23%",
+    thcNum: 20,
+    cbd: "0.2%",
+    cbdNum: 0.2,
+    effects: ["Happy", "Euphoric", "Relaxed", "Uplifted", "Hungry"],
+    flavors: ["Cherry", "Berry", "Sweet", "Earthy"],
+    medical: ["Anxiety", "Stress", "PTSD", "Pain", "Migraines"],
+    description: "A Bay Area favorite from the Cookies Family lineage, Cherry Pie's sweet cherry and earthy pie-crust aroma are as irresistible as the real thing. Its indica-dominant effects deliver full-body relaxation alongside a cerebral euphoria that keeps users functional and sociable — ideal for unwinding after work.",
+    emoji: "🍒",
+    color: "#2dd4bf",
+    parentage: "Granddaddy Purple × Durban Poison",
+    growTime: "8 weeks",
+    yield: "Medium-High",
+    region: "Americas"
+  },
+  {
+    name: "Runtz",
+    type: "hybrid",
+    origin: "Los Angeles, California, USA",
+    thc: "19-29%",
+    thcNum: 24,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Relaxed", "Uplifted", "Giggly"],
+    flavors: ["Sweet", "Fruity", "Tropical", "Candy"],
+    medical: ["Stress", "Anxiety", "Pain", "Insomnia", "Depression"],
+    description: "Named after the candy, Runtz exploded onto the scene in 2018 when it was named Leafly's Strain of the Year. A cross of two legendary Cookies Family strains, it produces strikingly colored buds with a creamy, fruity, candy-sweet aroma. Its balanced, long-lasting high appealed to hip-hop culture and went mainstream fast.",
+    emoji: "🍬",
+    color: "#2dd4bf",
+    parentage: "Zkittlez × Gelato",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Zkittlez",
+    type: "hybrid",
+    origin: "California, USA",
+    thc: "15-23%",
+    thcNum: 19,
+    cbd: "0.4%",
+    cbdNum: 0.4,
+    effects: ["Happy", "Relaxed", "Euphoric", "Uplifted", "Focused"],
+    flavors: ["Grape", "Tropical", "Berry", "Sweet"],
+    medical: ["Stress", "Anxiety", "Depression", "Pain", "Insomnia"],
+    description: "Winner of first place at the Emerald Cup and other prestigious competitions, Zkittlez tastes like a bag of mixed tropical candy. Created by 3rd Gen Family and Terp Hogz, it uses the colorful flavors of Grape Ape and Grapefruit to deliver an indica-leaning high that's uplifting without being overwhelming.",
+    emoji: "🌈",
+    color: "#2dd4bf",
+    parentage: "Grape Ape × Grapefruit",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Mimosa",
+    type: "hybrid",
+    origin: "California, USA",
+    thc: "19-27%",
+    thcNum: 23,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Happy", "Euphoric", "Energetic", "Uplifted", "Creative"],
+    flavors: ["Citrus", "Orange", "Tropical", "Sweet"],
+    medical: ["Depression", "Stress", "Fatigue", "Anxiety", "Pain"],
+    description: "Bred by Symbiotic Genetics, Mimosa lives up to its brunch-cocktail namesake with a bright, fizzy citrus aroma of tropical fruits and fresh oranges. A sativa-dominant hybrid, it delivers an energizing morning high — uplifting, euphoric, and motivating — that's become a favorite for social daytime use.",
+    emoji: "🥂",
+    color: "#2dd4bf",
+    parentage: "Clementine × Purple Punch",
+    growTime: "9-10 weeks",
+    yield: "Medium-High",
+    region: "Americas"
+  },
+  {
+    name: "Cereal Milk",
+    type: "hybrid",
+    origin: "California, USA",
+    thc: "18-23%",
+    thcNum: 21,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Relaxed", "Uplifted", "Creative"],
+    flavors: ["Sweet", "Creamy", "Vanilla", "Fruity"],
+    medical: ["Stress", "Anxiety", "Depression", "Pain", "Fatigue"],
+    description: "From the legendary Cookies brand, Cereal Milk captures the sweet, creamy flavor of the milk left at the bottom of a bowl of fruity cereal. A balanced hybrid that delivers a creeping euphoria and relaxing body buzz, it exemplifies the dessert-flavor breeding revolution that Cookies pioneered.",
+    emoji: "🥣",
+    color: "#2dd4bf",
+    parentage: "Y Life × Snowman",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Biscotti",
+    type: "hybrid",
+    origin: "California, USA",
+    thc: "21-25%",
+    thcNum: 23,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Euphoric", "Happy", "Sleepy", "Hungry"],
+    flavors: ["Sweet", "Cookie", "Earthy", "Diesel"],
+    medical: ["Anxiety", "Stress", "Pain", "Insomnia", "Depression"],
+    description: "Cookies Fam's Biscotti is an indica-leaning hybrid that hits with the relaxed, cozy feeling its pastry name suggests. Dense, colorful buds covered in frosty trichomes deliver a sweet, cookie-dough aroma underscored by notes of earthy diesel. Its heavy body effects are ideal for winding down in the evening.",
+    emoji: "🍩",
+    color: "#2dd4bf",
+    parentage: "Gelato #25 × GSC × South Florida OG",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Jet Fuel / G6",
+    type: "hybrid",
+    origin: "Colorado, USA",
+    thc: "18-25%",
+    thcNum: 22,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Energetic", "Euphoric", "Uplifted", "Happy", "Creative"],
+    flavors: ["Diesel", "Pine", "Earthy", "Sour"],
+    medical: ["Depression", "Fatigue", "Stress", "Anxiety", "Pain"],
+    description: "Also known as G6, Jet Fuel lives up to its aerospace-inspired name with a fast-acting, intense sativa-leaning high that launches users into an energetic, euphoric orbit. Born from Denver's craft cannabis scene, its powerful diesel-pine aroma and cerebral rush are unmistakable. A go-to strain for motivation.",
+    emoji: "✈️",
+    color: "#2dd4bf",
+    parentage: "Aspen OG × High Country Diesel",
+    growTime: "9-10 weeks",
+    yield: "Medium-High",
+    region: "Americas"
+  },
+  // ── Additional strains to reach 45+ ─────────────────────────────────────────
+  {
+    name: "Purple Haze",
+    type: "sativa",
+    origin: "Colombia / Mexico (via Netherlands)",
+    thc: "17-20%",
+    thcNum: 18,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Creative", "Energetic", "Uplifted"],
+    flavors: ["Berry", "Earthy", "Sweet", "Spicy"],
+    medical: ["Depression", "Stress", "Fatigue", "Pain", "Anxiety"],
+    description: "Immortalized by Jimi Hendrix's 1967 classic, Purple Haze is as much a cultural icon as it is a strain. A sativa-dominant cross known for its distinctive purple coloration and sharp, sweet-spicy berry aroma, it delivers a dreamy, blissful cerebral high that was the archetype of the psychedelic era.",
+    emoji: "🎸",
+    color: "#fbbf24",
+    parentage: "Purple Thai × Haze",
+    growTime: "9-10 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Skunk #1",
+    type: "hybrid",
+    origin: "Netherlands (USA genetics)",
+    thc: "15-19%",
+    thcNum: 17,
+    cbd: "0.3%",
+    cbdNum: 0.3,
+    effects: ["Happy", "Relaxed", "Uplifted", "Euphoric", "Hungry"],
+    flavors: ["Skunk", "Earthy", "Sweet", "Skunky"],
+    medical: ["Depression", "Stress", "Pain", "Anxiety", "Fatigue"],
+    description: "One of the most important strains in cannabis history, Skunk #1 was perfected by Sacred Seeds in the late 1970s and brought to the Netherlands, where it became the backbone of the modern Dutch cannabis industry. Its stable genetics and classic skunky aroma have influenced thousands of subsequent strains.",
+    emoji: "🦨",
+    color: "#2dd4bf",
+    parentage: "Afghani × Acapulco Gold × Colombian Gold",
+    growTime: "7-8 weeks",
+    yield: "High",
+    region: "Europe"
+  },
+  {
+    name: "Sunset Sherbet",
+    type: "hybrid",
+    origin: "California, USA",
+    thc: "18-24%",
+    thcNum: 21,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Happy", "Relaxed", "Euphoric", "Uplifted", "Creative"],
+    flavors: ["Sweet", "Berry", "Citrus", "Sherbet"],
+    medical: ["Stress", "Depression", "Pain", "Anxiety", "Fatigue"],
+    description: "A Cookies Family phenotype with vibrant, sherbet-like sweetness. Sunset Sherbet crosses GSC with an indica Pink Panties to create a full-bodied hybrid that opens with a euphoric burst before settling into a deeply relaxed, sociable body high. Its colorful buds and dessert aroma made it an instant hit.",
+    emoji: "🌅",
+    color: "#2dd4bf",
+    parentage: "GSC × Pink Panties",
+    growTime: "8 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Forbidden Fruit",
+    type: "hybrid",
+    origin: "California, USA",
+    thc: "21-26%",
+    thcNum: 24,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Happy", "Euphoric", "Sleepy", "Hungry"],
+    flavors: ["Cherry", "Tropical", "Citrus", "Mango"],
+    medical: ["Insomnia", "Pain", "Stress", "Anxiety", "Muscle Spasms"],
+    description: "A striking indica-dominant hybrid that lives up to its tempting name. The cross of Cherry Pie and Tangie creates a deeply colored, tropical-cherry flavored strain that delivers potent sedating effects. Its complex terpene profile of myrcene, limonene, and caryophyllene makes it as interesting to smell as it is to smoke.",
+    emoji: "🍑",
+    color: "#2dd4bf",
+    parentage: "Cherry Pie × Tangie",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Ice Cream Cake",
+    type: "hybrid",
+    origin: "Nevada, USA",
+    thc: "20-25%",
+    thcNum: 23,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Euphoric", "Happy", "Sleepy", "Hungry"],
+    flavors: ["Vanilla", "Sweet", "Creamy", "Earthy"],
+    medical: ["Insomnia", "Pain", "Anxiety", "Stress", "Depression"],
+    description: "Seed Junky Genetics' Ice Cream Cake is a deeply indica-leaning hybrid that smells exactly like its namesake dessert — rich vanilla and creamy sweetness. A potent sedative cross of two beloved hybrids, it produces a heavy body high with a euphoric mental state that's perfect for late-night relaxation.",
+    emoji: "🍦",
+    color: "#2dd4bf",
+    parentage: "Wedding Cake × Gelato #33",
+    growTime: "8-9 weeks",
+    yield: "Medium",
+    region: "Americas"
+  },
+  {
+    name: "Do-Si-Dos",
+    type: "hybrid",
+    origin: "California, USA",
+    thc: "19-28%",
+    thcNum: 24,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Relaxed", "Euphoric", "Happy", "Sleepy", "Hungry"],
+    flavors: ["Sweet", "Mint", "Earthy", "Floral"],
+    medical: ["Anxiety", "Stress", "Pain", "Insomnia", "Depression"],
+    description: "A potent, indica-dominant Cookies offspring with striking bag appeal and a calming, body-focused high. Its minty, floral aroma with sweet cookie undertones reflects its GSC lineage, while its Face Off OG parent contributes a deeply sedating physical effect. A favorite of the Cookies generation.",
+    emoji: "🕺",
+    color: "#2dd4bf",
+    parentage: "GSC × Face Off OG",
+    growTime: "8-9 weeks",
+    yield: "Medium-High",
+    region: "Americas"
+  },
+  {
+    name: "Mac 1 (Miracle Alien Cookies)",
+    type: "hybrid",
+    origin: "Colorado, USA",
+    thc: "20-23%",
+    thcNum: 22,
+    cbd: "0.1%",
+    cbdNum: 0.1,
+    effects: ["Euphoric", "Happy", "Relaxed", "Creative", "Uplifted"],
+    flavors: ["Sour", "Floral", "Earthy", "Creamy"],
+    medical: ["Depression", "Stress", "Anxiety", "Pain", "Fatigue"],
+    description: "One of the most sought-after modern strains, MAC 1 was created by Capulator using carefully selected phenotypes. Known for its exceptional bag appeal — dense, lime-green buds smothered in a thick layer of chalky trichomes — and a balanced, joyous high, it has become a benchmark for quality in today's market.",
+    emoji: "👽",
+    color: "#2dd4bf",
+    parentage: "Alien Cookies × Colombian × Starfighter",
+    growTime: "9-10 weeks",
+    yield: "Medium",
+    region: "Americas"
+  }
+];
+
+const indicaCount = strains.filter(s => s.type === 'indica').length;
+const sativaCount = strains.filter(s => s.type === 'sativa').length;
+const hybridCount = strains.filter(s => s.type === 'hybrid').length;
+const totalCount = strains.length;
+const countriesSet = new Set(strains.map(s => s.region));
+const countriesCount = countriesSet.size;
+
+// Organize by region for origin map
+const regionMap: Record<string, typeof strains> = {};
+for (const s of strains) {
+  if (!regionMap[s.region]) regionMap[s.region] = [];
+  regionMap[s.region].push(s);
+}
+const regionOrder = ["Americas", "Europe", "Asia", "Africa"];
+---
+
+<Layout title="Cannabis Strain Guide" description="Explore 50+ cannabis strains from around the world — classified by type, origin, effects, and flavor.">
+
+  <main class="strains-page">
+
+    <!-- ── Page Header ─────────────────────────────────────────────── -->
+    <header class="page-header">
+      <div class="header-inner">
+        <h1>🌿 Cannabis Strain Guide</h1>
+        <p class="subtitle">Explore {totalCount}+ strains from around the world, classified by type and origin</p>
+
+        <!-- Stats bar -->
+        <div class="stats-bar">
+          <span class="stat indica-stat"><span class="dot"></span>{indicaCount} Indica</span>
+          <span class="stat sativa-stat"><span class="dot"></span>{sativaCount} Sativa</span>
+          <span class="stat hybrid-stat"><span class="dot"></span>{hybridCount} Hybrid</span>
+          <span class="stat total-stat"><span class="dot"></span>{totalCount} Total Strains</span>
+          <span class="stat region-stat"><span class="dot"></span>{countriesCount} Regions</span>
+        </div>
+
+        <!-- Search + filter row -->
+        <div class="controls">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input
+              type="search"
+              id="strainSearch"
+              placeholder="Search strains by name…"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="filter-pills" id="filterTabs">
+            <button class="filter-btn active" data-filter="all">ALL</button>
+            <button class="filter-btn indica" data-filter="indica">INDICA</button>
+            <button class="filter-btn sativa" data-filter="sativa">SATIVA</button>
+            <button class="filter-btn hybrid" data-filter="hybrid">HYBRID</button>
+          </div>
+
+          <div class="sort-wrap">
+            <select id="sortSelect">
+              <option value="name">Name A–Z</option>
+              <option value="thc">THC% High–Low</option>
+              <option value="type">By Type</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Type Explainer Cards ────────────────────────────────────── -->
+    <section class="type-cards container">
+      <div class="type-card indica-card">
+        <div class="type-icon">🟣</div>
+        <h3>INDICA</h3>
+        <p class="type-tagline">Body high · Relaxing · Sedating</p>
+        <ul>
+          <li>Shorter, bushy plants with wide leaves</li>
+          <li>Higher CBD-to-THC ratio</li>
+          <li>Best for evening &amp; nighttime use</li>
+          <li>Ideal for pain, insomnia &amp; anxiety</li>
+        </ul>
+        <div class="type-badge indica-badge">INDICA</div>
+      </div>
+      <div class="type-card sativa-card">
+        <div class="type-icon">🟡</div>
+        <h3>SATIVA</h3>
+        <p class="type-tagline">Head high · Energizing · Euphoric</p>
+        <ul>
+          <li>Tall, thin plants with narrow leaves</li>
+          <li>Higher THC ratio, less CBD</li>
+          <li>Best for daytime &amp; creative use</li>
+          <li>Ideal for depression, fatigue &amp; focus</li>
+        </ul>
+        <div class="type-badge sativa-badge">SATIVA</div>
+      </div>
+      <div class="type-card hybrid-card">
+        <div class="type-icon">🟢</div>
+        <h3>HYBRID</h3>
+        <p class="type-tagline">Best of both worlds · Versatile</p>
+        <ul>
+          <li>Bred from indica + sativa parents</li>
+          <li>Effects depend on dominant parent</li>
+          <li>Flexible — day or night use</li>
+          <li>Most modern strains are hybrids</li>
+        </ul>
+        <div class="type-badge hybrid-badge">HYBRID</div>
+      </div>
+    </section>
+
+    <!-- ── Empty State ─────────────────────────────────────────────── -->
+    <div class="empty-state hidden" id="emptyState">
+      <span class="empty-icon">🔎</span>
+      <p>No strains match your search. Try a different name or filter.</p>
+    </div>
+
+    <!-- ── Strain Grid ──────────────────────────────────────────────── -->
+    <section class="container strains-grid" id="strainsGrid">
+      {strains.map((s, i) => {
+        const thcRaw = parseFloat(s.thc.split('-')[1] ?? s.thc);
+        const thcBarPct = Math.min(100, (thcRaw / 30) * 100);
+        const cbdBarPct = Math.min(100, (s.cbdNum / 2) * 100);
+        return (
+          <article
+            class={`strain-card strain-card--${s.type}`}
+            data-type={s.type}
+            data-name={s.name.toLowerCase()}
+            data-thc={s.thcNum}
+            id={`card-${i}`}
+          >
+            {/* card header bar */}
+            <div class={`card-header-bar card-header-bar--${s.type}`}>
+              <span class="card-emoji">{s.emoji}</span>
+              <div class="card-title-group">
+                <h2 class="card-name">{s.name}</h2>
+                <span class={`type-pill type-pill--${s.type}`}>{s.type.toUpperCase()}</span>
+              </div>
+            </div>
+
+            {/* card body */}
+            <div class="card-body">
+              <p class="card-origin">📍 {s.origin}</p>
+
+              {/* THC / CBD bars */}
+              <div class="potency-bars">
+                <div class="potency-row">
+                  <span class="potency-label">THC</span>
+                  <div class="bar-track">
+                    <div class="bar-fill bar-thc" style={`width:${thcBarPct}%`}></div>
+                  </div>
+                  <span class="potency-value">{s.thc}</span>
+                </div>
+                <div class="potency-row">
+                  <span class="potency-label">CBD</span>
+                  <div class="bar-track">
+                    <div class="bar-fill bar-cbd" style={`width:${Math.max(cbdBarPct, 3)}%`}></div>
+                  </div>
+                  <span class="potency-value">{s.cbd}</span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p class="card-desc">{s.description.slice(0, 140)}…</p>
+
+              {/* Effects tags */}
+              <div class="tag-group">
+                <span class="tag-label">Effects</span>
+                <div class="tags">
+                  {s.effects.map(e => <span class="tag tag-effect">{e}</span>)}
+                </div>
+              </div>
+
+              {/* Flavor tags */}
+              <div class="tag-group">
+                <span class="tag-label">Flavors</span>
+                <div class="tags">
+                  {s.flavors.map(f => <span class="tag tag-flavor">{f}</span>)}
+                </div>
+              </div>
+
+              {/* Expand button */}
+              <button class="expand-btn" data-card={i} aria-expanded="false">
+                Show Details <span class="expand-arrow">▾</span>
+              </button>
+
+              {/* Expanded detail panel */}
+              <div class="expand-panel hidden" id={`expand-${i}`}>
+                <div class="expand-grid">
+                  <div class="expand-item">
+                    <span class="expand-item-label">🌿 Parentage</span>
+                    <span class="expand-item-value">{s.parentage}</span>
+                  </div>
+                  <div class="expand-item">
+                    <span class="expand-item-label">⏱ Grow Time</span>
+                    <span class="expand-item-value">{s.growTime}</span>
+                  </div>
+                  <div class="expand-item">
+                    <span class="expand-item-label">📦 Yield</span>
+                    <span class="expand-item-value">{s.yield}</span>
+                  </div>
+                  <div class="expand-item">
+                    <span class="expand-item-label">🌍 Region</span>
+                    <span class="expand-item-value">{s.region}</span>
+                  </div>
+                </div>
+                <div class="tag-group" style="margin-top:0.75rem">
+                  <span class="tag-label">Medical Uses</span>
+                  <div class="tags">
+                    {s.medical.map(m => <span class="tag tag-medical">{m}</span>)}
+                  </div>
+                </div>
+                <p class="card-desc full-desc">{s.description}</p>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </section>
+
+    <!-- ── World Origins Section ───────────────────────────────────── -->
+    <section class="container origins-section">
+      <h2 class="section-title">🌍 World Origins</h2>
+      <p class="section-subtitle">Cannabis has been cultivated across the globe for thousands of years. Here's where our featured strains come from:</p>
+      <div class="origins-grid">
+        {regionOrder.map(region => {
+          const regionStrains = regionMap[region] ?? [];
+          return (
+            <div class="origin-card">
+              <h3 class="origin-region">{region}</h3>
+              <div class="origin-strains">
+                {regionStrains.map(s => (
+                  <div class={`origin-strain origin-strain--${s.type}`}>
+                    <span class="origin-emoji">{s.emoji}</span>
+                    <div>
+                      <span class="origin-name">{s.name}</span>
+                      <span class="origin-location">{s.origin}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div class="landrace-note">
+        <span class="landrace-icon">🏴</span>
+        <div>
+          <strong>About Landraces</strong>
+          <p>Landrace strains are cannabis varieties that evolved naturally in their geographic region over centuries without human hybridization. They form the genetic foundation of virtually all modern cannabis. Landraces include Hindu Kush, Afghani, Durban Poison, Thai Stick, Acapulco Gold, and Panama Red.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // ── DOM refs ────────────────────────────────────────────────────
+    const grid      = document.getElementById('strainsGrid')!;
+    const cards     = Array.from(grid.querySelectorAll<HTMLElement>('.strain-card'));
+    const searchEl  = document.getElementById('strainSearch') as HTMLInputElement;
+    const filterBtns= Array.from(document.querySelectorAll<HTMLButtonElement>('.filter-btn'));
+    const sortEl    = document.getElementById('sortSelect') as HTMLSelectElement;
+    const emptyState= document.getElementById('emptyState')!;
+
+    let activeFilter = 'all';
+    let searchTerm   = '';
+
+    // ── Filter + Search ─────────────────────────────────────────────
+    function applyFilters() {
+      let visible = 0;
+      cards.forEach(card => {
+        const type = card.dataset.type ?? '';
+        const name = card.dataset.name ?? '';
+        const matchesFilter = activeFilter === 'all' || type === activeFilter;
+        const matchesSearch = name.includes(searchTerm.toLowerCase().trim());
+        if (matchesFilter && matchesSearch) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      emptyState.classList.toggle('hidden', visible > 0);
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter ?? 'all';
+        applyFilters();
+      });
+    });
+
+    searchEl.addEventListener('input', () => {
+      searchTerm = searchEl.value;
+      applyFilters();
+    });
+
+    // ── Sort ────────────────────────────────────────────────────────
+    sortEl.addEventListener('change', () => {
+      const order = sortEl.value;
+      const sorted = [...cards].sort((a, b) => {
+        if (order === 'name') {
+          return (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '');
+        }
+        if (order === 'thc') {
+          return parseFloat(b.dataset.thc ?? '0') - parseFloat(a.dataset.thc ?? '0');
+        }
+        if (order === 'type') {
+          const order2 = ['indica','sativa','hybrid'];
+          return order2.indexOf(a.dataset.type ?? '') - order2.indexOf(b.dataset.type ?? '');
+        }
+        return 0;
+      });
+      sorted.forEach(card => grid.appendChild(card));
+    });
+
+    // ── Expand / Collapse ────────────────────────────────────────────
+    grid.addEventListener('click', (e: Event) => {
+      const target = e.target as HTMLElement;
+      const btn = target.closest<HTMLButtonElement>('.expand-btn');
+      if (!btn) return;
+      const idx     = btn.dataset.card ?? '';
+      const panel   = document.getElementById(`expand-${idx}`);
+      const arrow   = btn.querySelector('.expand-arrow');
+      if (!panel) return;
+      const isOpen  = !panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      btn.textContent = '';
+      btn.innerHTML = isOpen
+        ? `Show Details <span class="expand-arrow">▾</span>`
+        : `Hide Details <span class="expand-arrow" style="transform:rotate(180deg);display:inline-block">▾</span>`;
+    });
+  </script>
+
+</Layout>
+
+<style>
+  /* ── Base ─────────────────────────────────────────────────────────── */
+  .strains-page {
+    padding-bottom: 4rem;
+  }
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .hidden {
+    display: none !important;
+  }
+
+  /* ── Page Header ──────────────────────────────────────────────────── */
+  .page-header {
+    background: linear-gradient(160deg, #e6f2ec 0%, #eaf2ed 60%, #f4f7f5 100%);
+    border-bottom: 1px solid #c8ddd1;
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: #15803d;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .subtitle {
+    color: #4b6358;
+    font-size: 1.1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4b6358;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .indica-stat .dot  { background: #a78bfa; }
+  .sativa-stat .dot  { background: #fbbf24; }
+  .hybrid-stat .dot  { background: #2dd4bf; }
+  .total-stat .dot   { background: #4ade80; }
+  .region-stat .dot  { background: #60a5fa; }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 220px;
+    max-width: 360px;
+  }
+  .search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    pointer-events: none;
+  }
+  #strainSearch {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #c8ddd1;
+    border-radius: 8px;
+    padding: 0.6rem 0.75rem 0.6rem 2.25rem;
+    color: #1a2e1f;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #strainSearch:focus { border-color: #16a34a; }
+  #strainSearch::placeholder { color: #9ab8a8; }
+
+  .filter-pills {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .filter-btn {
+    background: #ffffff;
+    border: 1px solid #c8ddd1;
+    border-radius: 20px;
+    color: #4b6358;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.45rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover        { border-color: #16a34a; color: #16a34a; }
+  .filter-btn.active       { background: #16a34a; color: #ffffff; border-color: #16a34a; }
+  .filter-btn.indica.active{ background: #7c3aed; border-color: #7c3aed; color: #fff; }
+  .filter-btn.sativa.active{ background: #b45309; border-color: #b45309; color: #fff; }
+  .filter-btn.hybrid.active{ background: #0d9488; border-color: #0d9488; color: #fff; }
+
+  .sort-wrap select {
+    background: #ffffff;
+    border: 1px solid #c8ddd1;
+    border-radius: 8px;
+    color: #4b6358;
+    font-size: 0.9rem;
+    padding: 0.55rem 0.75rem;
+    cursor: pointer;
+    outline: none;
+  }
+  .sort-wrap select:focus { border-color: #16a34a; }
+
+  /* ── Type Explainer Cards ─────────────────────────────────────────── */
+  .type-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+  }
+  .type-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #c8ddd1;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+  .indica-card { border-left: 4px solid #a78bfa; }
+  .sativa-card { border-left: 4px solid #fbbf24; }
+  .hybrid-card { border-left: 4px solid #2dd4bf; }
+  .type-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+  .type-card h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+  }
+  .indica-card h3 { color: #7c3aed; }
+  .sativa-card h3 { color: #b45309; }
+  .hybrid-card h3 { color: #0d9488; }
+  .type-tagline {
+    color: #4b6358;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .type-card ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .type-card ul li {
+    color: #4b6358;
+    font-size: 0.875rem;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .type-card ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: #16a34a;
+  }
+  .type-badge {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    opacity: 0.7;
+  }
+  .indica-badge { background: #7c3aed22; color: #7c3aed; border: 1px solid #7c3aed44; }
+  .sativa-badge { background: #b4530922; color: #b45309; border: 1px solid #b4530944; }
+  .hybrid-badge { background: #0d948822; color: #0d9488; border: 1px solid #0d948844; }
+
+  /* ── Empty state ─────────────────────────────────────────────────── */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #4b6358;
+  }
+  .empty-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+
+  /* ── Strains Grid ────────────────────────────────────────────────── */
+  .strains-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 2.5rem;
+  }
+  @media (max-width: 1100px) { .strains-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 680px)  { .strains-grid { grid-template-columns: 1fr; } }
+
+  /* ── Strain Card ─────────────────────────────────────────────────── */
+  .strain-card {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #c8ddd1;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .strain-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+  }
+  .strain-card--indica { border-left: 4px solid #a78bfa; }
+  .strain-card--sativa { border-left: 4px solid #fbbf24; }
+  .strain-card--hybrid { border-left: 4px solid #2dd4bf; }
+
+  /* Card header bar */
+  .card-header-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.1rem 0.8rem;
+    border-bottom: 1px solid #c8ddd1;
+  }
+  .card-header-bar--indica { background: linear-gradient(90deg, #a78bfa18 0%, transparent 100%); }
+  .card-header-bar--sativa { background: linear-gradient(90deg, #fbbf2418 0%, transparent 100%); }
+  .card-header-bar--hybrid { background: linear-gradient(90deg, #2dd4bf18 0%, transparent 100%); }
+  .card-emoji { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+  .card-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+  .card-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a2e1f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Type pills */
+  .type-pill {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.55rem;
+    border-radius: 20px;
+    width: fit-content;
+  }
+  .type-pill--indica { background: #7c3aed22; color: #7c3aed; border: 1px solid #7c3aed55; }
+  .type-pill--sativa { background: #b4530922; color: #b45309; border: 1px solid #b4530955; }
+  .type-pill--hybrid { background: #0d948822; color: #0d9488; border: 1px solid #0d948855; }
+
+  /* Card body */
+  .card-body {
+    padding: 1rem 1.1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .card-origin {
+    font-size: 0.8rem;
+    color: #4b6358;
+    margin: 0;
+  }
+
+  /* Potency bars */
+  .potency-bars { display: flex; flex-direction: column; gap: 0.4rem; }
+  .potency-row {
+    display: grid;
+    grid-template-columns: 32px 1fr 60px;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .potency-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #4b6358;
+    letter-spacing: 0.04em;
+  }
+  .bar-track {
+    background: #daeae0;
+    border-radius: 99px;
+    height: 6px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    transition: width 0.6s ease;
+  }
+  .bar-thc { background: linear-gradient(90deg, #4ade80, #86efac); }
+  .bar-cbd { background: linear-gradient(90deg, #60a5fa, #93c5fd); }
+  .potency-value {
+    font-size: 0.72rem;
+    color: #4b6358;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* Description */
+  .card-desc {
+    font-size: 0.83rem;
+    color: #4b6358;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .full-desc {
+    color: #4b6358;
+    margin-top: 0.5rem;
+  }
+
+  /* Tag groups */
+  .tag-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .tag-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #4b6358;
+    text-transform: uppercase;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .tag-effect  { background: #16a34a18; color: #15803d; border: 1px solid #16a34a33; }
+  .tag-flavor  { background: #b4530918; color: #b45309; border: 1px solid #b4530933; }
+  .tag-medical { background: #2563eb18; color: #2563eb; border: 1px solid #2563eb33; }
+
+  /* Expand button */
+  .expand-btn {
+    background: none;
+    border: 1px solid #c8ddd1;
+    border-radius: 8px;
+    color: #4b6358;
+    font-size: 0.8rem;
+    padding: 0.45rem 0.75rem;
+    cursor: pointer;
+    margin-top: auto;
+    transition: all 0.2s;
+    text-align: left;
+    width: 100%;
+  }
+  .expand-btn:hover {
+    border-color: #16a34a;
+    color: #16a34a;
+  }
+  .expand-arrow {
+    float: right;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  /* Expand panel */
+  .expand-panel {
+    border-top: 1px solid #c8ddd1;
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+    animation: expandIn 0.2s ease;
+  }
+  @keyframes expandIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .expand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .expand-item {
+    background: #f0f7f3;
+    border-radius: 8px;
+    padding: 0.5rem 0.65rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .expand-item-label {
+    font-size: 0.65rem;
+    color: #4b6358;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .expand-item-value {
+    font-size: 0.8rem;
+    color: #1a2e1f;
+    font-weight: 600;
+  }
+
+  /* ── Section header ───────────────────────────────────────────────── */
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #15803d;
+    margin-bottom: 0.5rem;
+  }
+  .section-subtitle {
+    color: #4b6358;
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
+  }
+
+  /* ── Origins Section ─────────────────────────────────────────────── */
+  .origins-section {
+    padding-top: 1rem;
+  }
+  .origins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .origin-card {
+    background: #ffffff;
+    border: 1px solid #c8ddd1;
+    border-radius: 14px;
+    padding: 1.25rem;
+  }
+  .origin-region {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    color: #15803d;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #c8ddd1;
+  }
+  .origin-strains { display: flex; flex-direction: column; gap: 0.5rem; }
+  .origin-strain {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 8px;
+    transition: background 0.15s;
+  }
+  .origin-strain:hover { background: #eaf2ed; }
+  .origin-strain--indica { border-left: 2px solid #a78bfa55; }
+  .origin-strain--sativa { border-left: 2px solid #fbbf2455; }
+  .origin-strain--hybrid { border-left: 2px solid #2dd4bf55; }
+  .origin-emoji { font-size: 1.1rem; line-height: 1.2; flex-shrink: 0; }
+  .origin-name {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1a2e1f;
+  }
+  .origin-location {
+    display: block;
+    font-size: 0.72rem;
+    color: #4b6358;
+  }
+
+  .landrace-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #eaf2ed;
+    border: 1px solid #c8ddd1;
+    border-left: 4px solid #16a34a;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 1rem;
+  }
+  .landrace-icon { font-size: 1.75rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .landrace-note strong {
+    display: block;
+    color: #15803d;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+  }
+  .landrace-note p {
+    color: #4b6358;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+</style>

@@ -531,7 +531,7 @@ const famousUsers = [
   /* ─── Base ─── */
   .history-page {
     font-family: system-ui, -apple-system, sans-serif;
-    color: #e2f5e9;
+    color: var(--text);
   }
   .container {
     max-width: 1100px;
@@ -584,7 +584,7 @@ const famousUsers = [
     font-size: clamp(1.8rem, 4.5vw, 3.2rem);
     font-weight: 800;
     letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #ffffff 30%, #4ade80);
+    background: linear-gradient(135deg, var(--primary-dark) 30%, var(--primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -593,7 +593,7 @@ const famousUsers = [
   }
   .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.2rem);
-    color: #a7c4b2;
+    color: var(--text-muted);
     margin-bottom: 2.5rem;
     font-style: italic;
   }
@@ -614,19 +614,19 @@ const famousUsers = [
   .stat-num {
     font-size: 1.8rem;
     font-weight: 800;
-    color: #4ade80;
+    color: var(--primary);
     line-height: 1;
   }
   .stat-label {
     font-size: 0.75rem;
-    color: #6b8f7a;
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
   .stat-divider {
     width: 1px;
     height: 40px;
-    background: #1e3a28;
+    background: var(--border);
   }
   .hero-scroll {
     position: relative;
@@ -636,7 +636,7 @@ const famousUsers = [
     flex-direction: column;
     align-items: center;
     gap: 0.4rem;
-    color: #4a6b57;
+    color: var(--text-muted);
     font-size: 0.8rem;
     letter-spacing: 0.05em;
   }
@@ -714,7 +714,7 @@ const famousUsers = [
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, #1e3a2880 0%, #1e3a2820 100%);
+    background: linear-gradient(180deg, var(--border) 0%, transparent 100%);
   }
 
   /* ─── Event Card ─── */
@@ -794,7 +794,7 @@ const famousUsers = [
   }
   .event-description {
     font-size: 0.92rem;
-    color: #b8d4c4;
+    color: var(--text-muted);
     line-height: 1.75;
     margin-bottom: 1rem;
   }
@@ -820,7 +820,7 @@ const famousUsers = [
   .divider-line {
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #2a4a35, transparent);
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
   }
   .divider-icon {
     font-size: 1.4rem;
@@ -908,7 +908,7 @@ const famousUsers = [
     margin-bottom: 0.5rem;
   }
   .section-header p {
-    color: #7aad92;
+    color: var(--text-muted);
     font-size: 1rem;
   }
   .religion-grid {
@@ -917,14 +917,14 @@ const famousUsers = [
     gap: 1rem;
   }
   .religion-card {
-    background: #0d1a11;
-    border: 1px solid #1e3a2855;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1.5rem;
     transition: border-color 0.2s, transform 0.2s;
   }
   .religion-card:hover {
-    border-color: #4ade8055;
+    border-color: rgba(22,163,74,0.4);
     transform: translateY(-2px);
   }
   .religion-icon {
@@ -934,12 +934,12 @@ const famousUsers = [
   .religion-name {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #4ade80;
+    color: var(--primary);
     margin-bottom: 0.2rem;
   }
   .religion-tradition {
     font-size: 0.8rem;
-    color: #6b8f7a;
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-bottom: 0.75rem;
@@ -947,7 +947,7 @@ const famousUsers = [
   }
   .religion-desc {
     font-size: 0.875rem;
-    color: #a0bfac;
+    color: var(--text-muted);
     line-height: 1.7;
   }
 
@@ -961,14 +961,14 @@ const famousUsers = [
     gap: 1rem;
   }
   .famous-card {
-    background: #0d1a11;
-    border: 1px solid #1e3a2855;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1.5rem;
     transition: border-color 0.2s;
   }
   .famous-card:hover {
-    border-color: #fbbf2455;
+    border-color: rgba(180,83,9,0.35);
   }
   .famous-header {
     display: flex;
@@ -983,19 +983,19 @@ const famousUsers = [
   .famous-name {
     font-size: 1rem;
     font-weight: 700;
-    color: #fbbf24;
+    color: var(--accent-gold);
     line-height: 1.2;
   }
   .famous-years {
     font-size: 0.78rem;
-    color: #6b8f7a;
+    color: var(--text-muted);
     margin-top: 0.1rem;
   }
   .verified-badge {
     margin-left: auto;
-    background: #14532d22;
-    color: #4ade80;
-    border: 1px solid #4ade8033;
+    background: rgba(22,163,74,0.1);
+    color: var(--primary);
+    border: 1px solid rgba(22,163,74,0.3);
     border-radius: 20px;
     padding: 0.2rem 0.6rem;
     font-size: 0.7rem;
@@ -1006,16 +1006,16 @@ const famousUsers = [
   .famous-claim {
     font-size: 0.82rem;
     font-weight: 700;
-    color: #a0bfac;
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-bottom: 0.6rem;
     padding-bottom: 0.6rem;
-    border-bottom: 1px solid #1e3a2855;
+    border-bottom: 1px solid var(--border);
   }
   .famous-detail {
     font-size: 0.875rem;
-    color: #8aaa98;
+    color: var(--text-muted);
     line-height: 1.7;
   }
 
@@ -1026,7 +1026,7 @@ const famousUsers = [
   .cta-box {
     text-align: center;
     background: linear-gradient(135deg, #d4ead9 0%, #eaf2ed 100%);
-    border: 1px solid #2a4a35;
+    border: 1px solid var(--border);
     border-radius: 20px;
     padding: 3rem 2rem;
     position: relative;
@@ -1046,7 +1046,7 @@ const famousUsers = [
     position: relative;
   }
   .cta-box p {
-    color: #7aad92;
+    color: var(--text-muted);
     font-size: 1rem;
     line-height: 1.7;
     max-width: 620px;
@@ -1080,12 +1080,12 @@ const famousUsers = [
   }
   .cta-btn.secondary {
     background: transparent;
-    color: #4ade80;
-    border: 1px solid #4ade8055;
+    color: var(--primary);
+    border: 1px solid rgba(22,163,74,0.45);
   }
   .cta-btn.secondary:hover {
-    border-color: #4ade80;
-    background: #4ade8010;
+    border-color: var(--primary);
+    background: rgba(22,163,74,0.08);
     transform: translateY(-2px);
   }
 

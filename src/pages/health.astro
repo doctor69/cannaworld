@@ -1359,7 +1359,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
         <!-- CBD Side Effects -->
         <div class="cbd-effects-box">
-          <h4 style="margin-bottom:1rem;color:#fff;">CBD: Common Side Effects &amp; Interactions</h4>
+          <h4 style="margin-bottom:1rem;color:var(--text);">CBD: Common Side Effects &amp; Interactions</h4>
           <div class="grid-2" style="gap:1rem;">
             <div>
               <div style="color:var(--primary);font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">GENERALLY BENIGN:</div>
@@ -1371,7 +1371,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
               </ul>
             </div>
             <div>
-              <div style="color:#f87171;font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">WATCH FOR:</div>
+              <div style="color:#dc2626;font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">WATCH FOR:</div>
               <ul class="cross-list">
                 <li>Liver enzyme elevation (high doses)</li>
                 <li>Drug interactions (CYP enzymes)</li>
@@ -1576,7 +1576,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   border-radius: 8px;
   padding: 0.6rem 0.75rem;
   font-size: 0.82rem;
-  color: var(--primary-light);
+  color: var(--primary);
   font-weight: 500;
   text-align: center;
 }
@@ -1614,8 +1614,8 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   font-size: 0.73rem;
   font-weight: 600;
 }
-.effect-pos { background: rgba(74,222,128,0.1); color: var(--primary-light); border: 1px solid rgba(74,222,128,0.2); }
-.effect-neg { background: rgba(248,113,113,0.1); color: #fca5a5; border: 1px solid rgba(248,113,113,0.2); }
+.effect-pos { background: rgba(22,163,74,0.1); color: var(--primary); border: 1px solid rgba(22,163,74,0.25); }
+.effect-neg { background: rgba(220,38,38,0.08); color: #dc2626; border: 1px solid rgba(220,38,38,0.2); }
 
 /* Cannabinoid accent colors */
 .thc-card .cannabinoid-abbr { color: var(--accent-purple); }
@@ -1642,12 +1642,12 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   margin-top: 1.5rem;
 }
 .terpene-card {
-  background: rgba(10,15,13,0.5);
+  background: var(--bg-alt);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 1.1rem;
 }
-.terpene-name { font-weight: 700; color: var(--primary-light); margin-bottom: 0.25rem; }
+.terpene-name { font-weight: 700; color: var(--primary); margin-bottom: 0.25rem; }
 .terpene-scent { font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-bottom: 0.6rem; }
 .terpene-card p { font-size: 0.85rem; }
 
@@ -1774,13 +1774,13 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   text-transform: uppercase;
   width: fit-content;
 }
-.risk-badge-high { background: rgba(248,113,113,0.15); color: #fca5a5; }
-.risk-badge-moderate { background: rgba(251,191,36,0.15); color: #fde68a; }
-.risk-badge-contested { background: rgba(167,139,250,0.15); color: var(--accent-purple); }
+.risk-badge-high { background: rgba(220,38,38,0.1); color: #dc2626; }
+.risk-badge-moderate { background: rgba(180,83,9,0.1); color: #b45309; }
+.risk-badge-contested { background: rgba(109,40,217,0.1); color: #6d28d9; }
 .risk-meter {
   width: 100%;
   height: 4px;
-  background: rgba(255,255,255,0.08);
+  background: var(--border-light);
   border-radius: 2px;
   margin-bottom: 1.25rem;
 }
@@ -1802,7 +1802,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   font-size: 0.875rem;
   color: var(--text-muted);
 }
-.risk-callout strong { color: #fca5a5; }
+.risk-callout strong { color: #dc2626; }
 .risk-callout-teal { background: rgba(45,212,191,0.07); border-color: rgba(45,212,191,0.2); }
 .risk-callout-teal strong { color: var(--accent-teal); }
 .risk-callout-orange { background: rgba(251,191,36,0.07); border-color: rgba(251,191,36,0.2); }
@@ -1835,7 +1835,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 }
 .methods-table td {
   padding: 1rem;
-  border-bottom: 1px solid rgba(30,58,40,0.5);
+  border-bottom: 1px solid var(--border);
   color: var(--text-muted);
   vertical-align: top;
 }
@@ -1850,11 +1850,11 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   font-weight: 700;
   white-space: nowrap;
 }
-.risk-verylow-pill { background: rgba(74,222,128,0.12); color: var(--primary-light); }
-.risk-low-pill { background: rgba(74,222,128,0.12); color: var(--primary-light); }
-.risk-caution-pill { background: rgba(251,191,36,0.12); color: var(--accent-gold); }
-.risk-moderate-pill { background: rgba(251,191,36,0.12); color: var(--accent-gold); }
-.risk-high-pill { background: rgba(248,113,113,0.12); color: #fca5a5; }
+.risk-verylow-pill { background: rgba(22,163,74,0.1); color: var(--primary); }
+.risk-low-pill { background: rgba(22,163,74,0.1); color: var(--primary); }
+.risk-caution-pill { background: rgba(180,83,9,0.1); color: var(--accent-gold); }
+.risk-moderate-pill { background: rgba(180,83,9,0.1); color: var(--accent-gold); }
+.risk-high-pill { background: rgba(220,38,38,0.1); color: #dc2626; }
 
 /* Harm Reduction Tips */
 .harm-reduction-section { margin-top: 3rem; }
@@ -1902,7 +1902,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 .cs-bar-wrap {
   width: 100%;
   height: 6px;
-  background: rgba(255,255,255,0.06);
+  background: var(--border-light);
   border-radius: 3px;
   margin-bottom: 0.3rem;
 }
@@ -1940,7 +1940,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 .dosing-header h3 { color: var(--text); margin-bottom: 0.5rem; }
 .dose-level {
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(30,58,40,0.5);
+  border-bottom: 1px solid var(--border);
 }
 .dose-level:last-of-type { border-bottom: none; }
 .dose-level-header {
@@ -1977,12 +1977,12 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 .dose-warning {
   margin-top: 0.75rem;
   padding: 0.6rem 0.85rem;
-  background: rgba(248,113,113,0.08);
-  border: 1px solid rgba(248,113,113,0.2);
+  background: rgba(220,38,38,0.06);
+  border: 1px solid rgba(220,38,38,0.2);
   border-radius: 5px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #fca5a5;
+  color: #dc2626;
 }
 .dose-warning-teal {
   background: rgba(45,212,191,0.08);
